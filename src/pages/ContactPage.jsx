@@ -1,51 +1,70 @@
 import { Link } from "react-router-dom";
+import Reveal from "../components/Reveal";
 
-const contactItems = [
+const contactDeck = [
+  {
+    label: "Base",
+    value: "Fort Worth, Texas",
+    note: "Built locally with long-term ambition well beyond one city.",
+  },
+  {
+    label: "Best Fit",
+    value: "Internships, collaborations, and serious technical work",
+    note: "Especially strong when the work involves trust, systems, service, or growth.",
+  },
+  {
+    label: "Business",
+    value: "TechBuddy by Victor",
+    note: "Bilingual local tech support for seniors, families, and small businesses.",
+  },
+  {
+    label: "Approach",
+    value: "Direct, professional, practical",
+    note: "I value clear conversations, clean follow-through, and useful outcomes.",
+  },
+];
+
+const launchChannels = [
   {
     label: "Email",
-    value: "your@email.com",
-    note: "Best for direct conversations",
+    value: "Add your preferred email before launch",
+    note: "Best for opportunities, client work, and direct introductions.",
   },
   {
     label: "LinkedIn",
-    value: "linkedin.com/in/your-handle",
-    note: "Professional network and updates",
+    value: "Add your LinkedIn profile",
+    note: "For professional networking, updates, and credibility.",
   },
   {
     label: "GitHub",
-    value: "github.com/your-handle",
-    note: "Projects, code, and technical work",
+    value: "Add your GitHub profile",
+    note: "For code, technical proof, and project references.",
   },
   {
-    label: "Resume",
-    value: "Add your PDF or hosted link",
-    note: "Fast access for employers and clients",
+    label: "Business Line",
+    value: "Add your TechBuddy contact method",
+    note: "For local support inquiries and client-facing trust.",
   },
 ];
 
 export default function ContactPage() {
   return (
     <>
-      <section className="surface page-hero section-reveal">
+      <Reveal as="section" className="surface page-hero" delay={40}>
         <span className="eyebrow">Contact</span>
-        <h1>Keep the connection simple and professional.</h1>
+        <h1>Let&apos;s keep it clear, professional, and easy to trust.</h1>
         <p>
-          This section is designed to feel clean and easy to use. Replace the placeholders below
-          with your real details when you are ready to publish.
+          If the opportunity is real, the project matters, or the problem needs someone who can
+          think clearly and execute well, I want to hear about it.
         </p>
-      </section>
+      </Reveal>
 
       <section className="contact-grid">
-        <article className="surface section-panel section-reveal">
-          <span className="section-label">Contact Details</span>
-          <h2>Place your real channels here.</h2>
-          <p className="body-copy">
-            A tight set of links feels stronger than adding every platform. Lead with the places
-            you actually want people to use.
-          </p>
-
+        <Reveal as="article" className="surface section-panel" delay={90}>
+          <span className="section-label">Contact Snapshot</span>
+          <h2>The kind of conversations this brand is built for.</h2>
           <div className="detail-grid">
-            {contactItems.map((item) => (
+            {contactDeck.map((item) => (
               <article key={item.label} className="detail-card">
                 <span className="kicker">{item.label}</span>
                 <strong>{item.value}</strong>
@@ -53,30 +72,50 @@ export default function ContactPage() {
               </article>
             ))}
           </div>
-        </article>
+        </Reveal>
 
-        <article className="surface section-panel section-reveal">
-          <span className="section-label">Availability</span>
-          <h2>Open to serious conversations and smart opportunities.</h2>
-          <p className="body-copy">
-            This area can hold a short line about the kinds of roles, projects, or collaborations
-            you want to attract. Keep it clear, direct, and easy to trust.
-          </p>
+        <Reveal as="article" className="surface section-panel" delay={140}>
+          <span className="section-label">Best Fit</span>
+          <h2>What to reach out about.</h2>
           <ul className="list">
-            <li>Internships, entry-level roles, or freelance work in technical spaces.</li>
-            <li>Entrepreneurial collaborations where execution and presentation both matter.</li>
-            <li>Connections that value discipline, curiosity, and long-term growth.</li>
+            <li>Cybersecurity, technical support, or systems-focused opportunities.</li>
+            <li>TechBuddy by Victor collaborations, referrals, or business conversations.</li>
+            <li>Projects where reliability, trust, and communication matter as much as technical skill.</li>
+            <li>Colleges, employers, and builders looking for someone with serious long-term upside.</li>
           </ul>
-          <div className="hero-actions">
-            <Link className="button" to="/">
-              Back Home
-            </Link>
-            <Link className="button-secondary" to="/experience">
-              View Experience
-            </Link>
-          </div>
-        </article>
+        </Reveal>
       </section>
+
+      <Reveal as="section" className="surface section-panel" delay={190}>
+        <span className="section-label">Launch-Ready Contact Slots</span>
+        <h2>Plug in your real channels and this page is ready to publish.</h2>
+        <div className="detail-grid">
+          {launchChannels.map((item) => (
+            <article key={item.label} className="detail-card">
+              <span className="kicker">{item.label}</span>
+              <strong>{item.value}</strong>
+              <p>{item.note}</p>
+            </article>
+          ))}
+        </div>
+      </Reveal>
+
+      <Reveal as="section" className="surface cta-band" delay={240}>
+        <span className="section-label">Next Move</span>
+        <h2>Want more context before reaching out?</h2>
+        <p>
+          The rest of the site shows how I think, what I am building, and why this brand is
+          positioned the way it is.
+        </p>
+        <div className="hero-actions">
+          <Link className="button" to="/experience">
+            View My Work
+          </Link>
+          <Link className="button-secondary" to="/about">
+            About Me
+          </Link>
+        </div>
+      </Reveal>
     </>
   );
 }
