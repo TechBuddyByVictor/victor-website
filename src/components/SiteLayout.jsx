@@ -33,7 +33,7 @@ export default function SiteLayout() {
             <span className="brand-mark">VL</span>
             <span className="brand-copy">
               <strong>Victor Licona</strong>
-              <small>Fort Worth / Cybersecurity / Founder</small>
+              <small>Cybersecurity / TechBuddy / Fort Worth</small>
             </span>
           </Link>
 
@@ -63,14 +63,9 @@ export default function SiteLayout() {
               ))}
             </nav>
 
-            <div className="nav-meta">
-              <p>
-                Building secure systems, real trust, and founder-level momentum through useful work.
-              </p>
-              <Link className="button button-nav" to="/contact">
-                Start a Conversation
-              </Link>
-            </div>
+            <Link className="button button-nav" to="/contact">
+              Contact
+            </Link>
           </div>
         </header>
 
@@ -78,31 +73,13 @@ export default function SiteLayout() {
           <Outlet />
         </main>
 
-        <footer className="site-footer surface">
-          <div className="footer-grid">
-            <div className="footer-lead">
-              <span className="eyebrow">Victor Licona</span>
-              <p>
-                A premium personal brand site for cybersecurity, tech systems, and long-term
-                business ambition rooted in real-world execution.
-              </p>
-            </div>
-
-            <div className="footer-column">
-              <strong>Based In</strong>
-              <ul className="footer-list">
-                <li>Fort Worth, Texas</li>
-                <li>Local service, long-term reach</li>
-              </ul>
-            </div>
-
-            <div className="footer-column">
-              <strong>Built Around</strong>
-              <ul className="footer-list">
-                <li>Cybersecurity</li>
-                <li>TechBuddy by Victor</li>
-                <li>Systems, service, and growth</li>
-              </ul>
+        <footer className="site-footer">
+          <div className="footer-inner">
+            <p>Victor Licona. Cybersecurity, systems, and founder-minded execution.</p>
+            <div className="footer-links">
+              <Link to="/about">About</Link>
+              <Link to="/experience">Work</Link>
+              <Link to="/contact">Contact</Link>
             </div>
           </div>
         </footer>
