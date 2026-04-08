@@ -1,0 +1,29 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "shell",
+      "command": "& 'C:\\Program Files\\nodejs\\npm.cmd' run dev",
+      "label": "npm: dev",
+      "detail": "Start the Vite dev server",
+      "isBackground": true,
+      "problemMatcher": []
+    },
+    {
+      "type": "shell",
+      "command": "& 'C:\\Program Files\\nodejs\\npm.cmd' run build",
+      "label": "npm: build",
+      "detail": "Create the production build",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "type": "shell",
+      "command": "& 'C:\\Program Files\\nodejs\\npm.cmd' run preview",
+      "label": "npm: preview",
+      "detail": "Preview the production build locally"
+    }
+  ]
+}

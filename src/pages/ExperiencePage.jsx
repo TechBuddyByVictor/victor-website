@@ -1,26 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Victor | Experience</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <div class="page">
-    <header class="topbar">
-      <a href="index.html" class="brand">Victor</a>
-      <nav class="nav" aria-label="Primary navigation">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a class="active" href="experience.html">Experience</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-    </header>
-
-    <main>
-      <section class="panel page-hero">
-        <span class="eyebrow">Experience</span>
+export default function ExperiencePage() {
+  return (
+    <>
+      <section className="panel page-hero">
+        <span className="eyebrow">Experience</span>
         <h1>The story behind the profile.</h1>
         <p>
           This page gives you a dedicated place for work history, projects, certifications, skills,
@@ -28,11 +10,11 @@
         </p>
       </section>
 
-      <section class="panel section-panel">
-        <span class="section-label">Timeline</span>
+      <section className="panel section-panel">
+        <span className="section-label">Timeline</span>
         <h2>Where you are now and where you're going.</h2>
-        <div class="timeline">
-          <div class="timeline-item">
+        <div className="timeline">
+          <div className="timeline-item">
             <strong>Personal Brand in Progress</strong>
             <small>Now</small>
             <p>
@@ -40,7 +22,7 @@
               opportunities I want to grow into.
             </p>
           </div>
-          <div class="timeline-item">
+          <div className="timeline-item">
             <strong>Projects and Skills</strong>
             <small>Next section to personalize</small>
             <p>
@@ -48,7 +30,7 @@
               wins that support your professional story.
             </p>
           </div>
-          <div class="timeline-item">
+          <div className="timeline-item">
             <strong>Future Goals</strong>
             <small>Always growing</small>
             <p>
@@ -59,17 +41,17 @@
         </div>
       </section>
 
-      <section class="story-grid">
-        <article class="panel section-panel story-block">
-          <span class="kicker">Projects</span>
+      <section className="story-grid">
+        <article className="panel section-panel story-block">
+          <span className="kicker">Projects</span>
           <strong>Show what you've made</strong>
           <p>
             Add featured work here with screenshots, descriptions, and links so visitors can see
             proof of your skills.
           </p>
         </article>
-        <article class="panel section-panel story-block">
-          <span class="kicker">Skills</span>
+        <article className="panel section-panel story-block">
+          <span className="kicker">Skills</span>
           <strong>Highlight your toolbox</strong>
           <p>
             This is a great place for languages, frameworks, soft skills, certifications, or any
@@ -77,11 +59,6 @@
           </p>
         </article>
       </section>
-    </main>
-
-    <footer>
-      Built to introduce Victor with clarity, warmth, and a little style.
-    </footer>
-  </div>
-</body>
-</html>
+    </>
+  );
+}

@@ -34,6 +34,14 @@ a {
   text-decoration: none;
 }
 
+#root {
+  min-height: 100vh;
+}
+
+main {
+  display: grid;
+}
+
 .page {
   width: min(1120px, calc(100% - 2rem));
   margin: 0 auto;
@@ -409,6 +417,10 @@ h2 {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.not-found {
+  justify-items: start;
 }
 
 footer {
