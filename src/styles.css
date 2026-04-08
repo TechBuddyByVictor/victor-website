@@ -85,7 +85,7 @@ button {
 
 .site-shell {
   position: relative;
-  padding: 0.9rem 0 2rem;
+  padding: 0.55rem 0 1.35rem;
   overflow: clip;
 }
 
@@ -113,14 +113,14 @@ button {
 
 .page {
   position: relative;
-  width: min(100% - 1rem, 1220px);
+  width: min(100% - 0.8rem, 1220px);
   margin: 0 auto;
 }
 
 .page-content {
   display: grid;
-  gap: 1rem;
-  padding-top: 1rem;
+  gap: 0.8rem;
+  padding-top: 0.8rem;
 }
 
 .surface {
@@ -145,34 +145,34 @@ button {
 
 .topbar {
   position: sticky;
-  top: 0.75rem;
+  top: 0.55rem;
   z-index: 30;
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
-  gap: 1rem;
-  padding: 0.9rem 1rem;
+  gap: 0.75rem;
+  padding: 0.72rem 0.8rem;
 }
 
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 0.9rem;
+  gap: 0.72rem;
   min-width: 0;
 }
 
 .brand-mark {
   display: grid;
   place-items: center;
-  width: 2.85rem;
-  height: 2.85rem;
-  border-radius: 16px;
+  width: 2.45rem;
+  height: 2.45rem;
+  border-radius: 14px;
   border: 1px solid var(--line-strong);
   background:
     radial-gradient(circle at 30% 28%, rgba(255, 255, 255, 0.2), transparent 38%),
     linear-gradient(180deg, rgba(255, 255, 255, 0.11), rgba(255, 255, 255, 0.02));
   color: var(--accent-strong);
-  font-size: 1.05rem;
+  font-size: 0.92rem;
   font-weight: 700;
   letter-spacing: 0.24em;
   text-indent: 0.24em;
@@ -180,7 +180,8 @@ button {
 
 .brand-copy {
   display: grid;
-  gap: 0.32rem;
+  gap: 0.22rem;
+  min-width: 0;
 }
 
 .brand-copy strong,
@@ -196,8 +197,8 @@ button {
 }
 
 .brand-copy strong {
-  font-size: 0.96rem;
-  letter-spacing: 0.08em;
+  font-size: 0.82rem;
+  letter-spacing: 0.07em;
   text-transform: uppercase;
 }
 
@@ -207,9 +208,9 @@ button {
 .section-label,
 .timeline-item small {
   color: var(--accent-strong);
-  font-size: 0.7rem;
+  font-size: 0.62rem;
   font-weight: 600;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
 }
 
@@ -218,12 +219,16 @@ button {
   color: var(--muted);
 }
 
+.brand-copy small {
+  max-width: 14.5rem;
+}
+
 .eyebrow,
 .section-label,
 .kicker {
   display: inline-flex;
   width: fit-content;
-  padding: 0.48rem 0.86rem;
+  padding: 0.4rem 0.72rem;
   border: 1px solid var(--line-strong);
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.05);
@@ -232,9 +237,9 @@ button {
 .nav-toggle {
   display: inline-grid;
   gap: 0.34rem;
-  width: 3rem;
-  height: 3rem;
-  padding: 0.85rem;
+  width: 2.65rem;
+  height: 2.65rem;
+  padding: 0.72rem;
   border: 1px solid var(--line);
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.03);
@@ -258,7 +263,7 @@ button {
 .nav-panel {
   grid-column: 1 / -1;
   display: grid;
-  gap: 1rem;
+  gap: 0.8rem;
   max-height: 0;
   overflow: hidden;
   opacity: 0;
@@ -266,9 +271,9 @@ button {
 }
 
 .nav-panel.is-open {
-  max-height: 28rem;
+  max-height: 24rem;
   opacity: 1;
-  padding-top: 0.4rem;
+  padding-top: 0.2rem;
 }
 
 .nav,
@@ -277,19 +282,19 @@ button {
 .footer-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem;
+  gap: 0.55rem;
 }
 
 .nav a,
 .button,
 .button-secondary,
 .button-tertiary {
-  min-height: 3.15rem;
-  padding: 0.9rem 1.25rem;
+  min-height: 2.7rem;
+  padding: 0.72rem 1rem;
   border-radius: 999px;
-  font-size: 0.82rem;
+  font-size: 0.72rem;
   font-weight: 700;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
 }
@@ -344,7 +349,11 @@ strong + p {
 
 .nav-meta {
   display: grid;
-  gap: 0.9rem;
+  gap: 0.75rem;
+}
+
+.nav-meta p {
+  font-size: 0.9rem;
 }
 
 .button,
@@ -412,15 +421,18 @@ h3 {
 }
 
 h1 {
-  font-size: clamp(3.6rem, 17vw, 5.9rem);
+  font-size: clamp(2.65rem, 12vw, 4.45rem);
+  line-height: 0.95;
 }
 
 h2 {
-  font-size: clamp(2.3rem, 10vw, 3.6rem);
+  font-size: clamp(1.85rem, 8.6vw, 3rem);
+  line-height: 0.98;
 }
 
 h3 {
-  font-size: clamp(1.55rem, 7vw, 2.2rem);
+  font-size: clamp(1.3rem, 6vw, 1.95rem);
+  line-height: 1;
 }
 
 .hero-card,
@@ -434,15 +446,15 @@ h3 {
 .project-card,
 .detail-card,
 .site-footer {
-  padding: 1.2rem;
+  padding: 0.95rem;
 }
 
 .hero-card::after {
   content: "";
   position: absolute;
   inset: auto -4rem -8rem auto;
-  width: 18rem;
-  height: 18rem;
+  width: 14rem;
+  height: 14rem;
   border-radius: 999px;
   background: radial-gradient(circle, rgba(255, 255, 255, 0.16), transparent 62%);
   pointer-events: none;
@@ -458,7 +470,7 @@ h3 {
 .signal-list,
 .stat-grid {
   display: grid;
-  gap: 1rem;
+  gap: 0.8rem;
 }
 
 .hero-copy,
@@ -474,18 +486,19 @@ h3 {
 }
 
 .hero-name {
-  margin: 1rem 0 0;
+  margin: 0.78rem 0 0;
   color: var(--accent-strong);
-  font-size: 0.78rem;
+  font-size: 0.68rem;
   font-weight: 700;
-  letter-spacing: 0.24em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
 }
 
 .hero-lead {
-  max-width: 38rem;
-  margin: 1.2rem 0 0;
-  font-size: 1rem;
+  max-width: 32ch;
+  margin: 0.95rem 0 0;
+  font-size: 0.95rem;
+  line-height: 1.65;
 }
 
 .hero-copy h1,
@@ -495,16 +508,16 @@ h3 {
 .cta-band h2,
 .focus-card h3,
 .project-card h3 {
-  margin-top: 0.8rem;
+  margin-top: 0.62rem;
 }
 
 .hero-actions {
-  margin-top: 1.7rem;
+  margin-top: 1.2rem;
 }
 
 .hero-rail {
   display: grid;
-  gap: 1rem;
+  gap: 0.8rem;
 }
 
 .stat-card,
@@ -517,12 +530,17 @@ h3 {
 }
 
 .stat-card {
-  padding: 1rem;
+  padding: 0.85rem;
 }
 
 .stat-card strong {
-  font-size: 1.15rem;
+  font-size: 1rem;
   letter-spacing: 0.04em;
+}
+
+.stat-card span {
+  font-size: 0.88rem;
+  line-height: 1.55;
 }
 
 .inset-card,
@@ -535,14 +553,14 @@ h3 {
 .focus-card p,
 .project-card p,
 .section-heading p {
-  margin: 0.95rem 0 0;
+  margin: 0.75rem 0 0;
 }
 
 .chip-row span,
 .service-chip {
-  padding: 0.75rem 0.95rem;
+  padding: 0.62rem 0.8rem;
   color: var(--muted-strong);
-  font-size: 0.8rem;
+  font-size: 0.74rem;
   font-weight: 600;
   letter-spacing: 0.08em;
 }
@@ -555,17 +573,17 @@ h3 {
 
 .section-heading {
   display: grid;
-  gap: 0.7rem;
-  margin-bottom: 0.1rem;
+  gap: 0.5rem;
+  margin-bottom: 0;
 }
 
 .stack-section {
   display: grid;
-  gap: 1rem;
+  gap: 0.8rem;
 }
 
 .signal-list {
-  gap: 1.2rem;
+  gap: 0.9rem;
 }
 
 .list,
@@ -577,31 +595,32 @@ h3 {
 
 .list {
   display: grid;
-  gap: 0.75rem;
-  margin-top: 1.1rem;
+  gap: 0.6rem;
+  margin-top: 0.9rem;
 }
 
 .list li {
-  padding: 0.95rem 0.95rem 0.95rem 1rem;
+  padding: 0.78rem 0.8rem 0.78rem 0.88rem;
   border-left: 3px solid var(--accent-strong);
   border-radius: 0 16px 16px 0;
   background: rgba(255, 255, 255, 0.04);
   color: var(--muted-strong);
-  line-height: 1.65;
+  line-height: 1.55;
+  font-size: 0.92rem;
 }
 
 .compact-list li {
-  font-size: 0.95rem;
+  font-size: 0.88rem;
 }
 
 .techbuddy-grid,
 .services-panel {
   display: grid;
-  gap: 1rem;
+  gap: 0.8rem;
 }
 
 .techbuddy-panel {
-  padding: 1.2rem;
+  padding: 0.95rem;
 }
 
 .no-padding {
@@ -610,11 +629,11 @@ h3 {
 
 .service-grid {
   display: grid;
-  gap: 0.8rem;
+  gap: 0.65rem;
 }
 
 .trust-note {
-  padding: 1rem;
+  padding: 0.85rem;
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
   background: rgba(255, 255, 255, 0.03);
@@ -623,11 +642,11 @@ h3 {
 .timeline {
   display: grid;
   gap: 0.25rem;
-  margin-top: 1.1rem;
+  margin-top: 0.9rem;
 }
 
 .timeline-item {
-  padding: 1.05rem 0;
+  padding: 0.88rem 0;
   border-top: 1px solid var(--line);
 }
 
@@ -641,40 +660,189 @@ h3 {
 }
 
 .detail-card strong {
-  margin-top: 0.45rem;
-  font-size: 1rem;
+  margin-top: 0.38rem;
+  font-size: 0.96rem;
   line-height: 1.45;
 }
 
 .cta-band {
   display: grid;
-  gap: 0.8rem;
+  gap: 0.65rem;
 }
 
 .site-footer {
-  margin-top: 1rem;
+  margin-top: 0.8rem;
 }
 
 .footer-grid {
   display: grid;
-  gap: 1rem;
+  gap: 0.8rem;
 }
 
 .footer-column strong {
-  margin-bottom: 0.55rem;
-  font-size: 0.78rem;
+  margin-bottom: 0.4rem;
+  font-size: 0.72rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
 }
 
 .footer-list {
   display: grid;
-  gap: 0.5rem;
+  gap: 0.4rem;
   color: var(--muted);
 }
 
 .not-found {
   justify-items: start;
+}
+
+@media (max-width: 430px) {
+  body::before {
+    background-size: 60px 60px;
+    opacity: 0.34;
+  }
+
+  .site-glow {
+    opacity: 0.09;
+  }
+
+  .page {
+    width: min(100% - 0.65rem, 1220px);
+  }
+
+  .page-content {
+    gap: 0.72rem;
+    padding-top: 0.72rem;
+  }
+
+  .topbar {
+    gap: 0.65rem;
+    padding: 0.66rem 0.72rem;
+  }
+
+  .brand-copy strong {
+    font-size: 0.76rem;
+  }
+
+  .brand-copy small {
+    font-size: 0.58rem;
+    max-width: 12.5rem;
+  }
+
+  .nav {
+    gap: 0.45rem;
+  }
+
+  .nav a,
+  .button,
+  .button-secondary,
+  .button-tertiary {
+    min-height: 2.55rem;
+    padding: 0.68rem 0.88rem;
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+  }
+
+  .button-tertiary {
+    padding-inline: 0.2rem;
+  }
+
+  h1 {
+    font-size: clamp(2.35rem, 11vw, 3.1rem);
+  }
+
+  h2 {
+    font-size: clamp(1.7rem, 8vw, 2.25rem);
+  }
+
+  h3 {
+    font-size: clamp(1.18rem, 5.5vw, 1.55rem);
+  }
+
+  .hero-card,
+  .page-hero,
+  .section-panel,
+  .cta-band,
+  .techbuddy-panel,
+  .spotlight-card,
+  .mini-panel,
+  .focus-card,
+  .project-card,
+  .detail-card,
+  .site-footer {
+    padding: 0.88rem;
+  }
+
+  .hero-card::after {
+    width: 11rem;
+    height: 11rem;
+    inset: auto -3.5rem -5.5rem auto;
+  }
+
+  .hero-grid,
+  .split-grid,
+  .feature-grid,
+  .project-grid,
+  .detail-grid,
+  .contact-grid,
+  .mini-grid,
+  .signal-list,
+  .stat-grid,
+  .stack-section,
+  .service-grid,
+  .footer-grid {
+    gap: 0.72rem;
+  }
+
+  .hero-name {
+    margin-top: 0.7rem;
+    font-size: 0.64rem;
+  }
+
+  .hero-lead,
+  p,
+  .body-copy,
+  .signal-list p,
+  .mini-panel p,
+  .stat-card span,
+  .detail-card p,
+  .focus-card p,
+  .project-card p,
+  .site-footer p,
+  .trust-note p,
+  .section-heading p,
+  .nav-meta p {
+    font-size: 0.91rem;
+    line-height: 1.62;
+  }
+
+  .hero-actions {
+    margin-top: 1rem;
+  }
+
+  .list {
+    margin-top: 0.8rem;
+  }
+
+  .list li,
+  .compact-list li {
+    font-size: 0.86rem;
+  }
+
+  .stat-card,
+  .trust-note {
+    padding: 0.78rem;
+  }
+
+  .chip-row span,
+  .service-chip {
+    padding: 0.56rem 0.72rem;
+    font-size: 0.7rem;
+  }
+
+  .timeline-item {
+    padding: 0.78rem 0;
+  }
 }
 
 .reveal {
@@ -716,6 +884,81 @@ h3 {
     padding-top: 1.3rem;
   }
 
+  .site-shell {
+    padding: 0.9rem 0 2rem;
+  }
+
+  .topbar {
+    top: 0.75rem;
+    gap: 1rem;
+    padding: 0.9rem 1rem;
+  }
+
+  .brand {
+    gap: 0.9rem;
+  }
+
+  .brand-mark {
+    width: 2.85rem;
+    height: 2.85rem;
+    border-radius: 16px;
+    font-size: 1.05rem;
+  }
+
+  .brand-copy {
+    gap: 0.32rem;
+  }
+
+  .brand-copy strong {
+    font-size: 0.96rem;
+    letter-spacing: 0.08em;
+  }
+
+  .brand-copy small,
+  .kicker,
+  .eyebrow,
+  .section-label,
+  .timeline-item small {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+  }
+
+  .eyebrow,
+  .section-label,
+  .kicker {
+    padding: 0.48rem 0.86rem;
+  }
+
+  .nav,
+  .hero-actions,
+  .chip-row,
+  .footer-list {
+    gap: 0.75rem;
+  }
+
+  .nav a,
+  .button,
+  .button-secondary,
+  .button-tertiary {
+    min-height: 3.05rem;
+    padding: 0.84rem 1.18rem;
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+  }
+
+  h1 {
+    font-size: clamp(3.55rem, 9vw, 5.35rem);
+    line-height: 0.93;
+  }
+
+  h2 {
+    font-size: clamp(2.15rem, 4.8vw, 3.35rem);
+  }
+
+  h3 {
+    font-size: clamp(1.45rem, 3vw, 2rem);
+  }
+
   .hero-card,
   .page-hero,
   .section-panel,
@@ -728,6 +971,88 @@ h3 {
   .detail-card,
   .site-footer {
     padding: 1.55rem;
+  }
+
+  .hero-grid,
+  .split-grid,
+  .feature-grid,
+  .project-grid,
+  .detail-grid,
+  .contact-grid,
+  .mini-grid,
+  .signal-list,
+  .stat-grid {
+    gap: 1rem;
+  }
+
+  .hero-name {
+    margin-top: 1rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.24em;
+  }
+
+  .hero-lead {
+    max-width: 38rem;
+    margin-top: 1.2rem;
+    font-size: 1rem;
+    line-height: 1.72;
+  }
+
+  .hero-actions {
+    margin-top: 1.55rem;
+  }
+
+  .stat-card {
+    padding: 1rem;
+  }
+
+  .stat-card strong {
+    font-size: 1.15rem;
+  }
+
+  .stat-card span {
+    font-size: 0.94rem;
+    line-height: 1.65;
+  }
+
+  .spotlight-card p,
+  .mini-panel p,
+  .focus-card p,
+  .project-card p,
+  .section-heading p {
+    margin-top: 0.95rem;
+  }
+
+  .section-heading {
+    gap: 0.7rem;
+  }
+
+  .stack-section {
+    gap: 1rem;
+  }
+
+  .signal-list {
+    gap: 1.2rem;
+  }
+
+  .list {
+    gap: 0.75rem;
+    margin-top: 1.1rem;
+  }
+
+  .list li {
+    padding: 0.95rem 0.95rem 0.95rem 1rem;
+    line-height: 1.65;
+    font-size: 0.95rem;
+  }
+
+  .compact-list li {
+    font-size: 0.95rem;
+  }
+
+  .hero-card::after {
+    width: 18rem;
+    height: 18rem;
   }
 
   .hero-grid,
