@@ -8,17 +8,17 @@ import HomePage from "./pages/HomePage";
 import NotFoundPage from "./pages/NotFoundPage";
 
 const pageTitles = {
-  "/": "Victor | Home",
-  "/about": "Victor | About",
-  "/experience": "Victor | Experience",
-  "/contact": "Victor | Contact",
+  "/": "Victor Licona | Home",
+  "/about": "Victor Licona | About",
+  "/experience": "Victor Licona | Experience",
+  "/contact": "Victor Licona | Contact",
 };
 
 function AppRoutes() {
   const location = useLocation();
 
   useEffect(() => {
-    document.title = pageTitles[location.pathname] ?? "Victor | Not Found";
+    document.title = pageTitles[location.pathname] ?? "Victor Licona | Not Found";
   }, [location.pathname]);
 
   return (

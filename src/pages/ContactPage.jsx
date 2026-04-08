@@ -1,59 +1,78 @@
 import { Link } from "react-router-dom";
 
+const contactItems = [
+  {
+    label: "Email",
+    value: "your@email.com",
+    note: "Best for direct conversations",
+  },
+  {
+    label: "LinkedIn",
+    value: "linkedin.com/in/your-handle",
+    note: "Professional network and updates",
+  },
+  {
+    label: "GitHub",
+    value: "github.com/your-handle",
+    note: "Projects, code, and technical work",
+  },
+  {
+    label: "Resume",
+    value: "Add your PDF or hosted link",
+    note: "Fast access for employers and clients",
+  },
+];
+
 export default function ContactPage() {
   return (
     <>
-      <section className="panel page-hero">
+      <section className="surface page-hero section-reveal">
         <span className="eyebrow">Contact</span>
-        <h1>Let's make it easy to reach me.</h1>
+        <h1>Keep the connection simple and professional.</h1>
         <p>
-          This page gives people a dedicated place to contact you, follow your work, or connect on
-          professional platforms without cluttering the rest of the site.
+          This section is designed to feel clean and easy to use. Replace the placeholders below
+          with your real details when you are ready to publish.
         </p>
       </section>
 
       <section className="contact-grid">
-        <article className="panel contact-panel">
-          <span className="section-label">Reach Out</span>
-          <h2>Use your real details here.</h2>
-          <p>
-            Replace these placeholders with your email, LinkedIn, GitHub, resume link, or anything
-            else you want visitors to use.
+        <article className="surface section-panel section-reveal">
+          <span className="section-label">Contact Details</span>
+          <h2>Place your real channels here.</h2>
+          <p className="body-copy">
+            A tight set of links feels stronger than adding every platform. Lead with the places
+            you actually want people to use.
           </p>
-          <div className="contact-links">
-            <a className="contact-link" href="mailto:you@example.com">
-              <strong>Email</strong>
-              <span>you@example.com</span>
-            </a>
-            <a
-              className="contact-link"
-              href="https://www.linkedin.com/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <strong>LinkedIn</strong>
-              <span>View profile</span>
-            </a>
-            <a className="contact-link" href="https://github.com/" target="_blank" rel="noreferrer">
-              <strong>GitHub</strong>
-              <span>See work</span>
-            </a>
+
+          <div className="detail-grid">
+            {contactItems.map((item) => (
+              <article key={item.label} className="detail-card">
+                <span className="kicker">{item.label}</span>
+                <strong>{item.value}</strong>
+                <p>{item.note}</p>
+              </article>
+            ))}
           </div>
         </article>
 
-        <article className="panel contact-panel story-block">
-          <span className="kicker">Availability</span>
-          <strong>Open to conversations and opportunities</strong>
-          <p>
-            You can use this area for a short message about what kind of roles, collaborations, or
-            connections you're currently looking for.
+        <article className="surface section-panel section-reveal">
+          <span className="section-label">Availability</span>
+          <h2>Open to serious conversations and smart opportunities.</h2>
+          <p className="body-copy">
+            This area can hold a short line about the kinds of roles, projects, or collaborations
+            you want to attract. Keep it clear, direct, and easy to trust.
           </p>
-          <div className="inline-actions">
-            <a className="button" href="mailto:you@example.com">
-              Send Email
-            </a>
-            <Link className="button-secondary" to="/">
+          <ul className="list">
+            <li>Internships, entry-level roles, or freelance work in technical spaces.</li>
+            <li>Entrepreneurial collaborations where execution and presentation both matter.</li>
+            <li>Connections that value discipline, curiosity, and long-term growth.</li>
+          </ul>
+          <div className="hero-actions">
+            <Link className="button" to="/">
               Back Home
+            </Link>
+            <Link className="button-secondary" to="/experience">
+              View Experience
             </Link>
           </div>
         </article>

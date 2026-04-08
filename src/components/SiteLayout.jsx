@@ -9,30 +9,40 @@ const navItems = [
 
 export default function SiteLayout() {
   return (
-    <div className="page">
-      <header className="topbar">
-        <Link to="/" className="brand">
-          Victor
-        </Link>
-        <nav className="nav" aria-label="Primary navigation">
-          {navItems.map(({ to, label, end }) => (
-            <NavLink
-              key={to}
-              to={to}
-              end={end}
-              className={({ isActive }) => (isActive ? "active" : undefined)}
-            >
-              {label}
-            </NavLink>
-          ))}
-        </nav>
-      </header>
+    <div className="site-shell">
+      <div className="page">
+        <header className="topbar surface">
+          <Link to="/" className="brand" aria-label="Victor Licona home page">
+            <span className="brand-mark">VL</span>
+            <span className="brand-copy">
+              <strong>Victor Licona</strong>
+              <small>Cybersecurity Student • Entrepreneur</small>
+            </span>
+          </Link>
 
-      <main>
-        <Outlet />
-      </main>
+          <nav className="nav" aria-label="Primary navigation">
+            {navItems.map(({ to, label, end }) => (
+              <NavLink
+                key={to}
+                to={to}
+                end={end}
+                className={({ isActive }) => (isActive ? "active" : undefined)}
+              >
+                {label}
+              </NavLink>
+            ))}
+          </nav>
+        </header>
 
-      <footer>Built to introduce Victor with clarity, warmth, and a little style.</footer>
+        <main className="page-content">
+          <Outlet />
+        </main>
+
+        <footer className="site-footer">
+          Minimal by design. Built to grow with Victor&apos;s work, reputation, and next
+          opportunities.
+        </footer>
+      </div>
     </div>
   );
 }
