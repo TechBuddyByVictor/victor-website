@@ -41,23 +41,20 @@ export default function SiteLayout() {
 
   return (
     <div className="site-shell">
-      <div className="site-glow site-glow-left" />
-      <div className="site-glow site-glow-right" />
-
       <div
         className={`drawer-overlay${menuOpen ? " is-open" : ""}`}
         aria-hidden={!menuOpen}
         onClick={() => setMenuOpen(false)}
       />
 
-      <div
+      <aside
         id="mobile-drawer"
         className={`mobile-drawer${menuOpen ? " is-open" : ""}`}
         aria-hidden={!menuOpen}
       >
         <div className="mobile-drawer-inner">
           <div className="drawer-head">
-            <span className="eyebrow">Navigation</span>
+            <span className="eyebrow">Menu</span>
             <button
               type="button"
               className="drawer-close"
@@ -77,27 +74,24 @@ export default function SiteLayout() {
                 end={end}
                 className={({ isActive }) => `drawer-link${isActive ? " active" : ""}`}
               >
-                <span>{label}</span>
-                <small>Open page</small>
+                {label}
               </NavLink>
             ))}
           </nav>
 
-          <div className="drawer-actions">
-            <Link className="button drawer-cta" to="/contact">
-              Contact
-            </Link>
-          </div>
+          <Link className="button drawer-cta" to="/contact">
+            Contact
+          </Link>
         </div>
-      </div>
+      </aside>
 
-      <div className="page">
-        <header className="topbar surface">
+      <div className="page-shell">
+        <header className="topbar">
           <Link to="/" className="brand" aria-label="Victor Licona home page">
             <span className="brand-mark">VL</span>
             <span className="brand-copy">
               <strong>Victor Licona</strong>
-              <small>Fort Worth / Cybersecurity / TechBuddy</small>
+              <small>Fort Worth, Texas</small>
             </span>
           </Link>
 
@@ -114,7 +108,7 @@ export default function SiteLayout() {
           </button>
 
           <div className="nav-panel">
-            <nav id="primary-navigation" className="nav" aria-label="Primary navigation">
+            <nav className="nav" aria-label="Primary navigation">
               {navItems.map(({ to, label, end }) => (
                 <NavLink
                   key={to}
@@ -137,39 +131,23 @@ export default function SiteLayout() {
           <Outlet />
         </main>
 
-        <footer className="site-footer surface">
-          <div className="footer-grid">
-            <div className="footer-brand">
-              <span className="eyebrow">Victor Licona</span>
-              <p>Cybersecurity, technology, entrepreneurship, and real-world problem solving.</p>
-              <small>Built with intention.</small>
-            </div>
+        <footer className="site-footer">
+          <div className="footer-block">
+            <span className="eyebrow">Victor Licona</span>
+            <p>Cybersecurity, technology, entrepreneurship, and real-world problem solving.</p>
+          </div>
 
-            <div className="footer-column">
-              <strong>Navigate</strong>
-              <div className="footer-links">
-                {navItems.map(({ to, label, end }) => (
-                  <NavLink
-                    key={to}
-                    to={to}
-                    end={end}
-                    className={({ isActive }) => (isActive ? "active" : undefined)}
-                  >
-                    {label}
-                  </NavLink>
-                ))}
-              </div>
-            </div>
-
-            <div className="footer-column">
-              <strong>Connect</strong>
-              <div className="footer-links footer-links-stack">
-                <a href="mailto:contact@victorlicona.com">Email</a>
-                <a href="https://www.linkedin.com/in/victorlicona/" target="_blank" rel="noreferrer">
-                  LinkedIn
-                </a>
-              </div>
-            </div>
+          <div className="footer-links">
+            {navItems.map(({ to, label, end }) => (
+              <NavLink
+                key={to}
+                to={to}
+                end={end}
+                className={({ isActive }) => (isActive ? "active" : undefined)}
+              >
+                {label}
+              </NavLink>
+            ))}
           </div>
         </footer>
       </div>

@@ -1,21 +1,16 @@
 import Reveal from "../components/Reveal";
 
-const primaryContacts = [
+const contactItems = [
   {
     label: "Email",
     value: "contact@victorlicona.com",
     href: "mailto:contact@victorlicona.com",
-    note: "Best for projects, opportunities, and direct outreach.",
   },
   {
     label: "TechBuddy",
     value: "8174704724",
     href: "tel:8174704724",
-    note: "Best for local support and service questions.",
   },
-];
-
-const secondaryContacts = [
   {
     label: "LinkedIn",
     value: "victorlicona",
@@ -30,37 +25,41 @@ const secondaryContacts = [
 export default function ContactPage() {
   return (
     <>
-      <Reveal as="section" className="surface page-hero page-hero-contact" delay={40}>
+      <Reveal as="section" className="page-hero page-hero-contact" delay={40}>
         <span className="eyebrow">Contact</span>
         <h1>Contact</h1>
-        <p>Whether you want to connect, collaborate, or ask about TechBuddy, feel free to reach out.</p>
+        <p className="hero-copyline">
+          Whether you want to connect, collaborate, or ask about TechBuddy, reach out.
+        </p>
       </Reveal>
 
-      <section className="split-grid split-grid-contact">
-        <Reveal as="article" className="surface section-panel contact-panel-primary" delay={90}>
-          <span className="section-label">Direct Contact</span>
+      <section className="contact-layout">
+        <Reveal as="article" className="editorial-panel" delay={90}>
+          <span className="section-label">Direct</span>
           <h2>The clearest way to reach me.</h2>
-          <div className="contact-stack">
-            {primaryContacts.map((item) => (
-              <article key={item.label} className="detail-card detail-card-strong">
-                <span className="kicker">{item.label}</span>
-                <a
-                  className="detail-link"
-                  href={item.href}
-                  target={item.href.startsWith("http") ? "_blank" : undefined}
-                  rel={item.href.startsWith("http") ? "noreferrer" : undefined}
-                >
+          <div className="contact-list">
+            {contactItems.map((item) => (
+              <div key={item.label} className="contact-row">
+                <small>{item.label}</small>
+                {item.href ? (
+                  <a
+                    className="contact-link"
+                    href={item.href}
+                    target={item.href.startsWith("http") ? "_blank" : undefined}
+                    rel={item.href.startsWith("http") ? "noreferrer" : undefined}
+                  >
+                    {item.value}
+                  </a>
+                ) : (
                   <strong>{item.value}</strong>
-                </a>
-                <p>{item.note}</p>
-              </article>
+                )}
+              </div>
             ))}
           </div>
         </Reveal>
 
-        <Reveal as="article" className="surface section-panel contact-form-panel" delay={130}>
-          <span className="section-label">Send a Message</span>
-          <h2>Let's connect.</h2>
+        <Reveal as="article" className="form-panel" delay={130}>
+          <span className="section-label">Message</span>
           <form id="contact-form" className="contact-form">
             <label className="field">
               <span>Name</span>
@@ -82,24 +81,6 @@ export default function ContactPage() {
           </form>
         </Reveal>
       </section>
-
-      <Reveal as="section" className="surface section-panel contact-secondary-panel" delay={180}>
-        <span className="section-label">Other Links</span>
-        <div className="detail-grid detail-grid-secondary">
-          {secondaryContacts.map((item) => (
-            <article key={item.label} className="detail-card">
-              <span className="kicker">{item.label}</span>
-              {item.href ? (
-                <a className="detail-link" href={item.href} target="_blank" rel="noreferrer">
-                  <strong>{item.value}</strong>
-                </a>
-              ) : (
-                <strong>{item.value}</strong>
-              )}
-            </article>
-          ))}
-        </div>
-      </Reveal>
     </>
   );
 }
