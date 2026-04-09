@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { Link, NavLink, Outlet, useLocation } from "react-router-dom";
 
@@ -13,6 +13,7 @@ const navItems = [
 export default function SiteLayout() {
   const location = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
+  const headerRef = useRef(null);
   const currentYear = new Date().getFullYear();
 
   useEffect(() => {
@@ -52,6 +53,33 @@ export default function SiteLayout() {
 
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [menuOpen]);
+
+  useEffect(() => {
+    const headerNode = headerRef.current;
+
+    if (!headerNode) {
+      return undefined;
+    }
+
+    const updateHeaderOffset = () => {
+      const height = Math.ceil(headerNode.getBoundingClientRect().height);
+      document.documentElement.style.setProperty("--header-offset", `${height}px`);
+    };
+
+    updateHeaderOffset();
+
+    const observer = new ResizeObserver(() => {
+      updateHeaderOffset();
+    });
+
+    observer.observe(headerNode);
+    window.addEventListener("resize", updateHeaderOffset);
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("resize", updateHeaderOffset);
+    };
+  }, []);
 
   const drawerMarkup = (
     <>
@@ -108,7 +136,7 @@ export default function SiteLayout() {
       {typeof document !== "undefined" ? createPortal(drawerMarkup, document.body) : null}
 
       <div className="page-shell">
-        <header className="topbar">
+        <header ref={headerRef} className="topbar">
           <Link to="/" className="brand" aria-label="Victor Licona home page">
             <span className="brand-mark">VL</span>
             <span className="brand-copy">

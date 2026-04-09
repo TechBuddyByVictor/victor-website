@@ -9,6 +9,8 @@
   --shadow: 0 26px 80px rgba(0, 0, 0, 0.36);
   --radius-xl: 2rem;
   --radius-lg: 1.35rem;
+  --shell-width: min(100% - 1rem, 1080px);
+  --header-offset: 0px;
   --space-panel-block: 1rem;
   --space-panel-inline: 1rem;
   --space-stack-tight: 0.38rem;
@@ -95,14 +97,14 @@ button {
 }
 
 .page-shell {
-  width: min(100% - 1rem, 1080px);
+  width: var(--shell-width);
   margin: 0 auto;
 }
 
 .page-content {
   display: grid;
   gap: 2.4rem;
-  padding-top: 1.3rem;
+  padding-top: calc(var(--header-offset) + 1.1rem + env(safe-area-inset-top, 0px));
 }
 
 .topbar,
@@ -152,8 +154,11 @@ button {
 }
 
 .topbar {
-  position: sticky;
-  top: 0.7rem;
+  position: fixed;
+  top: calc(0.7rem + env(safe-area-inset-top, 0px));
+  left: 50%;
+  transform: translateX(-50%);
+  width: var(--shell-width);
   z-index: 30;
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
@@ -1123,17 +1128,17 @@ p {
 }
 
 @media (min-width: 760px) {
+  :root {
+    --shell-width: min(100% - 2rem, 1080px);
+  }
+
   .site-shell {
     padding: 1rem 0 2rem;
   }
 
-  .page-shell {
-    width: min(100% - 2rem, 1080px);
-  }
-
   .page-content {
     gap: 3rem;
-    padding-top: 1.5rem;
+    padding-top: calc(var(--header-offset) + 1.35rem + env(safe-area-inset-top, 0px));
   }
 
   .page-hero,
