@@ -153,12 +153,14 @@ export default function SiteLayout() {
         </main>
 
         <footer className="site-footer">
-          <div className="footer-grid">
+          <div className="footer-top">
             <div className="footer-block">
               <span className="eyebrow">Victor Licona</span>
               <p>Cybersecurity, technology, entrepreneurship, and real-world problem solving.</p>
             </div>
+          </div>
 
+          <div className="footer-grid">
             <div className="footer-column">
               <small>Navigate</small>
               <div className="footer-links">
@@ -182,8 +184,14 @@ export default function SiteLayout() {
                 <a href="https://www.linkedin.com/in/victorlicona/" target="_blank" rel="noreferrer">
                   LinkedIn
                 </a>
+                <a href="tel:8174704724">TechBuddy</a>
               </div>
             </div>
+          </div>
+
+          <div className="footer-bottom">
+            <small>Fort Worth, Texas</small>
+            <span>Built with intention.</span>
           </div>
         </footer>
       </div>
