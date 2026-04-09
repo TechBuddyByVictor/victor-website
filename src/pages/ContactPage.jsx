@@ -8,17 +8,13 @@ const contactItems = [
   },
   {
     label: "TechBuddy",
-    value: "8174704724",
+    value: "817-470-4724",
     href: "tel:8174704724",
   },
   {
     label: "LinkedIn",
     value: "victorlicona",
     href: "https://www.linkedin.com/in/victorlicona/",
-  },
-  {
-    label: "GitHub",
-    value: "GitHub profile coming soon",
   },
 ];
 
