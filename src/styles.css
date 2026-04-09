@@ -874,20 +874,20 @@ p {
 .work-row {
   gap: 0.7rem;
   padding:
-    calc(var(--space-panel-block) - 0.1rem)
-    var(--space-panel-inline)
-    var(--space-panel-block);
+    calc(var(--space-panel-block) + 0.2rem)
+    calc(var(--space-panel-inline) + 0.15rem)
+    calc(var(--space-panel-block) + 0.1rem);
 }
 
 .work-meta {
   display: grid;
-  gap: 0.6rem;
+  gap: 0.72rem;
   align-content: start;
 }
 
 .work-copy {
   display: grid;
-  gap: 0.42rem;
+  gap: 0.52rem;
 }
 
 .work-index {
@@ -1229,8 +1229,12 @@ p {
 
   .work-row {
     grid-template-columns: 220px minmax(0, 1fr);
-    gap: 1rem;
+    gap: 1.1rem;
     align-items: start;
+    padding:
+      calc(var(--space-panel-block) + 0.3rem)
+      calc(var(--space-panel-inline) + 0.25rem)
+      calc(var(--space-panel-block) + 0.2rem);
   }
 
   .footer-main {
