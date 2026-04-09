@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { Link, NavLink, Outlet, useLocation } from "react-router-dom";
 
 const navItems = [
@@ -18,9 +19,17 @@ export default function SiteLayout() {
   }, [location.pathname]);
 
   useEffect(() => {
-    document.body.classList.toggle("menu-open", menuOpen);
+    const previousOverflow = document.body.style.overflow;
 
-    return () => document.body.classList.remove("menu-open");
+    if (menuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
   }, [menuOpen]);
 
   useEffect(() => {
@@ -39,8 +48,8 @@ export default function SiteLayout() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [menuOpen]);
 
-  return (
-    <div className="site-shell">
+  const drawerMarkup = (
+    <>
       <div
         className={`drawer-overlay${menuOpen ? " is-open" : ""}`}
         aria-hidden={!menuOpen}
@@ -51,6 +60,8 @@ export default function SiteLayout() {
         id="mobile-drawer"
         className={`mobile-drawer${menuOpen ? " is-open" : ""}`}
         aria-hidden={!menuOpen}
+        role="dialog"
+        aria-modal="true"
       >
         <div className="mobile-drawer-inner">
           <div className="drawer-head">
@@ -84,6 +95,12 @@ export default function SiteLayout() {
           </Link>
         </div>
       </aside>
+    </>
+  );
+
+  return (
+    <div className="site-shell">
+      {typeof document !== "undefined" ? createPortal(drawerMarkup, document.body) : null}
 
       <div className="page-shell">
         <header className="topbar">
