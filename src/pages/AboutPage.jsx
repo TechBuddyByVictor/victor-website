@@ -1,27 +1,24 @@
 import { Link } from "react-router-dom";
 import Reveal from "../components/Reveal";
 
-const principles = [
-  "Trust matters as much as technical skill.",
-  "Useful work matters more than loud branding.",
-  "Discipline compounds into credibility.",
-];
-
-const timelineItems = [
+const storyItems = [
   {
-    time: "Foundation",
-    title: "Real technical environments",
-    description: "Support, systems, and people-facing work shaped how I think.",
+    label: "Who I Am",
+    title: "A student building with serious intent.",
+    description:
+      "I am Victor Licona from Fort Worth, Texas. My focus is cybersecurity, technical problem solving, and long-term business growth.",
   },
   {
-    time: "Now",
-    title: "Cybersecurity and business",
-    description: "I am building technical depth while growing TechBuddy into something real.",
+    label: "What I Value",
+    title: "Trust, clarity, and clean execution.",
+    description:
+      "I want the work to feel useful, credible, and well put together instead of loud or overdone.",
   },
   {
-    time: "Next",
-    title: "Long-term scale",
-    description: "The bigger direction is security, leadership, and future companies.",
+    label: "Vision",
+    title: "Security, systems, and future companies.",
+    description:
+      "The direction is long-term: build technical depth, strong reputation, and businesses with real weight behind them.",
   },
 ];
 
@@ -32,54 +29,42 @@ export default function AboutPage() {
         <span className="eyebrow">About</span>
         <h1>Focused, grounded, and building with intent.</h1>
         <p>
-          I am Victor Licona, based in Fort Worth, Texas. I am building around cybersecurity,
-          technology, and business with a serious long-term mindset.
+          I am building around cybersecurity, technology, and business with a brand that should
+          feel serious, clean, and earned.
         </p>
       </Reveal>
 
-      <section className="split-grid">
-        <Reveal as="article" className="surface section-panel" delay={90}>
-          <span className="section-label">Summary</span>
-          <h2>I want the work to feel as sharp as the brand.</h2>
-          <p className="body-copy">
-            I care about systems, trust, clean execution, and solving problems without adding
-            noise. The goal is not to look advanced. It is to become genuinely credible.
-          </p>
+      <section className="stack-section">
+        <Reveal as="div" className="section-heading" delay={90}>
+          <span className="eyebrow">Overview</span>
+          <h2>The background behind the brand.</h2>
         </Reveal>
 
-        <Reveal as="article" className="surface section-panel" delay={130}>
-          <span className="section-label">Principles</span>
-          <ul className="list">
-            {principles.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-        </Reveal>
-      </section>
-
-      <Reveal as="section" className="surface section-panel" delay={170}>
-        <span className="section-label">Path</span>
-        <h2>The direction is clear.</h2>
-        <div className="timeline">
-          {timelineItems.map((item) => (
-            <div key={item.title} className="timeline-item">
-              <small>{item.time}</small>
-              <strong>{item.title}</strong>
+        <div className="focus-grid">
+          {storyItems.map((item, index) => (
+            <Reveal
+              key={item.label}
+              as="article"
+              className="surface focus-card"
+              delay={120 + index * 50}
+            >
+              <span className="kicker">{item.label}</span>
+              <h3>{item.title}</h3>
               <p>{item.description}</p>
-            </div>
+            </Reveal>
           ))}
         </div>
-      </Reveal>
+      </section>
 
-      <Reveal as="section" className="surface cta-band" delay={210}>
+      <Reveal as="section" className="surface cta-band" delay={190}>
         <span className="section-label">Continue</span>
-        <h2>See the work behind the positioning.</h2>
+        <h2>See the work behind the direction.</h2>
         <div className="hero-actions">
           <Link className="button" to="/experience">
             View Work
           </Link>
-          <Link className="button-secondary" to="/contact">
-            Contact
+          <Link className="button-secondary" to="/techbuddy">
+            TechBuddy
           </Link>
         </div>
       </Reveal>

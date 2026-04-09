@@ -4,21 +4,21 @@ import Reveal from "../components/Reveal";
 const projects = [
   {
     label: "TechBuddy by Victor",
-    title: "Local tech support with real-world credibility.",
+    title: "A local tech support business with real-world credibility.",
     description:
-      "A service business built around clarity, trust, and practical help for seniors, families, and small businesses.",
+      "Built around trust, practical help, and a service experience that feels professional from the start.",
   },
   {
     label: "Church Media",
-    title: "Live systems that need to work the first time.",
+    title: "Live systems where reliability matters.",
     description:
-      "Hands-on support with livestream and media systems where reliability and calm execution matter.",
+      "Hands-on work with livestream and technical systems that need to function cleanly in real time.",
   },
   {
     label: "Brand and Web",
-    title: "Digital presence built with stronger standards.",
+    title: "A cleaner digital presence with stronger standards.",
     description:
-      "A cleaner personal brand designed to match the seriousness of the work and the direction behind it.",
+      "Personal branding and web direction built to match the seriousness of the work behind it.",
   },
 ];
 
@@ -27,14 +27,8 @@ const specialties = [
   "Technical support",
   "Wi-Fi and device setup",
   "Livestream systems",
-  "Clear client communication",
-  "Founder-level execution",
-];
-
-const signals = [
-  "I work with real users.",
-  "I care about reliability.",
-  "I am building for the long term.",
+  "Clear communication",
+  "Founder-minded execution",
 ];
 
 export default function ExperiencePage() {
@@ -42,17 +36,14 @@ export default function ExperiencePage() {
     <>
       <Reveal as="section" className="surface page-hero" delay={40}>
         <span className="eyebrow">Work</span>
-        <h1>Clean proof. Clear direction.</h1>
-        <p>
-          This page is a focused look at the work, systems, and business effort already shaping the
-          brand.
-        </p>
+        <h1>Projects, systems, and proof.</h1>
+        <p>A cleaner look at the work that is already shaping the brand.</p>
       </Reveal>
 
       <section className="stack-section">
         <Reveal as="div" className="section-heading" delay={90}>
-          <span className="eyebrow">Selected Work</span>
-          <h2>The projects that carry the most weight right now.</h2>
+          <span className="eyebrow">Featured</span>
+          <h2>The work that carries the most weight right now.</h2>
         </Reveal>
 
         <div className="project-grid project-grid-wide">
@@ -61,7 +52,7 @@ export default function ExperiencePage() {
               key={project.label}
               as="article"
               className="surface project-card"
-              delay={130 + index * 55}
+              delay={120 + index * 50}
             >
               <span className="kicker">{project.label}</span>
               <h3>{project.title}</h3>
@@ -71,35 +62,24 @@ export default function ExperiencePage() {
         </div>
       </section>
 
-      <section className="split-grid">
-        <Reveal as="article" className="surface section-panel" delay={180}>
-          <span className="section-label">Specialties</span>
-          <div className="chip-row">
-            {specialties.map((item) => (
-              <span key={item}>{item}</span>
-            ))}
-          </div>
-        </Reveal>
+      <Reveal as="section" className="surface section-panel" delay={180}>
+        <span className="section-label">Specialties</span>
+        <div className="chip-row">
+          {specialties.map((item) => (
+            <span key={item}>{item}</span>
+          ))}
+        </div>
+      </Reveal>
 
-        <Reveal as="article" className="surface section-panel" delay={220}>
-          <span className="section-label">Signal</span>
-          <ul className="list">
-            {signals.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-        </Reveal>
-      </section>
-
-      <Reveal as="section" className="surface cta-band" delay={250}>
-        <span className="section-label">Contact</span>
-        <h2>If the work fits, let&apos;s talk.</h2>
+      <Reveal as="section" className="surface cta-band" delay={220}>
+        <span className="section-label">Next Step</span>
+        <h2>Want the business side too?</h2>
         <div className="hero-actions">
-          <Link className="button" to="/contact">
-            Contact
+          <Link className="button" to="/techbuddy">
+            TechBuddy
           </Link>
-          <Link className="button-secondary" to="/about">
-            About
+          <Link className="button-secondary" to="/contact">
+            Contact
           </Link>
         </div>
       </Reveal>

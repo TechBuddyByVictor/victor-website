@@ -5,6 +5,7 @@ const navItems = [
   { to: "/", label: "Home", end: true },
   { to: "/about", label: "About" },
   { to: "/experience", label: "Work" },
+  { to: "/techbuddy", label: "TechBuddy" },
   { to: "/contact", label: "Contact" },
 ];
 
@@ -79,6 +80,7 @@ export default function SiteLayout() {
             <div className="footer-links">
               <Link to="/about">About</Link>
               <Link to="/experience">Work</Link>
+              <Link to="/techbuddy">TechBuddy</Link>
               <Link to="/contact">Contact</Link>
             </div>
           </div>

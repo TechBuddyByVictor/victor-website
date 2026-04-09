@@ -6,11 +6,13 @@ import ContactPage from "./pages/ContactPage";
 import ExperiencePage from "./pages/ExperiencePage";
 import HomePage from "./pages/HomePage";
 import NotFoundPage from "./pages/NotFoundPage";
+import TechBuddyPage from "./pages/TechBuddyPage";
 
 const pageTitles = {
-  "/": "Victor Licona | Cybersecurity, Tech, and Business",
+  "/": "Victor Licona | Home",
   "/about": "Victor Licona | About",
-  "/experience": "Victor Licona | Work and Experience",
+  "/experience": "Victor Licona | Work",
+  "/techbuddy": "Victor Licona | TechBuddy",
   "/contact": "Victor Licona | Contact",
 };
 
@@ -29,6 +31,7 @@ function AppRoutes() {
           <Route index element={<HomePage />} />
           <Route path="about" element={<AboutPage />} />
           <Route path="experience" element={<ExperiencePage />} />
+          <Route path="techbuddy" element={<TechBuddyPage />} />
           <Route path="contact" element={<ContactPage />} />
           <Route path="404" element={<NotFoundPage />} />
           <Route path="*" element={<Navigate to="/404" replace />} />
