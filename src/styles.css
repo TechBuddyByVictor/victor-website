@@ -548,6 +548,50 @@ p {
     radial-gradient(circle at 18% 20%, rgba(255, 255, 255, 0.08), transparent 24%);
 }
 
+.home-hero::after,
+.page-hero-about::after,
+.page-hero-work::after,
+.page-hero-techbuddy::after,
+.page-hero-contact::after {
+  content: "";
+  position: absolute;
+  border-radius: 999px;
+  pointer-events: none;
+  opacity: 0.68;
+}
+
+.page-hero-about::after {
+  right: -4rem;
+  bottom: -5rem;
+  width: 14rem;
+  height: 14rem;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.12), transparent 68%);
+}
+
+.page-hero-work::after {
+  right: 8%;
+  top: -5rem;
+  width: 12rem;
+  height: 12rem;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.08), transparent 70%);
+}
+
+.page-hero-techbuddy::after {
+  right: -3rem;
+  top: -3rem;
+  width: 13rem;
+  height: 13rem;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1), transparent 68%);
+}
+
+.page-hero-contact::after {
+  right: 10%;
+  bottom: -5rem;
+  width: 11rem;
+  height: 11rem;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.09), transparent 68%);
+}
+
 .hero-grid,
 .split-grid,
 .focus-grid,
@@ -602,6 +646,14 @@ p {
   gap: 0.74rem;
 }
 
+.hero-grid-home {
+  align-items: stretch;
+}
+
+.hero-rail-home {
+  align-content: stretch;
+}
+
 .note-card,
 .stat-card,
 .detail-card,
@@ -619,6 +671,15 @@ p {
 
 .focus-card-compact .chip-row {
   margin-top: 0.75rem;
+}
+
+.signal-card {
+  display: grid;
+  gap: 0.72rem;
+}
+
+.signal-card-quiet {
+  justify-content: end;
 }
 
 .stat-card {
@@ -669,6 +730,32 @@ p {
   gap: 0.42rem;
 }
 
+.mini-list {
+  display: grid;
+  gap: 0.58rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.mini-list li {
+  padding-left: 0.92rem;
+  position: relative;
+  color: var(--muted-strong);
+  line-height: 1.5;
+}
+
+.mini-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.58rem;
+  width: 0.34rem;
+  height: 0.34rem;
+  border-radius: 999px;
+  background: var(--text);
+}
+
 .signal-list {
   display: grid;
   gap: 0.74rem;
@@ -706,6 +793,15 @@ p {
   font-size: 0.7rem;
   font-weight: 600;
   letter-spacing: 0.08em;
+}
+
+.chip-row-soft {
+  margin-top: 0.88rem;
+}
+
+.chip-row-soft span {
+  background: rgba(255, 255, 255, 0.025);
+  color: var(--muted);
 }
 
 .techbuddy-band {
@@ -762,6 +858,46 @@ p {
 .detail-link:focus-visible {
   opacity: 0.9;
   transform: translateY(-1px);
+}
+
+.profile-list,
+.contact-stack {
+  display: grid;
+  gap: 0.7rem;
+}
+
+.profile-item {
+  padding-top: 0.72rem;
+  border-top: 1px solid var(--line);
+}
+
+.profile-item:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.profile-item small {
+  display: block;
+  color: var(--muted);
+  font-size: 0.66rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.profile-item strong {
+  display: block;
+  margin-top: 0.32rem;
+  color: var(--text);
+  font-size: 1rem;
+  line-height: 1.42;
+}
+
+.detail-card-strong {
+  padding: 1rem;
+}
+
+.detail-grid-secondary {
+  grid-template-columns: 1fr;
 }
 
 .contact-form-panel {
@@ -886,6 +1022,32 @@ p {
   transform: translateY(-1px);
 }
 
+.footer-links-stack {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.story-panel h2,
+.service-story h2,
+.contact-panel-primary h2,
+.statement-band p {
+  max-width: 16ch;
+}
+
+.signal-strip .highlights-row,
+.trust-panel .highlights-row {
+  align-items: stretch;
+}
+
+.proof-card {
+  display: grid;
+  align-content: start;
+}
+
+.service-card h3 {
+  max-width: 15ch;
+}
+
 .footer-actions {
   gap: 0.55rem;
 }
@@ -983,6 +1145,14 @@ p {
     inset: auto -4rem -4rem auto;
   }
 
+  .page-hero-about::after,
+  .page-hero-work::after,
+  .page-hero-techbuddy::after,
+  .page-hero-contact::after {
+    width: 9rem;
+    height: 9rem;
+  }
+
   h1 {
     font-size: clamp(2rem, 10vw, 2.7rem);
   }
@@ -1078,6 +1248,15 @@ p {
     gap: 0.95rem;
   }
 
+  .split-grid-editorial {
+    grid-template-columns: minmax(0, 1.15fr) minmax(260px, 0.85fr);
+  }
+
+  .split-grid-service,
+  .split-grid-contact {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .focus-grid,
   .page-link-grid,
   .project-grid,
@@ -1106,6 +1285,10 @@ p {
   }
 
   .contact-form {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .detail-grid-secondary {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -1173,6 +1356,18 @@ p {
   }
 
   .project-grid.project-grid-wide {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .project-grid-proof {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .proof-card-feature {
+    grid-column: span 2;
+  }
+
+  .service-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 

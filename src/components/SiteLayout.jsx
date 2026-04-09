@@ -97,7 +97,7 @@ export default function SiteLayout() {
             <span className="brand-mark">VL</span>
             <span className="brand-copy">
               <strong>Victor Licona</strong>
-              <small>Cybersecurity / Technology / Fort Worth</small>
+              <small>Fort Worth / Cybersecurity / TechBuddy</small>
             </span>
           </Link>
 
@@ -158,6 +158,16 @@ export default function SiteLayout() {
                     {label}
                   </NavLink>
                 ))}
+              </div>
+            </div>
+
+            <div className="footer-column">
+              <strong>Connect</strong>
+              <div className="footer-links footer-links-stack">
+                <a href="mailto:contact@victorlicona.com">Email</a>
+                <a href="https://www.linkedin.com/in/victorlicona/" target="_blank" rel="noreferrer">
+                  LinkedIn
+                </a>
               </div>
             </div>
           </div>

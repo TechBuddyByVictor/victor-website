@@ -1,67 +1,87 @@
 import Reveal from "../components/Reveal";
 
-const projects = [
+const workItems = [
   {
     label: "TechBuddy by Victor",
+    title: "A local business with real-world weight.",
     description:
-      "A local tech support business focused on helping seniors, families, and small businesses with devices, setup, troubleshooting, Wi-Fi, scams, and everyday technology problems.",
+      "Tech support for seniors, families, and small businesses across devices, Wi-Fi, troubleshooting, and everyday technology issues.",
+    points: ["Business positioning", "Trust-based service", "Problem-solving in the real world"],
+    feature: true,
   },
   {
-    label: "Church Media & Livestream Systems",
+    label: "Church Media",
+    title: "Systems that need to work live.",
     description:
-      "Hands-on experience supporting media, livestreaming, and digital systems in a real operating environment. This includes working with production workflows, technical reliability, and making sure systems run smoothly for people depending on them.",
+      "Hands-on support for media, livestream, and technical systems where reliability matters and people depend on the result.",
+    points: ["Livestream workflows", "Technical reliability"],
   },
   {
-    label: "Personal Brand & Website Development",
+    label: "Personal Brand",
+    title: "Digital presence built with intention.",
     description:
-      "Building and refining my own digital presence through modern web design, branding, and user experience. Focused on creating a clean, premium, and professional online identity.",
+      "Developing a cleaner, more professional online identity through design, structure, and user experience.",
+    points: ["Web design", "Brand direction"],
   },
   {
     label: "Technical Problem Solving",
+    title: "Finding what is wrong and making it better.",
     description:
-      "From devices and networks to digital tools and system setup, I enjoy figuring out what's wrong, improving how things work, and creating better experiences through technology.",
+      "From devices and networks to setup and digital tools, I enjoy improving how technology works for the people using it.",
+    points: ["Support mindset", "System improvement"],
   },
 ];
+
+const capabilityItems = ["Cybersecurity mindset", "Systems thinking", "Technical support", "Digital execution"];
 
 export default function ExperiencePage() {
   return (
     <>
-      <Reveal as="section" className="surface page-hero" delay={40}>
+      <Reveal as="section" className="surface page-hero page-hero-work" delay={40}>
         <span className="eyebrow">Work</span>
         <h1>Work &amp; Experience</h1>
-        <p>
-          A selection of the work, projects, and systems I've been building across technology,
-          business, and digital operations.
-        </p>
+        <p>A focused look at the projects, systems, and work shaping the brand.</p>
       </Reveal>
 
       <section className="stack-section">
         <Reveal as="div" className="section-heading" delay={90}>
           <span className="eyebrow">Selected Work</span>
-          <h2>Real work across systems, support, and digital execution.</h2>
+          <h2>Credibility comes from real execution.</h2>
         </Reveal>
 
-        <div className="project-grid project-grid-wide">
-          {projects.map((project, index) => (
+        <div className="project-grid project-grid-proof">
+          {workItems.map((item, index) => (
             <Reveal
-              key={project.label}
+              key={item.label}
               as="article"
-              className="surface project-card"
-              delay={120 + index * 45}
+              className={`surface project-card proof-card${item.feature ? " proof-card-feature" : ""}`}
+              delay={120 + index * 40}
             >
-              <span className="kicker">{project.label}</span>
-              <p>{project.description}</p>
+              <span className="kicker">{item.label}</span>
+              <h3>{item.title}</h3>
+              <p>{item.description}</p>
+              <div className="chip-row chip-row-soft">
+                {item.points.map((point) => (
+                  <span key={point}>{point}</span>
+                ))}
+              </div>
             </Reveal>
           ))}
         </div>
       </section>
 
-      <Reveal as="section" className="surface cta-band" delay={190}>
-        <span className="section-label">Closing Note</span>
-        <p>
-          I'm still early in my journey, but I'm already focused on doing real work, building real
-          systems, and creating a strong foundation for what comes next.
-        </p>
+      <Reveal as="section" className="surface section-panel capability-panel" delay={195}>
+        <span className="section-label">Core Strengths</span>
+        <div className="chip-row">
+          {capabilityItems.map((item) => (
+            <span key={item}>{item}</span>
+          ))}
+        </div>
+      </Reveal>
+
+      <Reveal as="section" className="surface cta-band statement-band" delay={225}>
+        <span className="section-label">Direction</span>
+        <p>Early in the journey, but already building real systems and stronger standards.</p>
       </Reveal>
     </>
   );
