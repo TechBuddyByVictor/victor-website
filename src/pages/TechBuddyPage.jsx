@@ -25,7 +25,7 @@ export default function TechBuddyPage() {
             Contact TechBuddy
           </Link>
           <a className="button-secondary" href="tel:8174704724">
-            Call
+            Get Help
           </a>
         </div>
       </Reveal>

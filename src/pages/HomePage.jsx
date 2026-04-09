@@ -35,10 +35,10 @@ export default function HomePage() {
             </p>
             <div className="hero-actions">
               <Link className="button" to="/experience">
-                View Work
+                View My Work
               </Link>
               <Link className="button-secondary" to="/about">
-                About
+                About Me
               </Link>
               <Link className="button-secondary" to="/contact">
                 Contact

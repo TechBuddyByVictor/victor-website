@@ -103,7 +103,7 @@ export default function ContactPage() {
             </label>
             <div className="form-actions">
               <button type="submit" className="button">
-                Send Message
+                Let's Connect
               </button>
             </div>
           </form>
