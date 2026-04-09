@@ -153,22 +153,37 @@ export default function SiteLayout() {
         </main>
 
         <footer className="site-footer">
-          <div className="footer-block">
-            <span className="eyebrow">Victor Licona</span>
-            <p>Cybersecurity, technology, entrepreneurship, and real-world problem solving.</p>
-          </div>
+          <div className="footer-grid">
+            <div className="footer-block">
+              <span className="eyebrow">Victor Licona</span>
+              <p>Cybersecurity, technology, entrepreneurship, and real-world problem solving.</p>
+            </div>
 
-          <div className="footer-links">
-            {navItems.map(({ to, label, end }) => (
-              <NavLink
-                key={to}
-                to={to}
-                end={end}
-                className={({ isActive }) => (isActive ? "active" : undefined)}
-              >
-                {label}
-              </NavLink>
-            ))}
+            <div className="footer-column">
+              <small>Navigate</small>
+              <div className="footer-links">
+                {navItems.map(({ to, label, end }) => (
+                  <NavLink
+                    key={to}
+                    to={to}
+                    end={end}
+                    className={({ isActive }) => (isActive ? "active" : undefined)}
+                  >
+                    {label}
+                  </NavLink>
+                ))}
+              </div>
+            </div>
+
+            <div className="footer-column">
+              <small>Connect</small>
+              <div className="footer-links footer-links-compact">
+                <a href="mailto:contact@victorlicona.com">Email</a>
+                <a href="https://www.linkedin.com/in/victorlicona/" target="_blank" rel="noreferrer">
+                  LinkedIn
+                </a>
+              </div>
+            </div>
           </div>
         </footer>
       </div>
