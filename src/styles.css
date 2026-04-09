@@ -752,6 +752,18 @@ p {
   line-height: 1.38;
 }
 
+.detail-link {
+  display: inline-flex;
+  width: fit-content;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.detail-link:hover,
+.detail-link:focus-visible {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
 .contact-form-panel {
   display: grid;
   gap: 0.75rem;

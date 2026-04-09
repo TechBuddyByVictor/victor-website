@@ -1,10 +1,25 @@
 import Reveal from "../components/Reveal";
 
 const contactItems = [
-  { label: "Email", value: "Add your email" },
-  { label: "GitHub", value: "Add your GitHub" },
-  { label: "LinkedIn", value: "Add your LinkedIn" },
-  { label: "TechBuddy", value: "TechBuddy by Victor" },
+  {
+    label: "Email",
+    value: "contact@victorlicona.com",
+    href: "mailto:contact@victorlicona.com",
+  },
+  {
+    label: "GitHub",
+    value: "Placeholder link coming soon",
+  },
+  {
+    label: "LinkedIn",
+    value: "https://www.linkedin.com/in/victorlicona/",
+    href: "https://www.linkedin.com/in/victorlicona/",
+  },
+  {
+    label: "TechBuddy",
+    value: "8174704724",
+    href: "tel:8174704724",
+  },
 ];
 
 export default function ContactPage() {
@@ -26,7 +41,18 @@ export default function ContactPage() {
             {contactItems.map((item) => (
               <article key={item.label} className="detail-card">
                 <span className="kicker">{item.label}</span>
-                <strong>{item.value}</strong>
+                {item.href ? (
+                  <a
+                    className="detail-link"
+                    href={item.href}
+                    target={item.href.startsWith("http") ? "_blank" : undefined}
+                    rel={item.href.startsWith("http") ? "noreferrer" : undefined}
+                  >
+                    <strong>{item.value}</strong>
+                  </a>
+                ) : (
+                  <strong>{item.value}</strong>
+                )}
               </article>
             ))}
           </div>
