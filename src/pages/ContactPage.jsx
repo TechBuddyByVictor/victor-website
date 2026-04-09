@@ -19,9 +19,30 @@ const contactItems = [
 ];
 
 export default function ContactPage() {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    const formData = new FormData(event.currentTarget);
+    const name = (formData.get("name") ?? "").toString().trim();
+    const email = (formData.get("email") ?? "").toString().trim();
+    const message = (formData.get("message") ?? "").toString().trim();
+
+    const subject = `Website inquiry from ${name || "Visitor"}`;
+    const body = [
+      name ? `Name: ${name}` : null,
+      email ? `Email: ${email}` : null,
+      "",
+      message || "Hi Victor,",
+    ]
+      .filter(Boolean)
+      .join("\n");
+
+    window.location.href = `mailto:contact@victorlicona.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  };
+
   return (
     <>
-      <Reveal as="section" className="page-hero page-hero-contact page-hero-contacted" delay={40}>
+      <Reveal as="section" className="page-hero page-hero-contact" delay={40}>
         <span className="eyebrow">Contact</span>
         <h1>Contact</h1>
         <p className="hero-copyline">
@@ -56,18 +77,29 @@ export default function ContactPage() {
 
         <Reveal as="article" className="form-panel form-panel-emphasis" delay={130}>
           <span className="section-label">Message</span>
-          <form id="contact-form" className="contact-form">
+          <form id="contact-form" className="contact-form" onSubmit={handleSubmit}>
             <label className="field">
               <span>Name</span>
-              <input type="text" name="name" placeholder="Your name" />
+              <input type="text" name="name" placeholder="Your name" autoComplete="name" required />
             </label>
             <label className="field">
               <span>Email</span>
-              <input type="email" name="email" placeholder="your@email.com" />
+              <input
+                type="email"
+                name="email"
+                placeholder="your@email.com"
+                autoComplete="email"
+                required
+              />
             </label>
             <label className="field field-full">
               <span>Message</span>
-              <textarea name="message" rows="5" placeholder="What are you reaching out about?" />
+              <textarea
+                name="message"
+                rows="5"
+                placeholder="What are you reaching out about?"
+                required
+              />
             </label>
             <div className="form-actions">
               <button type="submit" className="button">
