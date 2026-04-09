@@ -223,7 +223,7 @@ export default function SiteLayout() {
 
           <div className="footer-bottom">
             <small>Fort Worth, Texas</small>
-            <span>{`© ${currentYear} Victor Licona`}</span>
+            <span>{`Copyright ${currentYear} Victor Licona`}</span>
           </div>
         </footer>
       </div>

@@ -18,7 +18,7 @@ const contactItems = [
   },
   {
     label: "GitHub",
-    value: "Link coming soon",
+    value: "GitHub profile coming soon",
   },
 ];
 
