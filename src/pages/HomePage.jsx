@@ -3,30 +3,25 @@ import Reveal from "../components/Reveal";
 
 const heroStats = [
   { value: "Fort Worth", label: "Texas base" },
-  { value: "TechBuddy", label: "Real business" },
-  { value: "Cybersecurity", label: "Primary focus" },
+  { value: "TechBuddy", label: "Active business" },
+  { value: "Cybersecurity", label: "Core focus" },
 ];
 
-const pageLinks = [
+const featuredPages = [
   {
     to: "/about",
     label: "About",
-    title: "Background, direction, and vision.",
+    title: "Background, direction, and personal vision.",
   },
   {
     to: "/experience",
     label: "Work",
-    title: "Projects, technical work, and proof.",
+    title: "Projects, systems, and technical proof.",
   },
   {
     to: "/techbuddy",
     label: "TechBuddy",
-    title: "A dedicated page for the business.",
-  },
-  {
-    to: "/contact",
-    label: "Contact",
-    title: "Clear and direct ways to reach me.",
+    title: "A dedicated business page with services and focus.",
   },
 ];
 
@@ -36,11 +31,11 @@ export default function HomePage() {
       <Reveal as="section" className="surface hero-card" delay={40}>
         <div className="hero-grid">
           <div className="hero-copy">
-            <span className="eyebrow">Victor Licona</span>
+            <span className="eyebrow">Victor Licona / Fort Worth</span>
             <h1>Cybersecurity, systems, and founder-minded work.</h1>
             <p className="hero-lead">
-              A cleaner personal site built around real technical work, long-term ambition, and a
-              serious brand direction.
+              A premium personal site built around real technical work, clear direction, and a
+              cleaner way to explore the brand.
             </p>
 
             <div className="hero-actions">
@@ -50,8 +45,8 @@ export default function HomePage() {
               <Link className="button-secondary" to="/techbuddy">
                 TechBuddy
               </Link>
-              <Link className="button-secondary" to="/about">
-                About
+              <Link className="button-secondary" to="/contact">
+                Contact
               </Link>
             </div>
 
@@ -68,29 +63,27 @@ export default function HomePage() {
           <aside className="hero-rail">
             <div className="note-card">
               <span className="section-label">Front Door</span>
-              <h2>Simple, focused, and easy to explore.</h2>
-              <p>
-                This homepage is intentionally light. The full story lives inside the pages above.
-              </p>
+              <h2>Short, focused, and easy to navigate.</h2>
+              <p>The deeper story lives inside the pages, not stacked on the homepage.</p>
             </div>
           </aside>
         </div>
       </Reveal>
 
       <section className="stack-section">
-        <Reveal as="div" className="section-heading" delay={100}>
-          <span className="eyebrow">Explore</span>
-          <h2>Each page has one clear purpose.</h2>
+        <Reveal as="div" className="section-heading" delay={95}>
+          <span className="eyebrow">Featured</span>
+          <h2>Start with the page that fits what you want to see.</h2>
         </Reveal>
 
         <div className="page-link-grid">
-          {pageLinks.map((item, index) => (
+          {featuredPages.map((item, index) => (
             <Reveal
               key={item.to}
               as={Link}
               to={item.to}
               className="surface page-link-card"
-              delay={130 + index * 45}
+              delay={125 + index * 45}
             >
               <span className="kicker">{item.label}</span>
               <h3>{item.title}</h3>
@@ -99,14 +92,17 @@ export default function HomePage() {
         </div>
       </section>
 
-      <Reveal as="section" className="surface section-panel" delay={180}>
-        <span className="section-label">Quick Intro</span>
-        <h2>Built for real work, not just presentation.</h2>
-        <p className="body-copy">
-          I am from Fort Worth, Texas and I am building around cybersecurity, technical problem
-          solving, and business. The goal is to make the site feel clear, premium, and easy to
-          navigate.
-        </p>
+      <Reveal as="section" className="surface cta-band" delay={180}>
+        <span className="section-label">Next Step</span>
+        <h2>Everything else has its own page.</h2>
+        <div className="hero-actions">
+          <Link className="button" to="/about">
+            About
+          </Link>
+          <Link className="button-secondary" to="/contact">
+            Contact
+          </Link>
+        </div>
       </Reveal>
     </>
   );

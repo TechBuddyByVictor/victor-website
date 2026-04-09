@@ -315,6 +315,7 @@ button {
 .button:focus-visible,
 .button-secondary:focus-visible,
 .focus-card:hover,
+.page-link-card:hover,
 .project-card:hover,
 .detail-card:hover,
 .stat-card:hover,
@@ -325,6 +326,7 @@ button {
 .button-secondary:hover,
 .button-secondary:focus-visible,
 .focus-card:hover,
+.page-link-card:hover,
 .project-card:hover,
 .detail-card:hover,
 .stat-card:hover,
@@ -409,6 +411,7 @@ p {
 .hero-rail,
 .section-panel,
 .focus-card,
+.page-link-card,
 .project-card,
 .cta-band,
 .techbuddy-band {
@@ -813,7 +816,7 @@ p {
   }
 
   .page-link-grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .project-grid.project-grid-wide {
