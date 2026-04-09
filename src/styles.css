@@ -1357,19 +1357,28 @@ p {
   }
 
   .entry-grid {
-    grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr);
+    grid-template-columns: minmax(0, 1.08fr) repeat(2, minmax(0, 0.82fr));
     align-items: stretch;
-    gap: 1rem;
+    gap: 0.85rem;
   }
 
   .entry-link-feature {
-    grid-column: 1;
-    grid-row: span 2;
+    grid-column: auto;
+    grid-row: auto;
   }
 
   .entry-link {
-    min-height: 10.75rem;
-    padding: 1.45rem 1.5rem;
+    min-height: 8.4rem;
+    padding: 1.15rem 1.2rem;
+    gap: 0.5rem;
+  }
+
+  .entry-link h3 {
+    max-width: 14ch;
+  }
+
+  .entry-link-feature h3 {
+    max-width: 15.5ch;
   }
 
   .minimal-grid {
@@ -1516,8 +1525,14 @@ p {
     max-width: 42ch;
   }
 
+  .entry-grid {
+    grid-template-columns: minmax(0, 1.08fr) repeat(2, minmax(0, 0.84fr));
+    gap: 0.95rem;
+  }
+
   .entry-link {
-    min-height: 11.25rem;
+    min-height: 8.9rem;
+    padding: 1.2rem 1.25rem;
   }
 
   .contact-layout {
