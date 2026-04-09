@@ -83,9 +83,14 @@ export default function SiteLayout() {
             ))}
           </nav>
 
-          <Link className="button drawer-cta" to="/contact">
-            Contact
-          </Link>
+          <div className="drawer-actions">
+            <Link className="button drawer-cta" to="/contact">
+              Contact
+            </Link>
+            <Link className="button-secondary drawer-cta" to="/contact#resume-request">
+              Resume
+            </Link>
+          </div>
         </div>
       </div>
 
@@ -135,14 +140,36 @@ export default function SiteLayout() {
           <Outlet />
         </main>
 
-        <footer className="site-footer">
-          <div className="footer-inner">
-            <p>Victor Licona. Cybersecurity, systems, and founder-minded execution.</p>
-            <div className="footer-links">
-              <Link to="/about">About</Link>
-              <Link to="/experience">Work</Link>
-              <Link to="/techbuddy">TechBuddy</Link>
-              <Link to="/contact">Contact</Link>
+        <footer className="site-footer surface">
+          <div className="footer-grid">
+            <div className="footer-brand">
+              <span className="eyebrow">Victor Licona</span>
+              <p>
+                Cybersecurity, systems, entrepreneurship, and real-world problem solving built into
+                a cleaner personal brand experience.
+              </p>
+            </div>
+
+            <div className="footer-column">
+              <strong>Navigate</strong>
+              <div className="footer-links">
+                <Link to="/about">About</Link>
+                <Link to="/experience">Work</Link>
+                <Link to="/techbuddy">TechBuddy</Link>
+                <Link to="/contact">Contact</Link>
+              </div>
+            </div>
+
+            <div className="footer-column">
+              <strong>Quick Actions</strong>
+              <div className="footer-actions">
+                <Link className="button-secondary footer-button" to="/contact#resume-request">
+                  Resume
+                </Link>
+                <Link className="button footer-button" to="/contact">
+                  Contact
+                </Link>
+              </div>
             </div>
           </div>
         </footer>
