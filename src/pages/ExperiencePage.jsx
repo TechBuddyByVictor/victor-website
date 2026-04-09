@@ -26,18 +26,18 @@ const workItems = [
 export default function ExperiencePage() {
   return (
     <>
-      <Reveal as="section" className="page-hero page-hero-work" delay={40}>
+      <Reveal as="section" className="page-hero page-hero-work page-hero-proof" delay={40}>
         <span className="eyebrow">Work</span>
         <h1>Work</h1>
         <p className="hero-copyline">
-          A focused view of the projects, systems, and technical work shaping what I am building.
+          A focused look at the systems, projects, and technical work giving the brand real proof.
         </p>
       </Reveal>
 
       <section className="page-section">
         <Reveal as="div" className="section-heading" delay={90}>
           <span className="eyebrow">Selected</span>
-          <h2>Real work, presented more clearly.</h2>
+          <h2>Real work, presented with more conviction.</h2>
         </Reveal>
 
         <div className="work-list">
@@ -45,6 +45,7 @@ export default function ExperiencePage() {
             <Reveal key={item.label} as="article" className="work-row" delay={120 + index * 35}>
               <div className="work-meta">
                 <span className="kicker">{item.label}</span>
+                <small className="work-index">{`0${index + 1}`}</small>
               </div>
               <div className="work-copy">
                 <h3>{item.title}</h3>

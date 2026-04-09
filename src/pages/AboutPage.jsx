@@ -18,7 +18,7 @@ const values = [
 export default function AboutPage() {
   return (
     <>
-      <Reveal as="section" className="page-hero page-hero-about" delay={40}>
+      <Reveal as="section" className="page-hero page-hero-about page-hero-editorial" delay={40}>
         <span className="eyebrow">About</span>
         <h1>About Victor</h1>
         <p className="hero-copyline">
@@ -28,9 +28,9 @@ export default function AboutPage() {
       </Reveal>
 
       <section className="about-layout">
-        <Reveal as="article" className="editorial-panel" delay={90}>
+        <Reveal as="article" className="editorial-panel editorial-panel-story" delay={90}>
           <span className="section-label">Statement</span>
-          <h2>I care about useful work.</h2>
+          <h2>I care about work that actually matters.</h2>
           <p>
             What drives me most is solving problems that actually matter. I am interested in more
             than learning technology. I want to apply it in ways that help people, improve
@@ -43,7 +43,7 @@ export default function AboutPage() {
           </p>
         </Reveal>
 
-        <Reveal as="aside" className="facts-panel" delay={130}>
+        <Reveal as="aside" className="facts-panel facts-panel-compact" delay={130}>
           <span className="section-label">At a Glance</span>
           <div className="facts-list">
             <div className="fact-row">
@@ -65,7 +65,7 @@ export default function AboutPage() {
       <section className="page-section">
         <Reveal as="div" className="section-heading" delay={170}>
           <span className="eyebrow">Principles</span>
-          <h2>How I approach the work.</h2>
+          <h2>The standards behind how I build.</h2>
         </Reveal>
 
         <div className="minimal-grid">

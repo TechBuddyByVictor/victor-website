@@ -13,7 +13,7 @@ const services = [
 export default function TechBuddyPage() {
   return (
     <>
-      <Reveal as="section" className="page-hero page-hero-techbuddy" delay={40}>
+      <Reveal as="section" className="page-hero page-hero-techbuddy page-hero-service" delay={40}>
         <span className="eyebrow">TechBuddy by Victor</span>
         <h1>Local tech support built to feel clear, trustworthy, and easy to work with.</h1>
         <p className="hero-copyline">
@@ -31,9 +31,9 @@ export default function TechBuddyPage() {
       </Reveal>
 
       <section className="service-layout">
-        <Reveal as="article" className="editorial-panel" delay={90}>
+        <Reveal as="article" className="editorial-panel editorial-panel-story" delay={90}>
           <span className="section-label">Overview</span>
-          <h2>Practical help without the confusion.</h2>
+          <h2>Practical help, without the friction.</h2>
           <p>
             I created TechBuddy by Victor to make technology easier and less stressful for the
             people who depend on it.
@@ -43,7 +43,7 @@ export default function TechBuddyPage() {
           </p>
         </Reveal>
 
-        <Reveal as="article" className="facts-panel" delay={130}>
+        <Reveal as="article" className="facts-panel facts-panel-compact" delay={130}>
           <span className="section-label">Who It Helps</span>
           <div className="facts-list">
             <div className="fact-row">
@@ -74,7 +74,7 @@ export default function TechBuddyPage() {
         </div>
       </section>
 
-      <Reveal as="section" className="statement-strip" delay={225}>
+      <Reveal as="section" className="statement-strip statement-strip-service" delay={225}>
         <span className="section-label">TechBuddy</span>
         <p>Built around trust, clarity, and solving problems the right way.</p>
       </Reveal>

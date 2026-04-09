@@ -25,7 +25,7 @@ const contactItems = [
 export default function ContactPage() {
   return (
     <>
-      <Reveal as="section" className="page-hero page-hero-contact" delay={40}>
+      <Reveal as="section" className="page-hero page-hero-contact page-hero-contacted" delay={40}>
         <span className="eyebrow">Contact</span>
         <h1>Contact</h1>
         <p className="hero-copyline">
@@ -34,9 +34,9 @@ export default function ContactPage() {
       </Reveal>
 
       <section className="contact-layout">
-        <Reveal as="article" className="editorial-panel" delay={90}>
+        <Reveal as="article" className="editorial-panel editorial-panel-story" delay={90}>
           <span className="section-label">Direct</span>
-          <h2>The clearest way to reach me.</h2>
+          <h2>The most direct way to reach me.</h2>
           <div className="contact-list">
             {contactItems.map((item) => (
               <div key={item.label} className="contact-row">
@@ -58,7 +58,7 @@ export default function ContactPage() {
           </div>
         </Reveal>
 
-        <Reveal as="article" className="form-panel" delay={130}>
+        <Reveal as="article" className="form-panel form-panel-emphasis" delay={130}>
           <span className="section-label">Message</span>
           <form id="contact-form" className="contact-form">
             <label className="field">
