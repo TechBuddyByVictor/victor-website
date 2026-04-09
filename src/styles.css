@@ -836,6 +836,14 @@ p {
   max-width: 36ch;
 }
 
+.footer-brand small {
+  display: block;
+  margin-top: 0.62rem;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
 .footer-column {
   display: grid;
   gap: 0.55rem;
@@ -860,7 +868,8 @@ p {
 }
 
 .footer-links a:hover,
-.footer-links a:focus-visible {
+.footer-links a:focus-visible,
+.footer-links a.active {
   color: var(--text);
   transform: translateY(-1px);
 }

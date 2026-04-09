@@ -1,54 +1,55 @@
 import { Link } from "react-router-dom";
 import Reveal from "../components/Reveal";
 
+const audiences = ["Seniors", "Families", "Small businesses", "Anyone who wants clear, practical tech help"];
+
 const services = [
   "Device setup",
-  "Computer help",
-  "Wi-Fi support",
+  "Wi-Fi and connectivity help",
+  "Computer and phone support",
   "Troubleshooting",
-  "Scam awareness",
+  "Scam awareness and basic digital safety",
   "Small business tech help",
-];
-
-const audiences = [
-  {
-    label: "Seniors",
-    title: "Patient, clear support without confusion.",
-  },
-  {
-    label: "Families",
-    title: "Practical help with devices, Wi-Fi, and everyday tech issues.",
-  },
-  {
-    label: "Small Businesses",
-    title: "Reliable support for teams that need technology to work cleanly.",
-  },
 ];
 
 export default function TechBuddyPage() {
   return (
     <>
       <Reveal as="section" className="surface page-hero" delay={40}>
-        <span className="eyebrow">TechBuddy by Victor</span>
-        <h1>Local tech support with a cleaner, calmer approach.</h1>
+        <span className="eyebrow">TechBuddy</span>
+        <h1>TechBuddy by Victor</h1>
         <p>
-          TechBuddy helps seniors, families, and small businesses with technology problems in a way
-          that feels clear, professional, and easy to trust.
+          TechBuddy by Victor is a local tech support service built to make technology easier,
+          clearer, and less stressful for everyday people.
         </p>
       </Reveal>
 
-      <section className="split-grid">
-        <Reveal as="article" className="surface section-panel" delay={90}>
-          <span className="section-label">What It Is</span>
-          <h2>A real business, not a side label.</h2>
-          <p className="body-copy">
-            TechBuddy is built around practical help, bilingual support, and service that feels
-            calm from the first interaction. The goal is simple: solve the problem without making
-            people feel lost.
+      <Reveal as="section" className="surface section-panel" delay={90}>
+        <span className="section-label">Overview</span>
+        <div className="signal-list">
+          <p>
+            I created TechBuddy by Victor to help seniors, families, and small businesses get real
+            support with the technology they rely on. That includes phones, computers, device
+            setup, Wi-Fi help, scam awareness, troubleshooting, and everyday digital issues.
           </p>
+          <p>
+            The goal is simple: provide helpful, trustworthy support in a way that feels clear and
+            approachable. Technology should be useful - not overwhelming.
+          </p>
+        </div>
+      </Reveal>
+
+      <section className="split-grid">
+        <Reveal as="article" className="surface section-panel" delay={130}>
+          <span className="section-label">Who It Helps</span>
+          <ul className="list">
+            {audiences.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
         </Reveal>
 
-        <Reveal as="article" className="surface section-panel" delay={130}>
+        <Reveal as="article" className="surface section-panel" delay={165}>
           <span className="section-label">Services</span>
           <div className="chip-row">
             {services.map((service) => (
@@ -58,36 +59,15 @@ export default function TechBuddyPage() {
         </Reveal>
       </section>
 
-      <section className="stack-section">
-        <Reveal as="div" className="section-heading" delay={110}>
-          <span className="eyebrow">Who It Helps</span>
-          <h2>Built for people who need technology to feel simpler.</h2>
-        </Reveal>
-
-        <div className="focus-grid">
-          {audiences.map((item, index) => (
-            <Reveal
-              key={item.label}
-              as="article"
-              className="surface focus-card"
-              delay={140 + index * 50}
-            >
-              <span className="kicker">{item.label}</span>
-              <h3>{item.title}</h3>
-            </Reveal>
-          ))}
-        </div>
-      </section>
-
-      <Reveal as="section" className="surface cta-band" delay={190}>
-        <span className="section-label">Contact</span>
-        <h2>Want to talk about TechBuddy?</h2>
+      <Reveal as="section" className="surface cta-band" delay={205}>
+        <span className="section-label">TechBuddy</span>
+        <p>TechBuddy is built around trust, clarity, and solving problems the right way.</p>
         <div className="hero-actions">
           <Link className="button" to="/contact">
-            Contact
+            Contact TechBuddy
           </Link>
-          <Link className="button-secondary" to="/experience">
-            View Work
+          <Link className="button-secondary" to="/contact#contact-form">
+            Get Help
           </Link>
         </div>
       </Reveal>

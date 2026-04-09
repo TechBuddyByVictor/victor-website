@@ -3,44 +3,48 @@ import Reveal from "../components/Reveal";
 
 const heroStats = [
   { value: "Fort Worth", label: "Texas base" },
-  { value: "TechBuddy", label: "Active business" },
-  { value: "Cybersecurity", label: "Core focus" },
+  { value: "Cybersecurity", label: "Long-term focus" },
+  { value: "TechBuddy", label: "Founded by Victor" },
 ];
 
 const featuredPages = [
   {
     to: "/about",
     label: "About",
-    title: "Background, direction, and personal vision.",
+    title: "Background, direction, and vision.",
   },
   {
     to: "/experience",
     label: "Work",
-    title: "Projects, systems, and technical proof.",
+    title: "Projects, systems, and experience.",
   },
   {
     to: "/techbuddy",
     label: "TechBuddy",
-    title: "A dedicated business page with services and focus.",
+    title: "Local tech support with clarity and trust.",
   },
 ];
 
 const highlights = [
   {
-    label: "Real Work",
-    value: "Systems, support, and execution that already exist outside of school projects.",
+    label: "Cybersecurity",
+    value: "Focused on building a future in cybersecurity, digital systems, and modern technology.",
   },
   {
-    label: "Business",
-    value: "TechBuddy gives the brand real-world traction and credibility.",
+    label: "TechBuddy by Victor",
+    value: "Local tech support designed to help families, seniors, and small businesses with confidence.",
   },
   {
-    label: "Direction",
-    value: "Cybersecurity, problem solving, and long-term founder growth.",
+    label: "Real-World Projects",
+    value: "Hands-on work across websites, media systems, technical support, and business operations.",
   },
 ];
 
-const focusItems = ["Cybersecurity depth", "TechBuddy growth", "Cleaner technical proof"];
+const focusItems = [
+  "Growing in cybersecurity",
+  "Building TechBuddy by Victor",
+  "Creating better digital systems and experiences",
+];
 
 export default function HomePage() {
   return (
@@ -48,22 +52,26 @@ export default function HomePage() {
       <Reveal as="section" className="surface hero-card premium-hero" delay={40}>
         <div className="hero-grid">
           <div className="hero-copy">
-            <span className="eyebrow">Victor Licona / Fort Worth</span>
-            <h1>Cybersecurity, systems, and founder-minded work.</h1>
+            <span className="eyebrow">Victor Licona</span>
+            <h1>Victor Licona</h1>
             <p className="hero-lead">
-              A premium personal site built around real technical work, clear direction, and a
-              cleaner way to explore the brand.
+              Cybersecurity, technology, and entrepreneurship - built around real-world problem
+              solving.
+            </p>
+            <p>
+              I build digital experiences, solve technical problems, and create systems that help
+              people, organizations, and businesses move forward.
             </p>
 
             <div className="hero-actions">
               <Link className="button" to="/experience">
-                View Work
+                View My Work
               </Link>
-              <Link className="button-secondary" to="/techbuddy">
-                TechBuddy
+              <Link className="button-secondary" to="/about">
+                About Me
               </Link>
-              <Link className="button-secondary" to="/contact#contact-form">
-                Resume
+              <Link className="button-secondary" to="/contact">
+                Contact
               </Link>
             </div>
 
@@ -80,7 +88,6 @@ export default function HomePage() {
           <aside className="hero-rail">
             <div className="note-card focus-card-compact">
               <span className="section-label">Currently Focused On</span>
-              <h2>Sharpening the work behind the brand.</h2>
               <div className="chip-row compact-chip-row">
                 {focusItems.map((item) => (
                   <span key={item}>{item}</span>
@@ -114,7 +121,7 @@ export default function HomePage() {
       </section>
 
       <Reveal as="section" className="surface section-panel highlights-panel" delay={165}>
-        <span className="section-label">Highlights</span>
+        <span className="section-label">Featured Highlights</span>
         <div className="highlights-row">
           {highlights.map((item) => (
             <article key={item.label} className="highlight-item">
@@ -122,19 +129,6 @@ export default function HomePage() {
               <p>{item.value}</p>
             </article>
           ))}
-        </div>
-      </Reveal>
-
-      <Reveal as="section" className="surface cta-band" delay={200}>
-        <span className="section-label">Next Step</span>
-        <h2>Everything else has its own page.</h2>
-        <div className="hero-actions">
-          <Link className="button" to="/about">
-            About
-          </Link>
-          <Link className="button-secondary" to="/contact">
-            Contact
-          </Link>
         </div>
       </Reveal>
     </>

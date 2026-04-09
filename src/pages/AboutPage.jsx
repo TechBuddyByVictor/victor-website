@@ -1,24 +1,22 @@
-import { Link } from "react-router-dom";
 import Reveal from "../components/Reveal";
 
-const storyItems = [
+const pillars = [
   {
-    label: "Who I Am",
-    title: "A student building with serious intent.",
-    description:
-      "I am Victor Licona from Fort Worth, Texas. My focus is cybersecurity, technical problem solving, and long-term business growth.",
+    label: "Problem Solving",
+    description: "I care about practical solutions, not just theory.",
   },
   {
-    label: "What I Value",
-    title: "Trust, clarity, and clean execution.",
-    description:
-      "I want the work to feel useful, credible, and well put together instead of loud or overdone.",
+    label: "Execution",
+    description: "I like building things that actually work in the real world.",
+  },
+  {
+    label: "Growth",
+    description: "I'm constantly improving my skills in technology, business, and leadership.",
   },
   {
     label: "Vision",
-    title: "Security, systems, and future companies.",
     description:
-      "The direction is long-term: build technical depth, strong reputation, and businesses with real weight behind them.",
+      "I'm building toward a future that combines cybersecurity, entrepreneurship, and long-term impact.",
   },
 ];
 
@@ -27,47 +25,55 @@ export default function AboutPage() {
     <>
       <Reveal as="section" className="surface page-hero" delay={40}>
         <span className="eyebrow">About</span>
-        <h1>Focused, grounded, and building with intent.</h1>
+        <h1>About Victor</h1>
         <p>
-          I am building around cybersecurity, technology, and business with a brand that should
-          feel serious, clean, and earned.
+          I'm Victor Licona, a student from Fort Worth, Texas, building my future at the
+          intersection of cybersecurity, technology, entrepreneurship, and real-world execution.
         </p>
       </Reveal>
 
+      <Reveal as="section" className="surface section-panel" delay={90}>
+        <span className="section-label">Overview</span>
+        <div className="signal-list">
+          <p>
+            What drives me most is solving problems that actually matter. I'm interested in more
+            than just learning technology - I want to apply it in practical ways that help people,
+            improve systems, and create real value.
+          </p>
+          <p>
+            My work is shaped by a mix of technical curiosity, business thinking, and hands-on
+            experience. Whether I'm building a website, helping someone solve a tech issue,
+            supporting digital systems, or developing a business idea, I care about making things
+            work well and feel intentional.
+          </p>
+          <p>
+            I'm especially focused on cybersecurity, modern digital tools, and building projects
+            that reflect both professionalism and purpose. I want this site to represent that
+            clearly: not just what I'm interested in, but what I'm actively building.
+          </p>
+        </div>
+      </Reveal>
+
       <section className="stack-section">
-        <Reveal as="div" className="section-heading" delay={90}>
-          <span className="eyebrow">Overview</span>
-          <h2>The background behind the brand.</h2>
+        <Reveal as="div" className="section-heading" delay={135}>
+          <span className="eyebrow">Values</span>
+          <h2>The principles behind how I build.</h2>
         </Reveal>
 
         <div className="focus-grid">
-          {storyItems.map((item, index) => (
+          {pillars.map((item, index) => (
             <Reveal
               key={item.label}
               as="article"
               className="surface focus-card"
-              delay={120 + index * 50}
+              delay={165 + index * 45}
             >
               <span className="kicker">{item.label}</span>
-              <h3>{item.title}</h3>
               <p>{item.description}</p>
             </Reveal>
           ))}
         </div>
       </section>
-
-      <Reveal as="section" className="surface cta-band" delay={190}>
-        <span className="section-label">Continue</span>
-        <h2>See the work behind the direction.</h2>
-        <div className="hero-actions">
-          <Link className="button" to="/experience">
-            View Work
-          </Link>
-          <Link className="button-secondary" to="/techbuddy">
-            TechBuddy
-          </Link>
-        </div>
-      </Reveal>
     </>
   );
 }

@@ -87,9 +87,6 @@ export default function SiteLayout() {
             <Link className="button drawer-cta" to="/contact">
               Contact
             </Link>
-            <Link className="button-secondary drawer-cta" to="/contact#resume-request">
-              Resume
-            </Link>
           </div>
         </div>
       </div>
@@ -100,7 +97,7 @@ export default function SiteLayout() {
             <span className="brand-mark">VL</span>
             <span className="brand-copy">
               <strong>Victor Licona</strong>
-              <small>Cybersecurity / TechBuddy / Fort Worth</small>
+              <small>Cybersecurity / Technology / Fort Worth</small>
             </span>
           </Link>
 
@@ -144,31 +141,23 @@ export default function SiteLayout() {
           <div className="footer-grid">
             <div className="footer-brand">
               <span className="eyebrow">Victor Licona</span>
-              <p>
-                Cybersecurity, systems, entrepreneurship, and real-world problem solving built into
-                a cleaner personal brand experience.
-              </p>
+              <p>Cybersecurity, technology, entrepreneurship, and real-world problem solving.</p>
+              <small>Built with intention.</small>
             </div>
 
             <div className="footer-column">
               <strong>Navigate</strong>
               <div className="footer-links">
-                <Link to="/about">About</Link>
-                <Link to="/experience">Work</Link>
-                <Link to="/techbuddy">TechBuddy</Link>
-                <Link to="/contact">Contact</Link>
-              </div>
-            </div>
-
-            <div className="footer-column">
-              <strong>Quick Actions</strong>
-              <div className="footer-actions">
-                <Link className="button-secondary footer-button" to="/contact#resume-request">
-                  Resume
-                </Link>
-                <Link className="button footer-button" to="/contact">
-                  Contact
-                </Link>
+                {navItems.map(({ to, label, end }) => (
+                  <NavLink
+                    key={to}
+                    to={to}
+                    end={end}
+                    className={({ isActive }) => (isActive ? "active" : undefined)}
+                  >
+                    {label}
+                  </NavLink>
+                ))}
               </div>
             </div>
           </div>
