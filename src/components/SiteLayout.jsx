@@ -13,6 +13,7 @@ const navItems = [
 export default function SiteLayout() {
   const location = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
+  const currentYear = new Date().getFullYear();
 
   useEffect(() => {
     setMenuOpen(false);
@@ -154,13 +155,16 @@ export default function SiteLayout() {
 
         <footer className="site-footer">
           <div className="footer-top">
-            <div className="footer-block">
+            <div className="footer-identity">
               <span className="eyebrow">Victor Licona</span>
-              <p>Cybersecurity, technology, entrepreneurship, and real-world problem solving.</p>
+              <h2 className="footer-title">Victor Licona</h2>
+              <p className="footer-tagline">
+                Cybersecurity, technology, entrepreneurship, and real-world problem solving.
+              </p>
             </div>
           </div>
 
-          <div className="footer-grid">
+          <div className="footer-main">
             <div className="footer-column">
               <small>Navigate</small>
               <div className="footer-links">
@@ -191,7 +195,7 @@ export default function SiteLayout() {
 
           <div className="footer-bottom">
             <small>Fort Worth, Texas</small>
-            <span>Built with intention.</span>
+            <span>{`© ${currentYear} Victor Licona`}</span>
           </div>
         </footer>
       </div>
