@@ -32,38 +32,48 @@ export default function HomePage() {
   return (
     <>
       <Reveal as="section" className="page-hero hero-home hero-home-signature" delay={40}>
-        <div className="hero-home-stack">
-          <div className="hero-split">
-            <div className="hero-main">
-              <div className="hero-copylock">
-                <span className="eyebrow">Victor Licona</span>
-                <h1>Building systems, solving problems, and moving toward cybersecurity.</h1>
-                <p className="hero-copyline">
-                  Fort Worth builder focused on cybersecurity, technology, entrepreneurship, and
-                  practical systems that help people move forward.
-                </p>
-              </div>
+        <div className="hero-editorial">
+          <div className="hero-topline">
+            <span className="eyebrow">Victor Licona</span>
+            <span className="hero-topline-note">Fort Worth, Texas</span>
+          </div>
 
-              <div className="hero-actions">
-                <Link className="button" to="/experience">
-                  View My Work
-                </Link>
-                <Link className="button-secondary" to="/about">
-                  About Me
-                </Link>
-                <Link className="button-secondary" to="/contact">
-                  Contact
-                </Link>
-              </div>
+          <div className="hero-editorial-body">
+            <div className="hero-copy-column">
+              <h1>Building systems, solving problems, and moving toward cybersecurity.</h1>
+              <p className="hero-copyline">
+                Fort Worth builder focused on cybersecurity, technology, entrepreneurship, and
+                practical systems that help people move forward.
+              </p>
             </div>
 
-            <PortraitFrame
-              src={portraitSrc}
-              alt="Victor Licona portrait"
-              eyebrow="Victor Licona"
-              title="Victor Licona"
-              caption="Fort Worth, Texas"
-            />
+            <div className="hero-visual-column">
+              <PortraitFrame
+                className="hero-portrait-feature"
+                src={portraitSrc}
+                alt="Victor Licona portrait"
+                eyebrow="Victor Licona"
+                title="Victor Licona"
+                caption="Fort Worth, Texas"
+              />
+
+              <div className="hero-visual-note">
+                <span className="kicker">Current Direction</span>
+                <p>Cybersecurity, systems, and founder-minded execution built through real work.</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="hero-actions">
+            <Link className="button" to="/experience">
+              View My Work
+            </Link>
+            <Link className="button-secondary" to="/about">
+              About Me
+            </Link>
+            <Link className="button-secondary" to="/contact">
+              Contact
+            </Link>
           </div>
 
           <div className="hero-layer" aria-label="Hero highlights">
