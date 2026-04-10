@@ -29,12 +29,14 @@ export default function HomePage() {
       <Reveal as="section" className="page-hero hero-home hero-home-signature" delay={40}>
         <div className="hero-split">
           <div className="hero-main">
-            <span className="eyebrow">Victor Licona</span>
-            <h1>Building systems, solving problems, and growing toward cybersecurity.</h1>
-            <p className="hero-copyline">
-              I am Victor Licona, a Fort Worth builder focused on cybersecurity, technology,
-              entrepreneurship, and practical work that helps people move forward.
-            </p>
+            <div className="hero-copylock">
+              <span className="eyebrow">Victor Licona</span>
+              <h1>Building systems, solving problems, and growing toward cybersecurity.</h1>
+              <p className="hero-copyline">
+                I am Victor Licona, a Fort Worth builder focused on cybersecurity, technology,
+                entrepreneurship, and practical work that helps people move forward.
+              </p>
+            </div>
             <div className="hero-actions">
               <Link className="button" to="/experience">
                 View My Work

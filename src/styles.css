@@ -653,12 +653,27 @@ p {
 
 .hero-split {
   display: grid;
-  gap: 0.88rem;
+  grid-template-columns: minmax(0, 1fr) clamp(7.2rem, 30vw, 8.8rem);
+  grid-template-areas:
+    "copy portrait"
+    "actions portrait";
+  align-items: start;
+  gap: 0.7rem 0.72rem;
 }
 
 .hero-main {
   position: relative;
   z-index: 1;
+  display: contents;
+}
+
+.hero-copylock {
+  position: relative;
+  z-index: 1;
+  grid-area: copy;
+  display: grid;
+  gap: var(--space-stack-base);
+  min-width: 0;
 }
 
 .portrait-frame,
@@ -671,6 +686,10 @@ p {
   display: grid;
   gap: 0.56rem;
   align-content: start;
+  grid-area: portrait;
+  width: 100%;
+  max-width: 8.8rem;
+  min-width: 0;
 }
 
 .portrait-shell,
@@ -777,7 +796,7 @@ p {
 }
 
 .portrait-caption {
-  display: grid;
+  display: none;
   gap: 0.18rem;
   padding-inline: 0.2rem;
 }
@@ -825,6 +844,7 @@ p {
 }
 
 .hero-actions {
+  grid-area: actions;
   margin-top: 0.02rem;
 }
 
@@ -1362,8 +1382,23 @@ p {
     font-size: 1.02rem;
   }
 
+  .hero-split {
+    grid-template-columns: minmax(0, 1.15fr) minmax(300px, 0.85fr);
+    grid-template-areas: "copy portrait" "actions portrait";
+    gap: 1.35rem;
+  }
+
+  .hero-main {
+    display: contents;
+  }
+
+  .portrait-caption {
+    display: grid;
+  }
+
   .portrait-frame {
     gap: 0.8rem;
+    max-width: none;
   }
 
   .portrait-shell {
@@ -1460,14 +1495,16 @@ p {
 
   .hero-split {
     grid-template-columns: minmax(0, 1.24fr) minmax(290px, 0.76fr);
+    grid-template-areas: "copy portrait" "actions portrait";
     gap: 0.95rem;
   }
 
   .hero-main {
-    display: grid;
-    align-content: center;
-    gap: 0.5rem;
-    padding-block: 0;
+    display: contents;
+  }
+
+  .hero-copylock {
+    align-self: center;
   }
 
   .hero-home-signature h1 {
@@ -1679,6 +1716,7 @@ p {
 
   .hero-split {
     grid-template-columns: minmax(0, 1.3fr) minmax(320px, 0.7fr);
+    grid-template-areas: "copy portrait" "actions portrait";
     gap: 1rem;
   }
 
