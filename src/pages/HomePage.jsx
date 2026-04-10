@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import PortraitFrame from "../components/PortraitFrame";
 import Reveal from "../components/Reveal";
@@ -26,9 +27,52 @@ const heroLayerItems = [
   { label: "Focused On", value: "Cybersecurity, digital safety, and support" },
   { label: "Building", value: "TechBuddy by Victor and practical web systems" },
 ];
+const operatingModes = [
+  {
+    id: "security",
+    label: "Security",
+    code: "01",
+    title: "Safer habits, clearer systems.",
+    copy: "Digital safety, scam awareness, account basics, and practical cybersecurity thinking.",
+    readout: "Monitor / Explain / Harden",
+    signal: "82",
+  },
+  {
+    id: "techbuddy",
+    label: "TechBuddy",
+    code: "02",
+    title: "Local help that feels human.",
+    copy: "Support for devices, Wi-Fi, printers, phones, setup, and everyday technology problems.",
+    readout: "Listen / Fix / Clarify",
+    signal: "91",
+  },
+  {
+    id: "systems",
+    label: "Systems",
+    code: "03",
+    title: "Workflows that do not fall apart.",
+    copy: "Websites, media systems, digital workflows, and technical details that need consistency.",
+    readout: "Build / Test / Refine",
+    signal: "76",
+  },
+  {
+    id: "growth",
+    label: "Growth",
+    code: "04",
+    title: "Long-term direction with standards.",
+    copy: "Cybersecurity, business thinking, execution, and steady improvement over time.",
+    readout: "Learn / Ship / Compound",
+    signal: "88",
+  },
+];
 const portraitSrc = "/victor-portrait.jpg";
 
 export default function HomePage() {
+  const [activeModeId, setActiveModeId] = useState(operatingModes[0].id);
+  const activeMode =
+    operatingModes.find((mode) => mode.id === activeModeId) ?? operatingModes[0];
+  const activeIndex = operatingModes.findIndex((mode) => mode.id === activeMode.id);
+
   return (
     <>
       <Reveal as="section" className="page-hero hero-home hero-home-signature" delay={40}>
@@ -103,6 +147,61 @@ export default function HomePage() {
           ))}
         </div>
       </section>
+
+      <Reveal as="section" className="ops-board" delay={165}>
+        <div className="ops-board-copy">
+          <span className="section-label">Operating Board</span>
+          <h2>Choose a track. See the signal.</h2>
+          <p>
+            Four lanes behind the work: safety, support, systems, and long-term execution.
+          </p>
+        </div>
+
+        <div
+          className="ops-console"
+          style={{
+            "--ops-signal-bar": `${Number(activeMode.signal) * 0.76}%`,
+            "--ops-needle-angle": `${activeIndex * 28 - 42}deg`,
+          }}
+        >
+          <div className="ops-console-head">
+            <span>{activeMode.code}</span>
+            <strong>{activeMode.label}</strong>
+          </div>
+
+          <div className="ops-console-main">
+            <div className="ops-signal-mark" aria-hidden="true">
+              <span />
+              <span />
+              <span />
+            </div>
+            <div className="ops-console-copy">
+              <h3>{activeMode.title}</h3>
+              <p>{activeMode.copy}</p>
+            </div>
+          </div>
+
+          <div className="ops-readout">
+            <span>{activeMode.readout}</span>
+            <strong>{activeMode.signal}%</strong>
+          </div>
+
+          <div className="ops-mode-list" aria-label="Operating board tracks">
+            {operatingModes.map((mode) => (
+              <button
+                key={mode.id}
+                type="button"
+                className={`ops-mode${mode.id === activeMode.id ? " is-active" : ""}`}
+                aria-pressed={mode.id === activeMode.id}
+                onClick={() => setActiveModeId(mode.id)}
+              >
+                <span>{mode.code}</span>
+                {mode.label}
+              </button>
+            ))}
+          </div>
+        </div>
+      </Reveal>
 
       <Reveal as="section" className="focus-strip focus-strip-signature" delay={170}>
         <span className="section-label">Current Focus</span>

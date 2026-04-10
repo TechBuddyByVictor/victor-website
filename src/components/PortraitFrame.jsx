@@ -31,6 +31,7 @@ export default function PortraitFrame({
         )}
 
         <div className="portrait-aura" aria-hidden="true" />
+        <div className="portrait-grade" aria-hidden="true" />
       </div>
 
       <figcaption className="portrait-caption">

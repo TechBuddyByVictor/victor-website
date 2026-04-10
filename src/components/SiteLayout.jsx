@@ -10,15 +10,74 @@ const navItems = [
   { to: "/contact", label: "Contact" },
 ];
 
+const routeSignals = {
+  "/": { label: "Origin", code: "VL-00" },
+  "/about": { label: "Profile", code: "VL-01" },
+  "/experience": { label: "Work", code: "VL-02" },
+  "/techbuddy": { label: "Support", code: "VL-03" },
+  "/contact": { label: "Contact", code: "VL-04" },
+  "/404": { label: "Missing", code: "VL-99" },
+};
+
 export default function SiteLayout() {
   const location = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
   const headerRef = useRef(null);
+  const drawerRef = useRef(null);
+  const navToggleRef = useRef(null);
+  const drawerCloseRef = useRef(null);
+  const wasMenuOpenRef = useRef(false);
   const currentYear = new Date().getFullYear();
+  const currentSignal = routeSignals[location.pathname] ?? routeSignals["/404"];
+  const scrollPercent = Math.round(scrollProgress * 100).toString().padStart(2, "0");
+  const activeNavIndex = Math.max(
+    navItems.findIndex(({ to, end }) =>
+      end ? location.pathname === to : location.pathname.startsWith(to),
+    ),
+    0,
+  );
 
   useEffect(() => {
     setMenuOpen(false);
   }, [location.pathname]);
+
+  useEffect(() => {
+    let frameId = 0;
+
+    const updateScrollProgress = () => {
+      const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const nextProgress =
+        scrollableHeight > 0 ? Math.min(window.scrollY / scrollableHeight, 1) : 0;
+
+      setScrollProgress(Math.max(nextProgress, 0));
+    };
+
+    const scheduleUpdate = () => {
+      window.cancelAnimationFrame(frameId);
+      frameId = window.requestAnimationFrame(updateScrollProgress);
+    };
+
+    scheduleUpdate();
+    window.addEventListener("scroll", scheduleUpdate, { passive: true });
+    window.addEventListener("resize", scheduleUpdate);
+
+    return () => {
+      window.cancelAnimationFrame(frameId);
+      window.removeEventListener("scroll", scheduleUpdate);
+      window.removeEventListener("resize", scheduleUpdate);
+    };
+  }, [location.pathname]);
+
+  useEffect(() => {
+    if (menuOpen) {
+      drawerCloseRef.current?.focus();
+    } else if (wasMenuOpenRef.current) {
+      navToggleRef.current?.focus();
+    }
+
+    wasMenuOpenRef.current = menuOpen;
+  }, [menuOpen]);
 
   useEffect(() => {
     const previousOverflow = document.body.style.overflow;
@@ -46,6 +105,35 @@ export default function SiteLayout() {
     const handleKeyDown = (event) => {
       if (event.key === "Escape") {
         setMenuOpen(false);
+        return;
+      }
+
+      if (event.key !== "Tab") {
+        return;
+      }
+
+      const drawerNode = drawerRef.current;
+
+      if (!drawerNode) {
+        return;
+      }
+
+      const focusableNodes = drawerNode.querySelectorAll(
+        'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])',
+      );
+      const firstFocusable = focusableNodes[0];
+      const lastFocusable = focusableNodes[focusableNodes.length - 1];
+
+      if (!firstFocusable || !lastFocusable) {
+        return;
+      }
+
+      if (event.shiftKey && document.activeElement === firstFocusable) {
+        event.preventDefault();
+        lastFocusable.focus();
+      } else if (!event.shiftKey && document.activeElement === lastFocusable) {
+        event.preventDefault();
+        firstFocusable.focus();
       }
     };
 
@@ -90,6 +178,7 @@ export default function SiteLayout() {
       />
 
       <aside
+        ref={drawerRef}
         id="mobile-drawer"
         className="mobile-drawer is-open"
         role="dialog"
@@ -100,6 +189,7 @@ export default function SiteLayout() {
           <div className="drawer-head">
             <span className="eyebrow">Menu</span>
             <button
+              ref={drawerCloseRef}
               type="button"
               className="drawer-close"
               aria-label="Close navigation menu"
@@ -133,10 +223,38 @@ export default function SiteLayout() {
 
   return (
     <div className="site-shell">
+      <a className="skip-link" href="#main-content">
+        Skip to main content
+      </a>
+
       {typeof document !== "undefined" ? createPortal(drawerMarkup, document.body) : null}
+
+      <aside
+        className="signal-seal"
+        style={{
+          "--scroll-progress": scrollProgress,
+          "--scroll-progress-percent": `${scrollProgress * 100}%`,
+          "--signal-needle-offset": `${scrollProgress * 9.96}rem`,
+        }}
+        aria-hidden="true"
+      >
+        <span className="signal-seal-code">{currentSignal.code}</span>
+        <span className="signal-seal-core">VL</span>
+        <span className="signal-seal-route">{currentSignal.label}</span>
+        <span className="signal-seal-readout">{scrollPercent}</span>
+        <span className="signal-seal-axis signal-seal-axis-x" />
+        <span className="signal-seal-axis signal-seal-axis-y" />
+        <span className="signal-seal-needle" />
+      </aside>
 
       <div className="page-shell">
         <header ref={headerRef} className="topbar">
+          <span
+            className="scroll-progress"
+            style={{ "--scroll-progress": scrollProgress }}
+            aria-hidden="true"
+          />
+
           <Link to="/" className="brand" aria-label="Victor Licona home page">
             <span className="brand-mark">VL</span>
             <span className="brand-copy">
@@ -145,7 +263,13 @@ export default function SiteLayout() {
             </span>
           </Link>
 
+          <div className="header-status" aria-hidden="true">
+            <span>{currentSignal.code}</span>
+            <strong>{currentSignal.label}</strong>
+          </div>
+
           <button
+            ref={navToggleRef}
             type="button"
             className={`nav-toggle${menuOpen ? " is-open" : ""}`}
             aria-expanded={menuOpen}
@@ -158,7 +282,15 @@ export default function SiteLayout() {
           </button>
 
           <div className="nav-panel">
-            <nav className="nav" aria-label="Primary navigation">
+            <nav
+              className="nav"
+              style={{
+                "--active-nav-index": activeNavIndex,
+                "--nav-item-count": navItems.length,
+              }}
+              aria-label="Primary navigation"
+            >
+              <span className="nav-selector" aria-hidden="true" />
               {navItems.map(({ to, label, end }) => (
                 <NavLink
                   key={to}
@@ -177,12 +309,13 @@ export default function SiteLayout() {
           </div>
         </header>
 
-        <main className="page-content">
+        <main key={location.pathname} id="main-content" className="page-content">
           <Outlet />
         </main>
 
         <footer className="site-footer">
           <div className="footer-top">
+            <span className="footer-mark" aria-hidden="true">VL</span>
             <div className="footer-identity">
               <span className="eyebrow">Victor Licona</span>
               <h2 className="footer-title">Victor Licona</h2>
@@ -191,6 +324,9 @@ export default function SiteLayout() {
                 people move forward.
               </p>
             </div>
+            <Link className="button footer-cta" to="/contact">
+              Start a Conversation
+            </Link>
           </div>
 
           <div className="footer-main">
@@ -224,6 +360,7 @@ export default function SiteLayout() {
 
           <div className="footer-bottom">
             <small>Fort Worth, Texas</small>
+            <small>Cybersecurity / TechBuddy / Systems</small>
             <span>{`Copyright ${currentYear} Victor Licona`}</span>
           </div>
         </footer>

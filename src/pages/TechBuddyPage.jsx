@@ -10,6 +10,24 @@ const services = [
   "Small business tech support",
 ];
 
+const processSteps = [
+  {
+    label: "01",
+    title: "Listen first",
+    copy: "Start with the problem, the device, and what needs to work again.",
+  },
+  {
+    label: "02",
+    title: "Fix what matters",
+    copy: "Handle the setup, troubleshooting, or safety concern without adding confusion.",
+  },
+  {
+    label: "03",
+    title: "Leave it clearer",
+    copy: "Explain what changed and what to do next so the support feels useful after the visit.",
+  },
+];
+
 export default function TechBuddyPage() {
   return (
     <>
@@ -78,7 +96,29 @@ export default function TechBuddyPage() {
         </div>
       </section>
 
-      <Reveal as="section" className="statement-strip statement-strip-service" delay={225}>
+      <section className="page-section">
+        <Reveal as="div" className="section-heading" delay={235}>
+          <span className="eyebrow">Process</span>
+          <h2>A simple way to get the issue handled.</h2>
+        </Reveal>
+
+        <div className="minimal-grid">
+          {processSteps.map((step, index) => (
+            <Reveal
+              key={step.label}
+              as="article"
+              className="line-card process-card"
+              delay={265 + index * 30}
+            >
+              <span className="kicker">{step.label}</span>
+              <h3>{step.title}</h3>
+              <p>{step.copy}</p>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
+      <Reveal as="section" className="statement-strip statement-strip-service" delay={315}>
         <span className="section-label">TechBuddy</span>
         <p>Built around trust, clarity, patience, and practical problem solving.</p>
       </Reveal>

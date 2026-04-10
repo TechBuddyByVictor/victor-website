@@ -40,7 +40,7 @@ function AppRoutes() {
       descriptionTag.setAttribute(
         "content",
         pageDescriptions[location.pathname] ??
-          "Victor Licona is building a premium personal brand around cybersecurity, technology, entrepreneurship, and real-world problem solving.",
+          "Victor Licona is building around cybersecurity, technology, entrepreneurship, and practical problem solving.",
       );
     }
 
@@ -48,7 +48,7 @@ function AppRoutes() {
   }, [location.pathname]);
 
   return (
-    <div key={location.pathname} className="route-shell">
+    <div className="route-shell">
       <Routes location={location}>
         <Route element={<SiteLayout />}>
           <Route index element={<HomePage />} />
