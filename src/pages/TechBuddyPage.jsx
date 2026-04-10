@@ -2,12 +2,12 @@ import { Link } from "react-router-dom";
 import Reveal from "../components/Reveal";
 
 const services = [
-  "Device setup",
-  "Wi-Fi help",
+  "New device setup",
+  "Wi-Fi and printer help",
   "Computer and phone support",
-  "Troubleshooting",
-  "Scam awareness and digital safety",
-  "Small business tech help",
+  "Troubleshooting slow or confusing devices",
+  "Scam awareness and safer account habits",
+  "Small business tech support",
 ];
 
 export default function TechBuddyPage() {
@@ -15,10 +15,10 @@ export default function TechBuddyPage() {
     <>
       <Reveal as="section" className="page-hero page-hero-techbuddy page-hero-service" delay={40}>
         <span className="eyebrow">TechBuddy by Victor</span>
-        <h1>Local tech support built to feel clear, trustworthy, and practical.</h1>
+        <h1>Local tech support that feels clear, trustworthy, and practical.</h1>
         <p className="hero-copyline">
           TechBuddy by Victor helps seniors, families, and small businesses with the technology
-          they rely on every day.
+          they rely on every day, from setup to troubleshooting to safer digital habits.
         </p>
         <div className="hero-actions">
           <Link className="button" to="/contact">
@@ -36,7 +36,7 @@ export default function TechBuddyPage() {
           <h2>Technology support that feels simpler, clearer, and more human.</h2>
           <p>
             I built TechBuddy by Victor to help people get real support with the devices, systems,
-            and everyday technology they depend on.
+            accounts, and everyday technology they depend on.
           </p>
           <p>
             It is designed for seniors, families, and small businesses who want trustworthy help
@@ -80,7 +80,7 @@ export default function TechBuddyPage() {
 
       <Reveal as="section" className="statement-strip statement-strip-service" delay={225}>
         <span className="section-label">TechBuddy</span>
-        <p>Built around trust, clarity, and practical problem solving.</p>
+        <p>Built around trust, clarity, patience, and practical problem solving.</p>
       </Reveal>
     </>
   );

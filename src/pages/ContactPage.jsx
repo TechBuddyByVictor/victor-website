@@ -29,13 +29,11 @@ export default function ContactPage() {
 
     const subject = `Website inquiry from ${name || "Visitor"}`;
     const body = [
-      name ? `Name: ${name}` : null,
-      email ? `Email: ${email}` : null,
+      ...(name ? [`Name: ${name}`] : []),
+      ...(email ? [`Email: ${email}`] : []),
       "",
       message || "Hi Victor,",
-    ]
-      .filter(Boolean)
-      .join("\n");
+    ].join("\n");
 
     window.location.href = `mailto:contact@victorlicona.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   };
@@ -46,8 +44,7 @@ export default function ContactPage() {
         <span className="eyebrow">Contact</span>
         <h1>Contact</h1>
         <p className="hero-copyline">
-          Whether you want to connect, collaborate, or ask about TechBuddy, I would be glad to
-          hear from you.
+          Reach out for TechBuddy help, a project conversation, or a direct connection.
         </p>
       </Reveal>
 

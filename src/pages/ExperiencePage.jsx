@@ -3,8 +3,8 @@ import Reveal from "../components/Reveal";
 const workItems = [
   {
     label: "TechBuddy by Victor",
-    title: "A local tech support business built around real trust.",
-    copy: "Helping seniors, families, and small businesses with setup, troubleshooting, Wi-Fi, scams, and everyday technology issues.",
+    title: "A local tech support business built around trust.",
+    copy: "Helping seniors, families, and small businesses with setup, troubleshooting, Wi-Fi, scam awareness, and everyday technology issues.",
   },
   {
     label: "Media and Livestream Systems",
@@ -13,8 +13,8 @@ const workItems = [
   },
   {
     label: "Web and Brand Development",
-    title: "A digital presence built with more clarity and intention.",
-    copy: "Building and refining websites, structure, and user experience to create a cleaner and more professional online identity.",
+    title: "Digital presence built with clarity and intention.",
+    copy: "Building and refining websites, structure, and user experience so the online identity feels cleaner and easier to understand.",
   },
   {
     label: "Problem Solving",
@@ -30,7 +30,8 @@ export default function ExperiencePage() {
         <span className="eyebrow">Work</span>
         <h1>Work</h1>
         <p className="hero-copyline">
-          A selection of the work, systems, and real-world technical experience behind the brand.
+          A practical look at the support work, technical systems, and problem solving behind the
+          brand.
         </p>
       </Reveal>
 

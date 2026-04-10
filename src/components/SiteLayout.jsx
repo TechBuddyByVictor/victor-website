@@ -81,20 +81,20 @@ export default function SiteLayout() {
     };
   }, []);
 
-  const drawerMarkup = (
+  const drawerMarkup = menuOpen ? (
     <>
       <div
-        className={`drawer-overlay${menuOpen ? " is-open" : ""}`}
-        aria-hidden={!menuOpen}
+        className="drawer-overlay is-open"
+        aria-hidden="true"
         onClick={() => setMenuOpen(false)}
       />
 
       <aside
         id="mobile-drawer"
-        className={`mobile-drawer${menuOpen ? " is-open" : ""}`}
-        aria-hidden={!menuOpen}
+        className="mobile-drawer is-open"
         role="dialog"
         aria-modal="true"
+        aria-label="Mobile navigation"
       >
         <div className="mobile-drawer-inner">
           <div className="drawer-head">
@@ -129,7 +129,7 @@ export default function SiteLayout() {
         </div>
       </aside>
     </>
-  );
+  ) : null;
 
   return (
     <div className="site-shell">
@@ -194,7 +194,7 @@ export default function SiteLayout() {
           </div>
 
           <div className="footer-main">
-            <div className="footer-column">
+            <nav className="footer-column" aria-label="Footer navigation">
               <small>Navigate</small>
               <div className="footer-links">
                 {navItems.map(({ to, label, end }) => (
@@ -208,9 +208,9 @@ export default function SiteLayout() {
                   </NavLink>
                 ))}
               </div>
-            </div>
+            </nav>
 
-            <div className="footer-column">
+            <nav className="footer-column" aria-label="Footer contact links">
               <small>Connect</small>
               <div className="footer-links footer-links-compact">
                 <a href="mailto:contact@victorlicona.com">Email</a>
@@ -219,7 +219,7 @@ export default function SiteLayout() {
                 </a>
                 <a href="tel:8174704724">TechBuddy</a>
               </div>
-            </div>
+            </nav>
           </div>
 
           <div className="footer-bottom">

@@ -7,8 +7,7 @@ export default function NotFoundPage() {
       <span className="eyebrow">404</span>
       <h1>That page is not part of the build.</h1>
       <p>
-        The route is missing, but the main site is here and ready to explore with the full premium
-        experience intact.
+        The route is missing, but the main site is ready.
       </p>
       <div className="hero-actions">
         <Link className="button" to="/">

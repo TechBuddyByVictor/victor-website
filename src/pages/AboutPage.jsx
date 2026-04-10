@@ -3,15 +3,15 @@ import Reveal from "../components/Reveal";
 const values = [
   {
     label: "Problem Solving",
-    copy: "I care about practical solutions that hold up in the real world.",
+    copy: "I look for practical fixes that are clear, dependable, and useful outside a classroom.",
   },
   {
     label: "Execution",
-    copy: "Good ideas matter, but finished work matters more.",
+    copy: "I care about finishing the work, testing the details, and making the result easier to use.",
   },
   {
     label: "Vision",
-    copy: "I am building toward a future in cybersecurity, business, and long-term impact.",
+    copy: "I am building toward cybersecurity, business, and long-term work that helps people.",
   },
 ];
 
@@ -22,8 +22,8 @@ export default function AboutPage() {
         <span className="eyebrow">About</span>
         <h1>About Victor</h1>
         <p className="hero-copyline">
-          I am Victor Licona, from Fort Worth, Texas, building my future around cybersecurity,
-          technology, entrepreneurship, and real-world problem solving.
+          I am Victor Licona, a Fort Worth builder focused on cybersecurity, practical technology,
+          entrepreneurship, and real-world problem solving.
         </p>
       </Reveal>
 
@@ -33,7 +33,7 @@ export default function AboutPage() {
           <h2>I am building toward work that is useful, disciplined, and real.</h2>
           <p>
             I am interested in more than learning technology. I want to use it to solve problems,
-            improve systems, and create work that helps real people in practical ways.
+            improve systems, and make everyday tools easier and safer for real people.
           </p>
           <p>
             My path combines cybersecurity, business thinking, and hands-on technical work.

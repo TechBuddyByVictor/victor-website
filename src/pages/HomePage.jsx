@@ -6,25 +6,25 @@ const entryLinks = [
   {
     to: "/about",
     label: "About",
-    title: "Fort Worth roots, cybersecurity focus, and builder mindset.",
+    title: "Fort Worth roots, cybersecurity goals, and a hands-on builder mindset.",
   },
   {
     to: "/experience",
     label: "Work",
-    title: "Projects, systems, support work, and technical execution.",
+    title: "Projects, technical support, systems work, and real execution.",
   },
   {
     to: "/techbuddy",
     label: "TechBuddy",
-    title: "Local tech support built around trust, clarity, and real help.",
+    title: "Clear local tech support for people who want dependable help.",
   },
 ];
 
-const focusItems = ["Cybersecurity", "TechBuddy by Victor", "Real-world systems"];
+const focusItems = ["Cybersecurity", "Digital safety", "TechBuddy by Victor", "Practical systems"];
 const heroLayerItems = [
   { label: "Based In", value: "Fort Worth, Texas" },
-  { label: "Focused On", value: "Cybersecurity and digital systems" },
-  { label: "Building", value: "TechBuddy by Victor" },
+  { label: "Focused On", value: "Cybersecurity, digital safety, and support" },
+  { label: "Building", value: "TechBuddy by Victor and practical web systems" },
 ];
 const portraitSrc = "/victor-portrait.jpg";
 
@@ -40,10 +40,10 @@ export default function HomePage() {
 
           <div className="hero-editorial-body">
             <div className="hero-copy-column">
-              <h1>Building systems, solving problems, and moving toward cybersecurity.</h1>
+              <h1>Building safer systems and practical tech support.</h1>
               <p className="hero-copyline">
-                Fort Worth builder focused on cybersecurity, technology, entrepreneurship, and
-                practical systems that help people move forward.
+                I am a Fort Worth builder focused on cybersecurity, useful technology, and clear
+                support for people who want their tools to work better.
               </p>
             </div>
 
@@ -85,7 +85,7 @@ export default function HomePage() {
       <section className="page-section">
         <Reveal as="div" className="section-heading" delay={90}>
           <span className="eyebrow">Start Here</span>
-          <h2>The site, split into clear pages.</h2>
+          <h2>A quick path through what I am building.</h2>
         </Reveal>
 
         <div className="entry-grid">
@@ -106,7 +106,7 @@ export default function HomePage() {
 
       <Reveal as="section" className="focus-strip focus-strip-signature" delay={170}>
         <span className="section-label">Current Focus</span>
-        <p>Focused on cybersecurity, better systems, and building work with practical value.</p>
+        <p>Cybersecurity, digital safety, and useful systems that make everyday technology easier.</p>
         <div className="chip-row">
           {focusItems.map((item) => (
             <span key={item}>{item}</span>

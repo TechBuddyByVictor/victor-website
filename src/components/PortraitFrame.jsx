@@ -12,7 +12,13 @@ export default function PortraitFrame({
     <figure className={`portrait-frame${className ? ` ${className}` : ""}`}>
       <div className="portrait-shell">
         {hasImage ? (
-          <img className="portrait-image" src={src} alt={alt} />
+          <img
+            className="portrait-image"
+            src={src}
+            alt={alt}
+            decoding="async"
+            fetchPriority="high"
+          />
         ) : (
           <div className="portrait-placeholder" aria-label={alt} role="img">
             <span className="portrait-placeholder-mark">VL</span>
