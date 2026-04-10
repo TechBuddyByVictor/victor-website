@@ -21,7 +21,7 @@ const entryLinks = [
 ];
 
 const focusItems = ["Cybersecurity", "TechBuddy by Victor", "Real-world systems"];
-const portraitSrc = "";
+const portraitSrc = "/victor-portrait.jpg";
 
 export default function HomePage() {
   return (
@@ -52,8 +52,8 @@ export default function HomePage() {
             src={portraitSrc}
             alt="Victor Licona portrait"
             eyebrow="Victor Licona"
-            title="Add Your Portrait"
-            caption="Set portraitSrc in HomePage.jsx when your final image is ready."
+            title="Victor Licona"
+            caption="Fort Worth, Texas"
           />
         </div>
       </Reveal>

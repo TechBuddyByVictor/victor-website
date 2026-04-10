@@ -709,6 +709,10 @@ p {
   object-fit: cover;
 }
 
+.portrait-image {
+  object-position: center top;
+}
+
 .portrait-placeholder {
   display: grid;
   align-content: end;
