@@ -22,6 +22,7 @@ const routeSignals = {
 export default function SiteLayout() {
   const location = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [hoveredNavIndex, setHoveredNavIndex] = useState(null);
   const [scrollProgress, setScrollProgress] = useState(0);
   const headerRef = useRef(null);
   const drawerRef = useRef(null);
@@ -37,6 +38,7 @@ export default function SiteLayout() {
     ),
     0,
   );
+  const visibleNavIndex = hoveredNavIndex ?? activeNavIndex;
 
   useEffect(() => {
     setMenuOpen(false);
@@ -285,17 +287,25 @@ export default function SiteLayout() {
             <nav
               className="nav"
               style={{
-                "--active-nav-index": activeNavIndex,
+                "--active-nav-index": visibleNavIndex,
                 "--nav-item-count": navItems.length,
+              }}
+              onMouseLeave={() => setHoveredNavIndex(null)}
+              onBlur={(event) => {
+                if (!event.currentTarget.contains(event.relatedTarget)) {
+                  setHoveredNavIndex(null);
+                }
               }}
               aria-label="Primary navigation"
             >
               <span className="nav-selector" aria-hidden="true" />
-              {navItems.map(({ to, label, end }) => (
+              {navItems.map(({ to, label, end }, index) => (
                 <NavLink
                   key={to}
                   to={to}
                   end={end}
+                  onMouseEnter={() => setHoveredNavIndex(index)}
+                  onFocus={() => setHoveredNavIndex(index)}
                   className={({ isActive }) => (isActive ? "active" : undefined)}
                 >
                   {label}

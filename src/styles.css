@@ -13,7 +13,7 @@
   --shadow: 0 26px 80px rgba(0, 0, 0, 0.36);
   --radius-xl: 8px;
   --radius-lg: 8px;
-  --shell-width: min(100% - 0.8rem, 1080px);
+  --shell-width: min(calc(100% - 0.8rem), 1080px);
   --header-offset: 0px;
   --space-panel-block: 0.9rem;
   --space-panel-inline: 0.9rem;
@@ -29,18 +29,31 @@
 }
 
 html {
+  overflow-x: hidden;
+  background: #050505;
   scroll-behavior: smooth;
 }
 
 body {
   margin: 0;
+  width: 100%;
   min-height: 100vh;
+  min-height: 100dvh;
   font-family: var(--font-body);
   color: var(--text);
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.055), transparent 18%),
     linear-gradient(115deg, rgba(255, 255, 255, 0.035), transparent 34%),
-    linear-gradient(180deg, #040404 0%, #090909 42%, #050505 100%);
+    linear-gradient(180deg, #040404 0%, #090909 42%, #050505 100%),
+    #050505;
+  overflow-x: hidden;
+}
+
+@supports (overflow: clip) {
+  html,
+  body {
+    overflow-x: clip;
+  }
 }
 
 body::before {
@@ -73,6 +86,7 @@ body::after {
 a {
   color: inherit;
   text-decoration: none;
+  touch-action: manipulation;
 }
 
 button,
@@ -84,6 +98,7 @@ select {
 
 button {
   cursor: pointer;
+  touch-action: manipulation;
 }
 
 :focus-visible {
@@ -124,6 +139,7 @@ button {
 
 .page-shell {
   width: var(--shell-width);
+  max-width: 100%;
   margin: 0 auto;
 }
 
@@ -1556,6 +1572,7 @@ p {
   color: var(--text);
   font-size: 0.94rem;
   line-height: 1.4;
+  overflow-wrap: anywhere;
 }
 
 .fact-row,
@@ -1783,6 +1800,7 @@ p {
   font-size: 0.68rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
+  overflow-wrap: anywhere;
   transition: color 0.24s ease, opacity 0.24s ease, transform 0.24s ease;
 }
 
@@ -1822,7 +1840,7 @@ p {
 
 @media (max-width: 759px) {
   :root {
-    --shell-width: min(100% - 1rem, 1080px);
+    --shell-width: min(calc(100% - 1rem), 1080px);
   }
 
   body::before {
@@ -1837,8 +1855,12 @@ p {
 
   .topbar {
     top: calc(0.42rem + env(safe-area-inset-top, 0px));
+    right: max(0.5rem, env(safe-area-inset-right, 0px));
+    left: max(0.5rem, env(safe-area-inset-left, 0px));
+    width: auto;
     gap: 0.5rem;
     padding: 0.56rem 0.62rem;
+    transform: none;
   }
 
   .topbar::after,
@@ -1891,11 +1913,11 @@ p {
   .button,
   .button-secondary,
   .ops-mode {
-    min-height: 2.75rem;
+    min-height: 2.84rem;
   }
 
   .page-content {
-    gap: 1.55rem;
+    gap: 1.42rem;
     padding-top: calc(var(--header-offset) + 0.8rem + env(safe-area-inset-top, 0px));
   }
 
@@ -1916,7 +1938,7 @@ p {
   }
 
   .hero-home-signature h1 {
-    max-width: 10.2ch;
+    max-width: 11.7ch;
   }
 
   .hero-home-signature .hero-copy-column .hero-copyline,
@@ -1937,12 +1959,32 @@ p {
     animation-duration: 8.5s;
   }
 
+  .hero-actions,
   .hero-home-signature .hero-actions {
+    display: grid;
     grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .hero-actions > *,
+  .hero-home-signature .hero-actions > * {
+    width: 100%;
   }
 
   .hero-home-signature .hero-actions > :first-child {
     grid-column: auto;
+  }
+
+  .entry-link h3,
+  .entry-link-feature h3,
+  .line-card h3,
+  .work-copy h3 {
+    max-width: 22ch;
+  }
+
+  .editorial-panel-story h2,
+  .form-panel-emphasis h2 {
+    max-width: 15.5ch;
   }
 
   .ops-board {
@@ -1998,19 +2040,19 @@ p {
 
 @media (max-width: 430px) {
   :root {
-    --shell-width: min(100% - 0.9rem, 1080px);
+    --shell-width: min(calc(100% - 0.9rem), 1080px);
     --space-panel-block: 0.84rem;
     --space-panel-inline: 0.84rem;
     --space-stack-base: 0.66rem;
   }
 
   .page-content {
-    gap: 1.75rem;
+    gap: 1.48rem;
     padding-top: calc(var(--header-offset) + 0.88rem + env(safe-area-inset-top, 0px));
   }
 
   .hero-home-signature h1 {
-    max-width: 10.4ch;
+    max-width: 11.5ch;
   }
 
   .hero-home-signature {
@@ -2041,11 +2083,11 @@ p {
   }
 
   .hero-home-signature .hero-portrait-feature {
-    max-width: min(76vw, 14.4rem);
+    max-width: min(72vw, 14rem);
   }
 
   .hero-home-signature .hero-portrait-feature .portrait-shell {
-    min-height: 14.4rem;
+    min-height: 14rem;
   }
 
   .ops-mode-list {
@@ -2077,7 +2119,7 @@ p {
   }
 
   .work-copy h3 {
-    max-width: 15.5ch;
+    max-width: 20ch;
   }
 
   .contact-link,
@@ -2120,6 +2162,17 @@ p {
 
 .section-heading.reveal.is-visible {
   transform: translateX(0);
+}
+
+@media (max-width: 759px) {
+  .section-heading.reveal {
+    transform: translateY(var(--reveal-y)) scale(var(--reveal-scale));
+    clip-path: inset(0 0 8% 0);
+  }
+
+  .section-heading.reveal.is-visible {
+    transform: translateY(0) scale(1);
+  }
 }
 
 :is(.entry-link, .line-card, .work-row).reveal {
@@ -2221,6 +2274,23 @@ p {
   50% {
     opacity: 0.88;
     transform: scaleX(1);
+  }
+}
+
+@keyframes nav-selector-scan {
+  0%,
+  58% {
+    opacity: 0;
+    transform: translateX(-115%);
+  }
+
+  72% {
+    opacity: 0.82;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(115%);
   }
 }
 
@@ -2368,11 +2438,15 @@ p {
   .signal-seal-needle {
     animation: none;
   }
+
+  .nav-selector::before {
+    animation: none;
+  }
 }
 
 @media (min-width: 760px) {
   :root {
-    --shell-width: min(100% - 2.25rem, 1120px);
+    --shell-width: min(calc(100% - 2.25rem), 1120px);
   }
 
   .site-shell {
@@ -2557,7 +2631,7 @@ p {
 
 @media (min-width: 980px) {
   :root {
-    --shell-width: min(100% - 3.5rem, 1200px);
+    --shell-width: min(calc(100% - 3.5rem), 1200px);
   }
 
   .nav-toggle {
@@ -2643,10 +2717,21 @@ p {
       inset 0 -2px 0 rgba(255, 255, 255, 0.18),
       0 12px 28px rgba(0, 0, 0, 0.2);
     pointer-events: none;
+    overflow: hidden;
     transform: translateX(calc(var(--active-nav-index, 0) * (100% + var(--nav-gap))));
     transition:
-      transform 0.42s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
       opacity 0.24s ease;
+  }
+
+  .nav-selector::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(110deg, transparent 0%, rgba(255, 255, 255, 0.12) 42%, transparent 58%);
+    opacity: 0.8;
+    transform: translateX(-115%);
+    animation: nav-selector-scan 3.8s cubic-bezier(0.22, 1, 0.36, 1) infinite;
   }
 
   .nav-selector::after {
@@ -3018,7 +3103,7 @@ p {
 
 @media (min-width: 1240px) {
   :root {
-    --shell-width: min(100% - 5rem, 1280px);
+    --shell-width: min(calc(100% - 5rem), 1280px);
     --space-panel-block: 1.65rem;
     --space-panel-inline: 1.65rem;
     --space-stack-base: 0.95rem;
