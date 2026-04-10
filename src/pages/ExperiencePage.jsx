@@ -3,23 +3,23 @@ import Reveal from "../components/Reveal";
 const workItems = [
   {
     label: "TechBuddy by Victor",
-    title: "A local tech support business with real-world responsibility.",
-    copy: "Helping seniors, families, and small businesses with setup, troubleshooting, Wi-Fi, scams, and everyday technology problems.",
+    title: "A local tech support business built around real trust.",
+    copy: "Helping seniors, families, and small businesses with setup, troubleshooting, Wi-Fi, scams, and everyday technology issues.",
   },
   {
-    label: "Church Media",
-    title: "Technical systems that need to work live.",
-    copy: "Hands-on support across media, livestream, and digital workflows where reliability matters to real people.",
+    label: "Media and Livestream Systems",
+    title: "Technical systems that need to work when people are counting on them.",
+    copy: "Hands-on experience supporting media, livestreaming, and digital workflows where consistency and reliability matter.",
   },
   {
-    label: "Web and Brand",
-    title: "A stronger digital presence built with intention.",
-    copy: "Designing and refining a cleaner online identity through web design, structure, and experience.",
+    label: "Web and Brand Development",
+    title: "A digital presence built with more clarity and intention.",
+    copy: "Building and refining websites, structure, and user experience to create a cleaner and more professional online identity.",
   },
   {
     label: "Problem Solving",
-    title: "Finding what is wrong and improving how it works.",
-    copy: "From devices and networks to setup and digital tools, I enjoy making technology more usable and dependable.",
+    title: "Practical troubleshooting across tools, systems, and setups.",
+    copy: "From devices and networks to software, setup, and support, I enjoy making technology more useful, dependable, and easier to work with.",
   },
 ];
 
@@ -30,14 +30,14 @@ export default function ExperiencePage() {
         <span className="eyebrow">Work</span>
         <h1>Work</h1>
         <p className="hero-copyline">
-          A focused look at the systems, projects, and technical work giving the brand real proof.
+          A selection of the work, systems, and real-world technical experience behind the brand.
         </p>
       </Reveal>
 
       <section className="page-section">
         <Reveal as="div" className="section-heading" delay={90}>
           <span className="eyebrow">Selected</span>
-          <h2>Real work, presented with more conviction.</h2>
+          <h2>Work that shows how I think, build, and solve.</h2>
         </Reveal>
 
         <div className="work-list">

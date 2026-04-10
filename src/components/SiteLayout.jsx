@@ -187,7 +187,8 @@ export default function SiteLayout() {
               <span className="eyebrow">Victor Licona</span>
               <h2 className="footer-title">Victor Licona</h2>
               <p className="footer-tagline">
-                Cybersecurity, technology, entrepreneurship, and real-world problem solving.
+                Cybersecurity, technology, entrepreneurship, and practical systems that help
+                people move forward.
               </p>
             </div>
           </div>

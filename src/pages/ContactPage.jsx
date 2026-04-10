@@ -46,14 +46,15 @@ export default function ContactPage() {
         <span className="eyebrow">Contact</span>
         <h1>Contact</h1>
         <p className="hero-copyline">
-          Whether you want to connect, collaborate, or ask about TechBuddy, reach out.
+          Whether you want to connect, collaborate, or ask about TechBuddy, I would be glad to
+          hear from you.
         </p>
       </Reveal>
 
       <section className="contact-layout">
         <Reveal as="article" className="editorial-panel editorial-panel-story" delay={90}>
           <span className="section-label">Direct</span>
-          <h2>The most direct way to reach me.</h2>
+          <h2>Connect directly.</h2>
           <div className="contact-list">
             {contactItems.map((item) => (
               <div key={item.label} className="contact-row">
@@ -77,6 +78,7 @@ export default function ContactPage() {
 
         <Reveal as="article" className="form-panel form-panel-emphasis" delay={130}>
           <span className="section-label">Message</span>
+          <h2>Start the conversation.</h2>
           <form id="contact-form" className="contact-form" onSubmit={handleSubmit}>
             <label className="field">
               <span>Name</span>
