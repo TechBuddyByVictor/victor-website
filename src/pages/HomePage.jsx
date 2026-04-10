@@ -5,21 +5,21 @@ const entryLinks = [
   {
     to: "/about",
     label: "About",
-    title: "Who I am and what I am building.",
+    title: "Fort Worth roots, cybersecurity focus, and builder mindset.",
   },
   {
     to: "/experience",
     label: "Work",
-    title: "Projects, systems, and technical proof.",
+    title: "Projects, systems, support work, and technical execution.",
   },
   {
     to: "/techbuddy",
     label: "TechBuddy",
-    title: "A local business built around trust and clarity.",
+    title: "Local tech support built around trust, clarity, and real help.",
   },
 ];
 
-const focusItems = ["Cybersecurity", "TechBuddy by Victor", "Digital systems"];
+const focusItems = ["Cybersecurity", "TechBuddy by Victor", "Real-world systems"];
 
 export default function HomePage() {
   return (
@@ -28,10 +28,10 @@ export default function HomePage() {
         <div className="hero-split">
           <div className="hero-main">
             <span className="eyebrow">Victor Licona</span>
-            <h1>Cybersecurity, technology, and entrepreneurship with real-world weight.</h1>
+            <h1>Building systems, solving problems, and growing toward cybersecurity.</h1>
             <p className="hero-copyline">
-              I build systems, solve technical problems, and shape digital experiences that feel
-              sharp, useful, and intentional.
+              I am Victor Licona, a Fort Worth builder focused on cybersecurity, technology,
+              entrepreneurship, and practical work that helps people move forward.
             </p>
             <div className="hero-actions">
               <Link className="button" to="/experience">
@@ -49,8 +49,8 @@ export default function HomePage() {
           <div className="hero-stage">
             <div className="stage-card">
               <span className="kicker">Fort Worth, Texas</span>
-              <strong>Building with discipline, clarity, and direction.</strong>
-              <p>Cybersecurity. Systems. TechBuddy. Long-term founder energy.</p>
+              <strong>Serious about technology, business, and building work that lasts.</strong>
+              <p>Cybersecurity. TechBuddy. Digital systems. Real-world execution.</p>
             </div>
             <div className="signal-orbit" aria-hidden="true" />
           </div>
@@ -81,7 +81,7 @@ export default function HomePage() {
 
       <Reveal as="section" className="focus-strip focus-strip-signature" delay={170}>
         <span className="section-label">Current Focus</span>
-        <p>Focused on building stronger technical depth and a sharper digital identity.</p>
+        <p>Focused on cybersecurity, better systems, and building work with practical value.</p>
         <div className="chip-row">
           {focusItems.map((item) => (
             <span key={item}>{item}</span>

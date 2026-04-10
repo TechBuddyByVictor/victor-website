@@ -3,15 +3,15 @@ import Reveal from "../components/Reveal";
 const values = [
   {
     label: "Problem Solving",
-    copy: "Practical solutions matter more than theory alone.",
+    copy: "I care about practical solutions that hold up in the real world.",
   },
   {
     label: "Execution",
-    copy: "I want the work to function well in the real world.",
+    copy: "Good ideas matter, but finished work matters more.",
   },
   {
-    label: "Growth",
-    copy: "I am building stronger technical, business, and leadership depth.",
+    label: "Vision",
+    copy: "I am building toward a future in cybersecurity, business, and long-term impact.",
   },
 ];
 
@@ -22,24 +22,23 @@ export default function AboutPage() {
         <span className="eyebrow">About</span>
         <h1>About Victor</h1>
         <p className="hero-copyline">
-          I am a student from Fort Worth, Texas, building my future around cybersecurity,
-          technology, entrepreneurship, and real-world execution.
+          I am Victor Licona, from Fort Worth, Texas, building my future around cybersecurity,
+          technology, entrepreneurship, and real-world problem solving.
         </p>
       </Reveal>
 
       <section className="about-layout">
         <Reveal as="article" className="editorial-panel editorial-panel-story" delay={90}>
           <span className="section-label">Statement</span>
-          <h2>I care about work that actually matters.</h2>
+          <h2>I am building toward work that is useful, disciplined, and real.</h2>
           <p>
-            What drives me most is solving problems that actually matter. I am interested in more
-            than learning technology. I want to apply it in ways that help people, improve
-            systems, and create real value.
+            I am interested in more than learning technology. I want to use it to solve problems,
+            improve systems, and create work that helps real people in practical ways.
           </p>
           <p>
-            My work is shaped by technical curiosity, business thinking, and hands-on experience.
-            Whether I am building a website, supporting digital systems, or solving a tech issue,
-            I want the result to feel clean, capable, and intentional.
+            My path combines cybersecurity, business thinking, and hands-on technical work.
+            Whether I am building a website, supporting media systems, troubleshooting devices, or
+            growing TechBuddy by Victor, I care about clarity, trust, and execution.
           </p>
         </Reveal>
 
@@ -65,7 +64,7 @@ export default function AboutPage() {
       <section className="page-section">
         <Reveal as="div" className="section-heading" delay={170}>
           <span className="eyebrow">Principles</span>
-          <h2>The standards behind how I build.</h2>
+          <h2>The standards behind how I work.</h2>
         </Reveal>
 
         <div className="minimal-grid">
