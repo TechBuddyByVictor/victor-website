@@ -21,43 +21,59 @@ const entryLinks = [
 ];
 
 const focusItems = ["Cybersecurity", "TechBuddy by Victor", "Real-world systems"];
+const heroLayerItems = [
+  { label: "Based In", value: "Fort Worth, Texas" },
+  { label: "Focused On", value: "Cybersecurity and digital systems" },
+  { label: "Building", value: "TechBuddy by Victor" },
+];
 const portraitSrc = "/victor-portrait.jpg";
 
 export default function HomePage() {
   return (
     <>
       <Reveal as="section" className="page-hero hero-home hero-home-signature" delay={40}>
-        <div className="hero-split">
-          <div className="hero-main">
-            <div className="hero-copylock">
-              <span className="eyebrow">Victor Licona</span>
-              <h1>Building systems, solving problems, and moving toward cybersecurity.</h1>
-              <p className="hero-copyline">
-                Fort Worth builder focused on cybersecurity, technology, entrepreneurship, and
-                practical systems that help people move forward.
-              </p>
+        <div className="hero-home-stack">
+          <div className="hero-split">
+            <div className="hero-main">
+              <div className="hero-copylock">
+                <span className="eyebrow">Victor Licona</span>
+                <h1>Building systems, solving problems, and moving toward cybersecurity.</h1>
+                <p className="hero-copyline">
+                  Fort Worth builder focused on cybersecurity, technology, entrepreneurship, and
+                  practical systems that help people move forward.
+                </p>
+              </div>
+
+              <div className="hero-actions">
+                <Link className="button" to="/experience">
+                  View My Work
+                </Link>
+                <Link className="button-secondary" to="/about">
+                  About Me
+                </Link>
+                <Link className="button-secondary" to="/contact">
+                  Contact
+                </Link>
+              </div>
             </div>
 
-            <div className="hero-actions">
-              <Link className="button" to="/experience">
-                View My Work
-              </Link>
-              <Link className="button-secondary" to="/about">
-                About Me
-              </Link>
-              <Link className="button-secondary" to="/contact">
-                Contact
-              </Link>
-            </div>
+            <PortraitFrame
+              src={portraitSrc}
+              alt="Victor Licona portrait"
+              eyebrow="Victor Licona"
+              title="Victor Licona"
+              caption="Fort Worth, Texas"
+            />
           </div>
 
-          <PortraitFrame
-            src={portraitSrc}
-            alt="Victor Licona portrait"
-            eyebrow="Victor Licona"
-            title="Victor Licona"
-            caption="Fort Worth, Texas"
-          />
+          <div className="hero-layer" aria-label="Hero highlights">
+            {heroLayerItems.map((item) => (
+              <div key={item.label} className="hero-layer-item">
+                <span>{item.label}</span>
+                <strong>{item.value}</strong>
+              </div>
+            ))}
+          </div>
         </div>
       </Reveal>
 
