@@ -1,4 +1,5 @@
 export default function PortraitFrame({
+  className = "",
   src = "",
   alt = "Victor Licona portrait",
   eyebrow = "Victor Licona",
@@ -8,7 +9,7 @@ export default function PortraitFrame({
   const hasImage = Boolean(src);
 
   return (
-    <figure className="portrait-frame">
+    <figure className={`portrait-frame${className ? ` ${className}` : ""}`}>
       <div className="portrait-shell">
         {hasImage ? (
           <img className="portrait-image" src={src} alt={alt} />
