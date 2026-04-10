@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import PortraitFrame from "../components/PortraitFrame";
 import Reveal from "../components/Reveal";
 
 const entryLinks = [
@@ -20,6 +21,7 @@ const entryLinks = [
 ];
 
 const focusItems = ["Cybersecurity", "TechBuddy by Victor", "Real-world systems"];
+const portraitSrc = "";
 
 export default function HomePage() {
   return (
@@ -46,14 +48,13 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="hero-stage">
-            <div className="stage-card">
-              <span className="kicker">Fort Worth, Texas</span>
-              <strong>Serious about technology, business, and building work that lasts.</strong>
-              <p>Cybersecurity. TechBuddy. Digital systems. Real-world execution.</p>
-            </div>
-            <div className="signal-orbit" aria-hidden="true" />
-          </div>
+          <PortraitFrame
+            src={portraitSrc}
+            alt="Victor Licona portrait"
+            eyebrow="Victor Licona"
+            title="Add Your Portrait"
+            caption="Set portraitSrc in HomePage.jsx when your final image is ready."
+          />
         </div>
       </Reveal>
 

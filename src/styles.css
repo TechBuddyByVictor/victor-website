@@ -661,9 +661,20 @@ p {
   z-index: 1;
 }
 
+.portrait-frame,
 .hero-stage {
   position: relative;
   min-height: 15rem;
+}
+
+.portrait-frame {
+  display: grid;
+  gap: 0.7rem;
+  align-content: start;
+}
+
+.portrait-shell,
+.hero-stage {
   border: 1px solid var(--line);
   border-radius: calc(var(--radius-xl) - 0.35rem);
   background:
@@ -672,6 +683,14 @@ p {
   overflow: hidden;
 }
 
+.portrait-shell {
+  position: relative;
+  aspect-ratio: 4 / 4.85;
+  min-height: 15rem;
+  box-shadow: 0 22px 56px rgba(0, 0, 0, 0.32);
+}
+
+.portrait-shell::before,
 .hero-stage::before {
   content: "";
   position: absolute;
@@ -681,25 +700,89 @@ p {
   pointer-events: none;
 }
 
-.stage-card {
+.portrait-image,
+.portrait-placeholder {
   position: absolute;
-  left: 1rem;
-  right: 1rem;
-  bottom: 1rem;
-  z-index: 1;
-  display: grid;
-  gap: 0.4rem;
-  padding: 1rem;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 1.2rem;
-  background: rgba(8, 8, 9, 0.72);
-  backdrop-filter: blur(14px);
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-.stage-card strong {
+.portrait-placeholder {
+  display: grid;
+  align-content: end;
+  gap: 1rem;
+  padding: 1rem;
+  background:
+    radial-gradient(circle at 50% 22%, rgba(255, 255, 255, 0.1), transparent 22%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(6, 6, 7, 0.88));
+}
+
+.portrait-placeholder-mark {
+  display: grid;
+  place-items: center;
+  width: 4.2rem;
+  height: 4.2rem;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 1.4rem;
+  background: rgba(255, 255, 255, 0.04);
   font-family: var(--font-display);
-  font-size: 1.45rem;
-  line-height: 1.02;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.portrait-placeholder-copy {
+  display: grid;
+  gap: 0.38rem;
+  max-width: 18rem;
+}
+
+.portrait-placeholder-copy small {
+  color: var(--muted);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.portrait-placeholder-copy strong {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+.portrait-placeholder-copy p {
+  max-width: 28ch;
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.portrait-aura {
+  position: absolute;
+  inset: auto -12% -16% auto;
+  width: 62%;
+  aspect-ratio: 1;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.16), transparent 68%);
+  filter: blur(28px);
+  opacity: 0.42;
+  pointer-events: none;
+}
+
+.portrait-caption {
+  display: grid;
+  gap: 0.28rem;
+  padding-inline: 0.2rem;
+}
+
+.portrait-caption strong {
+  font-family: var(--font-display);
+  font-size: 1.08rem;
+  font-weight: 600;
+  line-height: 1.08;
 }
 
 .signal-orbit {
@@ -1232,6 +1315,14 @@ p {
     font-size: 1.02rem;
   }
 
+  .portrait-frame {
+    gap: 0.8rem;
+  }
+
+  .portrait-shell {
+    min-height: 17.5rem;
+  }
+
   .hero-stage {
     min-height: 100%;
   }
@@ -1344,9 +1435,29 @@ p {
     gap: 0.45rem;
   }
 
+  .portrait-frame,
+  .hero-stage {
+    justify-self: end;
+    width: 100%;
+    max-width: 19.6rem;
+  }
+
+  .portrait-shell {
+    min-height: 0;
+    aspect-ratio: 0.83;
+  }
+
+  .portrait-caption {
+    gap: 0.24rem;
+  }
+
+  .portrait-caption strong {
+    max-width: 18ch;
+    font-size: 1rem;
+  }
+
   .hero-stage {
     min-height: 17.4rem;
-    max-width: 20.5rem;
     justify-self: end;
   }
 
@@ -1527,6 +1638,10 @@ p {
   .hero-stage {
     min-height: 18.2rem;
     max-width: 21.5rem;
+  }
+
+  .portrait-frame {
+    max-width: 20.4rem;
   }
 
   .stage-card {
