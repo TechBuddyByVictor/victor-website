@@ -31,10 +31,10 @@ export default function HomePage() {
           <div className="hero-main">
             <div className="hero-copylock">
               <span className="eyebrow">Victor Licona</span>
-              <h1>Building systems, solving problems, and growing toward cybersecurity.</h1>
+              <h1>Building systems, solving problems, and moving toward cybersecurity.</h1>
               <p className="hero-copyline">
-                I am Victor Licona, a Fort Worth builder focused on cybersecurity, technology,
-                entrepreneurship, and practical work that helps people move forward.
+                Fort Worth builder focused on cybersecurity, technology, entrepreneurship, and
+                practical systems that help people move forward.
               </p>
             </div>
             <div className="hero-actions">

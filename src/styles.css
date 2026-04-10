@@ -708,12 +708,14 @@ p {
 }
 
 .hero-home-signature h1 {
-  max-width: 8.9ch;
+  max-width: 7.7ch;
+  font-size: clamp(1.76rem, 7.9vw, 2.5rem);
+  line-height: 0.95;
 }
 
 .hero-home-signature .hero-copyline {
-  max-width: 24ch;
-  font-size: 0.88rem;
+  max-width: 19ch;
+  font-size: 0.84rem;
 }
 
 .portrait-frame,
@@ -736,8 +738,8 @@ p {
   align-self: start;
   justify-self: end;
   gap: 0;
-  max-width: 7.35rem;
-  padding-top: 0.18rem;
+  max-width: 8.6rem;
+  padding-top: 0.08rem;
 }
 
 .portrait-shell,
@@ -759,7 +761,7 @@ p {
 
 .hero-home-signature .portrait-shell {
   aspect-ratio: 0.82;
-  min-height: 9.9rem;
+  min-height: 10.7rem;
   border-radius: 1.35rem;
   box-shadow: 0 18px 36px rgba(0, 0, 0, 0.28);
 }
@@ -862,6 +864,10 @@ p {
   filter: blur(20px);
 }
 
+.hero-home-signature .portrait-image {
+  object-position: center 12%;
+}
+
 .portrait-caption {
   display: none;
   gap: 0.18rem;
@@ -917,6 +923,11 @@ p {
 
 .hero-home-signature .hero-actions {
   gap: 0.45rem;
+}
+
+.hero-home-signature .hero-split {
+  grid-template-columns: minmax(0, 0.95fr) minmax(8.4rem, 0.92fr);
+  gap: 0.58rem 0.9rem;
 }
 
 .page-section {
@@ -1289,7 +1300,8 @@ p {
   }
 
   .hero-home-signature h1 {
-    max-width: 8.2ch;
+    max-width: 7.1ch;
+    font-size: clamp(1.62rem, 7.2vw, 2.08rem);
   }
 
   .hero-home-signature {
@@ -1297,8 +1309,8 @@ p {
   }
 
   .hero-home-signature .hero-copyline {
-    max-width: 20ch;
-    font-size: 0.82rem;
+    max-width: 17ch;
+    font-size: 0.78rem;
   }
 
   .hero-copyline {
@@ -1307,12 +1319,12 @@ p {
   }
 
   .hero-home-signature .portrait-frame {
-    max-width: 6.55rem;
+    max-width: 7.4rem;
   }
 
   .hero-home-signature .portrait-shell {
     aspect-ratio: 0.82;
-    min-height: 8.7rem;
+    min-height: 9.4rem;
   }
 
   .portrait-shell {
