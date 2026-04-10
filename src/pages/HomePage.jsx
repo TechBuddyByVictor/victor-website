@@ -29,24 +29,13 @@ export default function HomePage() {
       <Reveal as="section" className="page-hero hero-home hero-home-signature" delay={40}>
         <div className="hero-split">
           <div className="hero-main">
-            <div className="hero-lead">
-              <div className="hero-copylock">
-                <span className="eyebrow">Victor Licona</span>
-                <h1>Cybersecurity, systems, and real-world problem solving.</h1>
-                <p className="hero-copyline">
-                  Fort Worth builder focused on technology, entrepreneurship, and work that helps
-                  people move forward.
-                </p>
-              </div>
-
-              <PortraitFrame
-                className="hero-portrait"
-                src={portraitSrc}
-                alt="Victor Licona portrait"
-                eyebrow="Victor Licona"
-                title="Victor Licona"
-                caption="Fort Worth, Texas"
-              />
+            <div className="hero-copylock">
+              <span className="eyebrow">Victor Licona</span>
+              <h1>Building systems, solving problems, and moving toward cybersecurity.</h1>
+              <p className="hero-copyline">
+                Fort Worth builder focused on cybersecurity, technology, entrepreneurship, and
+                practical systems that help people move forward.
+              </p>
             </div>
 
             <div className="hero-actions">
@@ -61,6 +50,14 @@ export default function HomePage() {
               </Link>
             </div>
           </div>
+
+          <PortraitFrame
+            src={portraitSrc}
+            alt="Victor Licona portrait"
+            eyebrow="Victor Licona"
+            title="Victor Licona"
+            caption="Fort Worth, Texas"
+          />
         </div>
       </Reveal>
 
