@@ -651,6 +651,32 @@ p {
   font-size: 0.92rem;
 }
 
+.hero-home-signature {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+  overflow: visible;
+  min-height: 0;
+  padding: 0.12rem 0 0.08rem;
+}
+
+.hero-home-signature::before {
+  display: none;
+}
+
+.hero-home-signature::after {
+  right: -1.55rem;
+  top: 0.15rem;
+  bottom: auto;
+  transform: none;
+  width: 12.4rem;
+  height: 12.4rem;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1), transparent 70%);
+  opacity: 0.78;
+}
+
 .hero-split {
   display: grid;
   grid-template-columns: minmax(0, 1fr) clamp(7.2rem, 30vw, 8.8rem);
@@ -676,6 +702,20 @@ p {
   min-width: 0;
 }
 
+.hero-home-signature .hero-copylock {
+  gap: 0.5rem;
+  padding-top: 0.15rem;
+}
+
+.hero-home-signature h1 {
+  max-width: 8.9ch;
+}
+
+.hero-home-signature .hero-copyline {
+  max-width: 24ch;
+  font-size: 0.88rem;
+}
+
 .portrait-frame,
 .hero-stage {
   position: relative;
@@ -690,6 +730,14 @@ p {
   width: 100%;
   max-width: 8.8rem;
   min-width: 0;
+}
+
+.hero-home-signature .portrait-frame {
+  align-self: start;
+  justify-self: end;
+  gap: 0;
+  max-width: 7.35rem;
+  padding-top: 0.18rem;
 }
 
 .portrait-shell,
@@ -709,6 +757,13 @@ p {
   box-shadow: 0 22px 56px rgba(0, 0, 0, 0.32);
 }
 
+.hero-home-signature .portrait-shell {
+  aspect-ratio: 0.82;
+  min-height: 9.9rem;
+  border-radius: 1.35rem;
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.28);
+}
+
 .portrait-shell::before,
 .hero-stage::before {
   content: "";
@@ -717,6 +772,11 @@ p {
   border-radius: 1.1rem;
   border: 1px solid rgba(255, 255, 255, 0.08);
   pointer-events: none;
+}
+
+.hero-home-signature .portrait-shell::before {
+  inset: 0.58rem;
+  border-radius: 0.96rem;
 }
 
 .portrait-image,
@@ -795,6 +855,13 @@ p {
   pointer-events: none;
 }
 
+.hero-home-signature .portrait-aura {
+  inset: auto -14% -12% auto;
+  width: 58%;
+  opacity: 0.32;
+  filter: blur(20px);
+}
+
 .portrait-caption {
   display: none;
   gap: 0.18rem;
@@ -846,6 +913,10 @@ p {
 .hero-actions {
   grid-area: actions;
   margin-top: 0.02rem;
+}
+
+.hero-home-signature .hero-actions {
+  gap: 0.45rem;
 }
 
 .page-section {
@@ -1218,12 +1289,30 @@ p {
   }
 
   .hero-home-signature h1 {
-    max-width: 10.6ch;
+    max-width: 8.2ch;
+  }
+
+  .hero-home-signature {
+    padding: 0.05rem 0 0;
+  }
+
+  .hero-home-signature .hero-copyline {
+    max-width: 20ch;
+    font-size: 0.82rem;
   }
 
   .hero-copyline {
     max-width: 29ch;
     font-size: 0.88rem;
+  }
+
+  .hero-home-signature .portrait-frame {
+    max-width: 6.55rem;
+  }
+
+  .hero-home-signature .portrait-shell {
+    aspect-ratio: 0.82;
+    min-height: 8.7rem;
   }
 
   .portrait-shell {
@@ -1349,6 +1438,11 @@ p {
     gap: 1.35rem;
   }
 
+  .hero-home-signature {
+    min-height: 0;
+    padding: 0.12rem 0 0.08rem;
+  }
+
   .about-layout,
   .service-layout,
   .contact-layout {
@@ -1388,6 +1482,12 @@ p {
     gap: 1.35rem;
   }
 
+  .hero-home-signature .hero-split {
+    grid-template-columns: minmax(0, 1.16fr) minmax(190px, 0.62fr);
+    gap: 0.95rem 1.1rem;
+    align-items: center;
+  }
+
   .hero-main {
     display: contents;
   }
@@ -1401,8 +1501,38 @@ p {
     max-width: none;
   }
 
+  .hero-home-signature .hero-copylock {
+    gap: 0.62rem;
+    padding-top: 0;
+  }
+
+  .hero-home-signature h1 {
+    max-width: 10.8ch;
+  }
+
+  .hero-home-signature .hero-copyline {
+    max-width: 31ch;
+    font-size: 0.95rem;
+  }
+
+  .hero-home-signature .portrait-frame {
+    max-width: 11.75rem;
+    gap: 0.55rem;
+    padding-top: 0;
+  }
+
   .portrait-shell {
     min-height: 17.5rem;
+  }
+
+  .hero-home-signature .portrait-shell {
+    min-height: 0;
+    aspect-ratio: 0.82;
+  }
+
+  .hero-home-signature .portrait-caption {
+    justify-items: end;
+    padding-inline: 0.12rem 0;
   }
 
   .hero-stage {
@@ -1489,14 +1619,20 @@ p {
   }
 
   .hero-home-signature {
-    min-height: 20.75rem;
-    padding: 1.25rem 1.45rem;
+    min-height: 0;
+    padding: 0.18rem 0 0.08rem;
   }
 
   .hero-split {
     grid-template-columns: minmax(0, 1.24fr) minmax(290px, 0.76fr);
     grid-template-areas: "copy portrait" "actions portrait";
     gap: 0.95rem;
+  }
+
+  .hero-home-signature .hero-split {
+    grid-template-columns: minmax(0, 1.3fr) minmax(220px, 0.62fr);
+    gap: 0.68rem 1.35rem;
+    align-items: center;
   }
 
   .hero-main {
@@ -1508,15 +1644,19 @@ p {
   }
 
   .hero-home-signature h1 {
-    max-width: 13.6ch;
+    max-width: 11.4ch;
   }
 
   .hero-home-signature .hero-copyline {
-    max-width: 40ch;
+    max-width: 35ch;
   }
 
   .hero-home-signature .hero-actions {
     gap: 0.45rem;
+  }
+
+  .hero-home-signature .portrait-frame {
+    max-width: 14.85rem;
   }
 
   .portrait-frame,
@@ -1710,14 +1850,19 @@ p {
   }
 
   .hero-home-signature {
-    min-height: 21.4rem;
-    padding: 1.35rem 1.55rem;
+    min-height: 0;
+    padding: 0.24rem 0 0.1rem;
   }
 
   .hero-split {
     grid-template-columns: minmax(0, 1.3fr) minmax(320px, 0.7fr);
     grid-template-areas: "copy portrait" "actions portrait";
     gap: 1rem;
+  }
+
+  .hero-home-signature .hero-split {
+    grid-template-columns: minmax(0, 1.34fr) minmax(230px, 0.6fr);
+    gap: 0.72rem 1.5rem;
   }
 
   .hero-stage {
@@ -1729,6 +1874,10 @@ p {
     max-width: 20.4rem;
   }
 
+  .hero-home-signature .portrait-frame {
+    max-width: 15.6rem;
+  }
+
   .stage-card {
     left: 1.05rem;
     right: 1.05rem;
@@ -1736,11 +1885,11 @@ p {
   }
 
   .hero-home-signature h1 {
-    max-width: 14.2ch;
+    max-width: 12ch;
   }
 
   .hero-home-signature .hero-copyline {
-    max-width: 42ch;
+    max-width: 38ch;
   }
 
   .entry-grid {
