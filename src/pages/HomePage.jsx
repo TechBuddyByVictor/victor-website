@@ -56,11 +56,6 @@ export default function HomePage() {
                 title="Victor Licona"
                 caption="Fort Worth, Texas"
               />
-
-              <div className="hero-visual-note">
-                <span className="kicker">Current Direction</span>
-                <p>Cybersecurity, systems, and founder-minded execution built through real work.</p>
-              </div>
             </div>
           </div>
 
