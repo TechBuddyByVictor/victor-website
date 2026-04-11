@@ -114,6 +114,13 @@ export default function HomePage() {
             </Link>
           </div>
 
+          <a className="mobile-scroll-cue" href="#start-here" aria-label="Continue to start here">
+            <span>Continue</span>
+            <i aria-hidden="true">
+              <span />
+            </i>
+          </a>
+
           <div className="hero-layer" aria-label="Hero highlights">
             {heroLayerItems.map((item) => (
               <div key={item.label} className="hero-layer-item">
@@ -125,7 +132,7 @@ export default function HomePage() {
         </div>
       </Reveal>
 
-      <section className="page-section">
+      <section className="page-section" id="start-here">
         <Reveal as="div" className="section-heading" delay={90}>
           <span className="eyebrow">Start Here</span>
           <h2>A quick path through what I am building.</h2>
