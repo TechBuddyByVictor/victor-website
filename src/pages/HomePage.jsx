@@ -84,10 +84,9 @@ export default function HomePage() {
 
           <div className="hero-editorial-body">
             <div className="hero-copy-column">
-              <h1>Building safer systems and practical tech support.</h1>
+              <h1>Victor Licona</h1>
               <p className="hero-copyline">
-                I am a Fort Worth builder focused on cybersecurity, useful technology, and clear
-                support for people who want their tools to work better.
+                Cybersecurity, digital safety, and practical tech support.
               </p>
             </div>
 
