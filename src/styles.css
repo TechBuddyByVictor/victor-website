@@ -1969,38 +1969,44 @@ p {
     padding: 0;
   }
 
+  .hero-home-signature.reveal {
+    opacity: 1;
+    transform: none;
+    clip-path: inset(0);
+  }
+
   .hero-home-signature .hero-topline {
-    display: none;
+    display: flex;
   }
 
   .hero-home-signature .hero-editorial {
-    gap: 0.58rem;
+    gap: 0.56rem;
   }
 
   .hero-home-signature .hero-editorial-body {
-    grid-template-columns: minmax(8.4rem, 9.4rem) minmax(0, 1fr);
-    gap: 0.82rem;
-    align-items: center;
+    grid-template-columns: 1fr;
+    gap: 0.54rem;
+    align-items: start;
   }
 
   .hero-home-signature .hero-copy-column {
-    justify-self: start;
-    gap: 0.28rem;
-    max-width: 100%;
-    text-align: left;
+    justify-self: center;
+    gap: 0.24rem;
+    max-width: 20rem;
+    text-align: center;
   }
 
   .hero-home-signature h1 {
-    max-width: none;
-    font-size: 2.05rem;
-    line-height: 0.98;
+    max-width: 9ch;
+    font-size: 1.95rem;
+    line-height: 1;
   }
 
   .hero-home-signature .hero-copy-column .hero-copyline,
   .hero-home-signature .hero-copyline {
-    max-width: 22ch;
-    font-size: 0.8rem;
-    line-height: 1.42;
+    max-width: 28ch;
+    font-size: 0.82rem;
+    line-height: 1.45;
   }
 
   .hero-visual-column {
@@ -2014,11 +2020,11 @@ p {
   }
 
   .hero-home-signature .hero-portrait-feature {
-    max-width: 9.4rem;
+    max-width: min(66vw, 13.5rem);
   }
 
   .hero-home-signature .hero-portrait-feature .portrait-shell {
-    min-height: 11rem;
+    min-height: 13.5rem;
   }
 
   .portrait-shell::after {
@@ -2134,9 +2140,9 @@ p {
   }
 
   .hero-home-signature h1 {
-    max-width: none;
+    max-width: 9ch;
     font-size: 1.72rem;
-    line-height: 0.98;
+    line-height: 1;
   }
 
   .hero-home-signature {
@@ -2148,7 +2154,7 @@ p {
   }
 
   .hero-home-signature .hero-editorial {
-    gap: 0.46rem;
+    gap: 0.44rem;
   }
 
   .hero-topline-note {
@@ -2161,13 +2167,13 @@ p {
   }
 
   .hero-home-signature .hero-editorial-body {
-    grid-template-columns: minmax(7.4rem, 8.4rem) minmax(0, 1fr);
-    gap: 0.62rem;
+    grid-template-columns: 1fr;
+    gap: 0.46rem;
   }
 
   .hero-home-signature .hero-copy-column .hero-copyline {
-    max-width: 20ch;
-    font-size: 0.74rem;
+    max-width: 26ch;
+    font-size: 0.78rem;
   }
 
   .hero-copyline {
@@ -2176,11 +2182,11 @@ p {
   }
 
   .hero-home-signature .hero-portrait-feature {
-    max-width: 8.4rem;
+    max-width: min(68vw, 12.25rem);
   }
 
   .hero-home-signature .hero-portrait-feature .portrait-shell {
-    min-height: 9.8rem;
+    min-height: 12.25rem;
   }
 
   .ops-mode-list {
