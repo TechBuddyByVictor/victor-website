@@ -1965,23 +1965,60 @@ p {
     font-size: 1.06rem;
   }
 
+  .hero-home-signature {
+    padding: 0;
+  }
+
+  .hero-home-signature .hero-topline {
+    display: none;
+  }
+
+  .hero-home-signature .hero-editorial {
+    gap: 0.44rem;
+  }
+
+  .hero-home-signature .hero-editorial-body {
+    grid-template-columns: minmax(6.8rem, 7.7rem) minmax(0, 1fr);
+    gap: 0.68rem;
+    align-items: center;
+  }
+
+  .hero-home-signature .hero-copy-column {
+    justify-self: start;
+    gap: 0.2rem;
+    max-width: 100%;
+    text-align: left;
+  }
+
   .hero-home-signature h1 {
-    max-width: 9ch;
-    font-size: 1.62rem;
+    max-width: none;
+    font-size: 1.72rem;
+    line-height: 0.95;
   }
 
   .hero-home-signature .hero-copy-column .hero-copyline,
   .hero-home-signature .hero-copyline {
-    max-width: 24ch;
+    max-width: 20ch;
     font-size: 0.72rem;
+    line-height: 1.36;
+  }
+
+  .hero-visual-column {
+    align-items: center;
+  }
+
+  .hero-visual-column::before {
+    inset: 9% 2% 5%;
+    opacity: 0.54;
+    transform: translate(0.28rem, 0.28rem);
   }
 
   .hero-home-signature .hero-portrait-feature {
-    max-width: min(66vw, 12.8rem);
+    max-width: 7.7rem;
   }
 
   .hero-home-signature .hero-portrait-feature .portrait-shell {
-    min-height: 12.8rem;
+    min-height: 8.9rem;
   }
 
   .portrait-shell::after {
@@ -1997,7 +2034,7 @@ p {
 
   .hero-home-signature .hero-actions {
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 0.28rem;
+    gap: 0.24rem;
   }
 
   .hero-actions > *,
@@ -2006,10 +2043,10 @@ p {
   }
 
   .hero-home-signature .hero-actions > * {
-    min-height: 2.16rem;
-    padding: 0.42rem 0.28rem;
+    min-height: 2.46rem;
+    padding: 0.46rem 0.32rem;
     font-size: 0.5rem;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.05em;
   }
 
   .hero-home-signature .hero-actions > :first-child {
@@ -2097,16 +2134,21 @@ p {
   }
 
   .hero-home-signature h1 {
-    max-width: 9ch;
-    font-size: 1.48rem;
+    max-width: none;
+    font-size: 1.52rem;
+    line-height: 0.96;
   }
 
   .hero-home-signature {
-    padding: 0.05rem 0 0;
+    padding: 0;
   }
 
   .hero-editorial {
     gap: 0.24rem;
+  }
+
+  .hero-home-signature .hero-editorial {
+    gap: 0.36rem;
   }
 
   .hero-topline-note {
@@ -2118,9 +2160,14 @@ p {
     gap: 0.24rem;
   }
 
+  .hero-home-signature .hero-editorial-body {
+    grid-template-columns: minmax(5.9rem, 6.7rem) minmax(0, 1fr);
+    gap: 0.56rem;
+  }
+
   .hero-home-signature .hero-copy-column .hero-copyline {
-    max-width: 24ch;
-    font-size: 0.7rem;
+    max-width: 18ch;
+    font-size: 0.66rem;
   }
 
   .hero-copyline {
@@ -2129,11 +2176,11 @@ p {
   }
 
   .hero-home-signature .hero-portrait-feature {
-    max-width: min(62vw, 11.25rem);
+    max-width: 6.7rem;
   }
 
   .hero-home-signature .hero-portrait-feature .portrait-shell {
-    min-height: 11.25rem;
+    min-height: 7.85rem;
   }
 
   .ops-mode-list {
