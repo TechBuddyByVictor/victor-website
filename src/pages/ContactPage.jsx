@@ -18,6 +18,12 @@ const contactItems = [
   },
 ];
 
+const heroStats = [
+  { label: "Best For", value: "Tech support, projects, and digital safety" },
+  { label: "Based In", value: "Fort Worth, Texas" },
+  { label: "Next Step", value: "Send a note or call TechBuddy" },
+];
+
 export default function ContactPage() {
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -40,12 +46,43 @@ export default function ContactPage() {
 
   return (
     <>
-      <Reveal as="section" className="page-hero page-hero-contact" delay={40}>
-        <span className="eyebrow">Contact</span>
-        <h1>Contact</h1>
-        <p className="hero-copyline">
-          Reach out for TechBuddy help, a project conversation, or a direct connection.
-        </p>
+      <Reveal as="section" className="page-hero page-hero-contact contact-hero" delay={40}>
+        <div className="contact-hero-copy">
+          <span className="eyebrow">Contact</span>
+          <h1>Let&apos;s make the next step clear.</h1>
+          <p className="hero-copyline">
+            Reach out for TechBuddy help, a project conversation, or a direct connection with
+            Victor.
+          </p>
+          <div className="hero-actions contact-hero-actions">
+            <a className="button" href="#contact-form">
+              Start a Message
+            </a>
+            <a className="button-secondary" href="tel:8174704724">
+              Call TechBuddy
+            </a>
+          </div>
+        </div>
+
+        <aside className="contact-hero-panel" aria-label="Contact details">
+          <div className="contact-hero-panel-head">
+            <span>Ready</span>
+            <strong>Direct Line</strong>
+          </div>
+          <div className="contact-hero-signal" aria-hidden="true">
+            <span />
+            <span />
+            <span />
+          </div>
+          <div className="contact-hero-stats">
+            {heroStats.map((item) => (
+              <div key={item.label} className="contact-hero-stat">
+                <small>{item.label}</small>
+                <strong>{item.value}</strong>
+              </div>
+            ))}
+          </div>
+        </aside>
       </Reveal>
 
       <section className="contact-layout">
