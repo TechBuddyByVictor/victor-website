@@ -18,12 +18,6 @@ const contactItems = [
   },
 ];
 
-const heroStats = [
-  { label: "Best For", value: "Tech support, projects, and digital safety" },
-  { label: "Based In", value: "Fort Worth, Texas" },
-  { label: "Next Step", value: "Send a note or call TechBuddy" },
-];
-
 export default function ContactPage() {
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -66,20 +60,27 @@ export default function ContactPage() {
 
         <aside className="contact-hero-panel" aria-label="Contact details">
           <div className="contact-hero-panel-head">
-            <span>Ready</span>
-            <strong>Direct Line</strong>
+            <span>Open</span>
+            <strong>Direct Contact</strong>
           </div>
+          <p>TechBuddy help, project notes, and professional connections.</p>
           <div className="contact-hero-signal" aria-hidden="true">
             <span />
             <span />
             <span />
           </div>
-          <div className="contact-hero-stats">
-            {heroStats.map((item) => (
-              <div key={item.label} className="contact-hero-stat">
+          <div className="contact-hero-channels">
+            {contactItems.map((item) => (
+              <a
+                key={item.label}
+                className="contact-hero-channel"
+                href={item.href}
+                target={item.href.startsWith("http") ? "_blank" : undefined}
+                rel={item.href.startsWith("http") ? "noreferrer" : undefined}
+              >
                 <small>{item.label}</small>
                 <strong>{item.value}</strong>
-              </div>
+              </a>
             ))}
           </div>
         </aside>

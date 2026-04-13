@@ -785,6 +785,13 @@ button {
   text-transform: uppercase;
 }
 
+.contact-hero-panel p {
+  max-width: 28ch;
+  color: rgba(245, 242, 236, 0.72);
+  font-size: 0.82rem;
+  line-height: 1.48;
+}
+
 .contact-hero-signal {
   position: relative;
   display: grid;
@@ -834,24 +841,57 @@ button {
   height: 66%;
 }
 
-.contact-hero-stats {
+.contact-hero-channels {
   display: grid;
-  gap: 0.58rem;
+  gap: 0.5rem;
 }
 
-.contact-hero-stat {
+.contact-hero-channel {
+  position: relative;
   display: grid;
   gap: 0.18rem;
-  padding-top: 0.58rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  min-height: 3.1rem;
+  padding: 0.62rem 0.68rem;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.025);
+  overflow: hidden;
+  transition:
+    border-color 0.24s ease,
+    background 0.24s ease,
+    transform 0.24s ease;
 }
 
-.contact-hero-stat:first-child {
-  padding-top: 0;
-  border-top: 0;
+.contact-hero-channel::after {
+  content: "";
+  position: absolute;
+  left: 0.68rem;
+  right: 0.68rem;
+  bottom: 0.48rem;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.36), transparent);
+  opacity: 0;
+  transform: scaleX(0.64);
+  transform-origin: left;
+  transition:
+    opacity 0.24s ease,
+    transform 0.24s ease;
 }
 
-.contact-hero-stat small {
+.contact-hero-channel:hover,
+.contact-hero-channel:focus-visible {
+  border-color: rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.045);
+  transform: translateY(-1px);
+}
+
+.contact-hero-channel:hover::after,
+.contact-hero-channel:focus-visible::after {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+.contact-hero-channel small {
   color: var(--muted);
   font-size: 0.56rem;
   font-weight: 700;
@@ -859,7 +899,7 @@ button {
   text-transform: uppercase;
 }
 
-.contact-hero-stat strong {
+.contact-hero-channel strong {
   color: var(--text);
   font-family: var(--font-display);
   font-size: 1.04rem;
@@ -2485,7 +2525,7 @@ p {
     justify-self: start;
   }
 
-  .contact-hero-stat strong {
+  .contact-hero-channel strong {
     font-size: 0.96rem;
   }
 
