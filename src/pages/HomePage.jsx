@@ -83,13 +83,6 @@ export default function HomePage() {
           </div>
 
           <div className="hero-editorial-body">
-            <div className="hero-copy-column">
-              <h1>Victor Licona</h1>
-              <p className="hero-copyline">
-                Cybersecurity, digital safety, and practical tech support.
-              </p>
-            </div>
-
             <div className="hero-visual-column">
               <PortraitFrame
                 className="hero-portrait-feature"
@@ -100,18 +93,33 @@ export default function HomePage() {
                 caption="Fort Worth, Texas"
               />
             </div>
-          </div>
 
-          <div className="hero-actions">
-            <Link className="button" to="/experience">
-              View My Work
-            </Link>
-            <Link className="button-secondary" to="/about">
-              About Me
-            </Link>
-            <Link className="button-secondary" to="/contact">
-              Contact
-            </Link>
+            <div className="hero-copy-column">
+              <h1>Victor Licona</h1>
+              <p className="hero-copyline">
+                Cybersecurity, digital safety, and practical tech support.
+              </p>
+              <p className="hero-supportline">
+                Fort Worth builder focused on useful systems, safer habits, and clear help for
+                people who want technology to feel less confusing.
+              </p>
+              <div className="hero-note-list" aria-label="Current direction">
+                <span>Cybersecurity</span>
+                <span>TechBuddy by Victor</span>
+                <span>Practical web systems</span>
+              </div>
+              <div className="hero-actions">
+                <Link className="button" to="/experience">
+                  View My Work
+                </Link>
+                <Link className="button-secondary" to="/about">
+                  About Me
+                </Link>
+                <Link className="button-secondary" to="/contact">
+                  Contact
+                </Link>
+              </div>
+            </div>
           </div>
 
           <a className="mobile-scroll-cue" href="#start-here" aria-label="Continue to start here">
