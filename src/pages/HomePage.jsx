@@ -93,8 +93,8 @@ export default function HomePage() {
                 caption="Fort Worth, Texas"
               />
               <div className="hero-photo-badge" aria-hidden="true">
-                <span>Now</span>
-                <strong>Building</strong>
+                <span>Fort Worth</span>
+                <strong>TX</strong>
               </div>
             </div>
 
@@ -107,10 +107,9 @@ export default function HomePage() {
                 Fort Worth builder focused on useful systems, safer habits, and clear help for
                 people who want technology to feel less confusing.
               </p>
-              <div className="hero-mobile-focus" aria-label="Current focus">
-                <span>Fort Worth</span>
-                <span>TechBuddy</span>
-                <span>Digital safety</span>
+              <div className="hero-mobile-current" aria-label="Current focus">
+                <span>Current Focus</span>
+                <strong>Cybersecurity, TechBuddy, and digital safety.</strong>
               </div>
               <div className="hero-note-list" aria-label="Current direction">
                 <span>Cybersecurity</span>
@@ -130,6 +129,12 @@ export default function HomePage() {
               </div>
             </div>
           </div>
+
+          <nav className="hero-mobile-actions" aria-label="Start here">
+            <Link to="/experience">Work</Link>
+            <Link to="/techbuddy">TechBuddy</Link>
+            <Link to="/contact">Contact</Link>
+          </nav>
 
           <div className="hero-layer" aria-label="Hero highlights">
             {heroLayerItems.map((item) => (
