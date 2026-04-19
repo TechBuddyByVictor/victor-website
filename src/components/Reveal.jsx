@@ -9,7 +9,16 @@ export default function Reveal({
   ...props
 }) {
   const ref = useRef(null);
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(() => {
+    if (typeof window === "undefined") {
+      return false;
+    }
+
+    return (
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
+      window.matchMedia("(max-width: 759px)").matches
+    );
+  });
 
   useEffect(() => {
     const node = ref.current;
@@ -19,8 +28,9 @@ export default function Reveal({
     }
 
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const isMobileViewport = window.matchMedia("(max-width: 759px)").matches;
 
-    if (prefersReducedMotion || !("IntersectionObserver" in window)) {
+    if (prefersReducedMotion || isMobileViewport || !("IntersectionObserver" in window)) {
       setIsVisible(true);
       return undefined;
     }

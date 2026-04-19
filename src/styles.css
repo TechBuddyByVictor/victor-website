@@ -2760,6 +2760,33 @@ p {
   transform: translateX(110%);
 }
 
+@media (max-width: 759px) {
+  .page-content,
+  .reveal,
+  .section-heading.reveal,
+  :is(.entry-link, .line-card, .work-row).reveal,
+  :is(.editorial-panel, .facts-panel, .form-panel, .focus-strip, .statement-strip, .ops-board).reveal {
+    opacity: 1;
+    transform: none;
+    clip-path: inset(0);
+    animation: none;
+    transition: none;
+    transition-delay: 0ms;
+    will-change: auto;
+  }
+
+  .reveal::after,
+  :is(.entry-link, .line-card, .work-row, .editorial-panel, .facts-panel, .form-panel).reveal::after {
+    display: none;
+  }
+
+  .hero-layer-item {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+}
+
 ::selection {
   color: var(--text);
   background: rgba(255, 255, 255, 0.16);
