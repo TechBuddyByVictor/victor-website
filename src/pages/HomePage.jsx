@@ -108,10 +108,6 @@ export default function HomePage() {
                 <span>TechBuddy by Victor</span>
                 <span>Practical web systems</span>
               </div>
-              <div className="hero-mobile-status" aria-label="Current work">
-                <span>Fort Worth</span>
-                <strong>Helping people feel safer and clearer with technology.</strong>
-              </div>
               <div className="hero-actions">
                 <Link className="button" to="/experience">
                   View My Work
