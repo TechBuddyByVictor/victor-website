@@ -2296,7 +2296,7 @@ p {
   }
 
   .hero-home-signature {
-    padding: 0.18rem 0 0;
+    padding: 0.12rem 0 0.08rem;
   }
 
   .hero-home-signature.reveal {
@@ -2310,44 +2310,44 @@ p {
   }
 
   .hero-home-signature .hero-editorial {
-    gap: 0.58rem;
+    gap: 0.82rem;
   }
 
   .hero-home-signature .hero-editorial-body {
-    grid-template-columns: minmax(8.2rem, 0.9fr) minmax(0, 1fr);
-    align-items: center;
-    gap: 0.78rem;
+    grid-template-columns: 1fr;
+    align-items: start;
+    gap: 0.72rem;
   }
 
   .hero-home-signature .hero-copy-column {
-    justify-self: stretch;
-    gap: 0.44rem;
-    max-width: 100%;
+    justify-self: start;
+    gap: 0.5rem;
+    max-width: 32rem;
     text-align: left;
   }
 
   .hero-home-signature h1 {
     justify-self: start;
-    max-width: 11ch;
-    font-size: 1.76rem;
+    max-width: none;
+    font-size: 2.16rem;
     line-height: 1;
   }
 
   .hero-home-signature .hero-copy-column .hero-copyline,
   .hero-home-signature .hero-copyline {
     justify-self: start;
-    max-width: 23ch;
-    font-size: 0.76rem;
-    line-height: 1.42;
+    max-width: 31ch;
+    font-size: 0.9rem;
+    line-height: 1.46;
   }
 
   .hero-supportline {
     display: block;
     justify-self: start;
-    max-width: 25ch;
+    max-width: 34ch;
     color: rgba(245, 242, 236, 0.7);
-    font-size: 0.7rem;
-    line-height: 1.44;
+    font-size: 0.8rem;
+    line-height: 1.5;
   }
 
   .hero-mobile-focus {
@@ -2377,10 +2377,10 @@ p {
   }
 
   .hero-visual-column {
-    order: 0;
+    order: -1;
     display: grid;
     align-items: stretch;
-    justify-items: stretch;
+    justify-items: center;
     margin-bottom: 0;
   }
 
@@ -2418,23 +2418,23 @@ p {
   }
 
   .hero-visual-column::before {
-    inset: 0.38rem -0.2rem -0.2rem 0.38rem;
-    opacity: 0.28;
+    inset: 0.46rem 0.18rem -0.22rem;
+    opacity: 0.34;
     transform: none;
   }
 
   .hero-home-signature .hero-portrait-feature {
-    max-width: 100%;
+    max-width: min(100%, 19rem);
     min-height: 0;
   }
 
   .hero-home-signature .hero-portrait-feature .portrait-shell {
-    aspect-ratio: 4 / 5.2;
-    min-height: 10.6rem;
-    max-height: 12rem;
+    aspect-ratio: 4 / 4.85;
+    min-height: 15.4rem;
+    max-height: 18.2rem;
     border-color: rgba(255, 255, 255, 0.16);
     box-shadow:
-      0 16px 38px rgba(0, 0, 0, 0.32),
+      0 20px 48px rgba(0, 0, 0, 0.36),
       inset 0 0 0 1px rgba(255, 255, 255, 0.04);
   }
 
@@ -2513,7 +2513,16 @@ p {
   .entry-link-feature h3,
   .line-card h3,
   .work-copy h3 {
-    max-width: 22ch;
+    max-width: 26ch;
+  }
+
+  .entry-grid {
+    gap: 0.72rem;
+  }
+
+  .entry-link {
+    min-height: 0;
+    padding: 0.96rem;
   }
 
   .editorial-panel-story h2,
@@ -2535,11 +2544,22 @@ p {
   }
 
   .ops-console-main {
+    grid-template-columns: minmax(5.8rem, 0.72fr) minmax(0, 1fr);
+    align-items: center;
     min-height: 0;
   }
 
+  .ops-console-copy {
+    justify-items: start;
+    text-align: left;
+  }
+
+  .ops-console-copy h3 {
+    max-width: 20ch;
+  }
+
   .ops-signal-mark {
-    width: min(68vw, 10.75rem);
+    width: min(30vw, 7.8rem);
   }
 
   .ops-console-copy p {
@@ -2604,8 +2624,8 @@ p {
   }
 
   .hero-home-signature h1 {
-    max-width: 11ch;
-    font-size: 1.58rem;
+    max-width: none;
+    font-size: 1.96rem;
     line-height: 1;
   }
 
@@ -2618,7 +2638,7 @@ p {
   }
 
   .hero-home-signature .hero-editorial {
-    gap: 0.48rem;
+    gap: 0.72rem;
   }
 
   .hero-topline-note {
@@ -2631,18 +2651,18 @@ p {
   }
 
   .hero-home-signature .hero-editorial-body {
-    grid-template-columns: minmax(7.15rem, 0.86fr) minmax(0, 1fr);
-    gap: 0.58rem;
+    grid-template-columns: 1fr;
+    gap: 0.66rem;
   }
 
   .hero-home-signature .hero-copy-column .hero-copyline {
-    max-width: 22ch;
-    font-size: 0.68rem;
+    max-width: 30ch;
+    font-size: 0.82rem;
   }
 
   .hero-supportline {
-    max-width: 23ch;
-    font-size: 0.64rem;
+    max-width: 32ch;
+    font-size: 0.74rem;
   }
 
   .hero-mobile-focus {
@@ -2656,8 +2676,8 @@ p {
   }
 
   .hero-home-signature .hero-portrait-feature .portrait-shell {
-    min-height: 9.6rem;
-    max-height: 10.7rem;
+    min-height: 14.3rem;
+    max-height: 16.4rem;
   }
 
   .hero-copyline {
@@ -2693,11 +2713,11 @@ p {
   }
 
   .ops-mode-list {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .ops-signal-mark {
-    width: min(66vw, 9.4rem);
+    width: min(28vw, 6.4rem);
   }
 
   .footer-bottom small,
@@ -2756,21 +2776,21 @@ p {
   }
 
   .hero-home-signature .hero-editorial-body {
-    grid-template-columns: minmax(6.35rem, 0.84fr) minmax(0, 1fr);
-    gap: 0.44rem;
+    grid-template-columns: 1fr;
+    gap: 0.58rem;
   }
 
   .hero-home-signature h1 {
-    font-size: 1.38rem;
+    font-size: 1.78rem;
   }
 
   .hero-home-signature .hero-copy-column .hero-copyline {
-    font-size: 0.62rem;
+    font-size: 0.78rem;
   }
 
   .hero-supportline {
-    max-width: 21ch;
-    font-size: 0.58rem;
+    max-width: 31ch;
+    font-size: 0.7rem;
   }
 
   .hero-mobile-focus span {
@@ -2790,8 +2810,8 @@ p {
   }
 
   .hero-home-signature .hero-portrait-feature .portrait-shell {
-    min-height: 8.45rem;
-    max-height: 9.25rem;
+    min-height: 13rem;
+    max-height: 14.6rem;
   }
 
 }
