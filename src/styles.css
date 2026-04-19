@@ -1144,6 +1144,11 @@ p {
   text-transform: uppercase;
 }
 
+.hero-mobile-focus,
+.hero-photo-badge {
+  display: none;
+}
+
 .hero-visual-column {
   position: relative;
   order: -1;
@@ -2345,6 +2350,28 @@ p {
     line-height: 1.44;
   }
 
+  .hero-mobile-focus {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.26rem;
+    padding-top: 0.02rem;
+  }
+
+  .hero-mobile-focus span {
+    display: inline-flex;
+    min-height: 1.45rem;
+    align-items: center;
+    padding: 0.26rem 0.36rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-lg);
+    background: rgba(255, 255, 255, 0.028);
+    color: rgba(245, 242, 236, 0.78);
+    font-size: 0.46rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
   .hero-note-list {
     display: none;
   }
@@ -2355,6 +2382,39 @@ p {
     align-items: stretch;
     justify-items: stretch;
     margin-bottom: 0;
+  }
+
+  .hero-photo-badge {
+    position: absolute;
+    left: 0.5rem;
+    right: 0.5rem;
+    bottom: 0.5rem;
+    z-index: 3;
+    display: grid;
+    gap: 0.04rem;
+    padding: 0.38rem 0.42rem;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: var(--radius-lg);
+    background: rgba(7, 7, 8, 0.68);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.28);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .hero-photo-badge span {
+    color: rgba(245, 242, 236, 0.58);
+    font-size: 0.46rem;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  .hero-photo-badge strong {
+    color: rgba(245, 242, 236, 0.9);
+    font-family: var(--font-display);
+    font-size: 0.94rem;
+    font-weight: 600;
+    line-height: 0.95;
   }
 
   .hero-visual-column::before {
@@ -2585,6 +2645,16 @@ p {
     font-size: 0.64rem;
   }
 
+  .hero-mobile-focus {
+    gap: 0.22rem;
+  }
+
+  .hero-mobile-focus span {
+    min-height: 1.32rem;
+    padding: 0.22rem 0.3rem;
+    font-size: 0.42rem;
+  }
+
   .hero-home-signature .hero-portrait-feature .portrait-shell {
     min-height: 9.6rem;
     max-height: 10.7rem;
@@ -2701,6 +2771,22 @@ p {
   .hero-supportline {
     max-width: 21ch;
     font-size: 0.58rem;
+  }
+
+  .hero-mobile-focus span {
+    font-size: 0.38rem;
+    letter-spacing: 0.06em;
+  }
+
+  .hero-photo-badge {
+    left: 0.38rem;
+    right: 0.38rem;
+    bottom: 0.38rem;
+    padding: 0.3rem 0.34rem;
+  }
+
+  .hero-photo-badge strong {
+    font-size: 0.82rem;
   }
 
   .hero-home-signature .hero-portrait-feature .portrait-shell {

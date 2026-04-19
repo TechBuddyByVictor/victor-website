@@ -92,6 +92,10 @@ export default function HomePage() {
                 title="Victor Licona"
                 caption="Fort Worth, Texas"
               />
+              <div className="hero-photo-badge" aria-hidden="true">
+                <span>Now</span>
+                <strong>Building</strong>
+              </div>
             </div>
 
             <div className="hero-copy-column">
@@ -103,6 +107,11 @@ export default function HomePage() {
                 Fort Worth builder focused on useful systems, safer habits, and clear help for
                 people who want technology to feel less confusing.
               </p>
+              <div className="hero-mobile-focus" aria-label="Current focus">
+                <span>Fort Worth</span>
+                <span>TechBuddy</span>
+                <span>Digital safety</span>
+              </div>
               <div className="hero-note-list" aria-label="Current direction">
                 <span>Cybersecurity</span>
                 <span>TechBuddy by Victor</span>
