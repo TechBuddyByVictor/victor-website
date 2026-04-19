@@ -79,7 +79,7 @@ export default function HomePage() {
         <div className="hero-editorial">
           <div className="hero-topline">
             <span className="eyebrow">Victor Licona</span>
-            <span className="hero-topline-note">Fort Worth, Texas</span>
+            <span className="hero-topline-note">Building Now</span>
           </div>
 
           <div className="hero-editorial-body">
@@ -107,6 +107,10 @@ export default function HomePage() {
                 <span>Cybersecurity</span>
                 <span>TechBuddy by Victor</span>
                 <span>Practical web systems</span>
+              </div>
+              <div className="hero-mobile-status" aria-label="Current work">
+                <span>Fort Worth</span>
+                <strong>Helping people feel safer and clearer with technology.</strong>
               </div>
               <div className="hero-actions">
                 <Link className="button" to="/experience">
