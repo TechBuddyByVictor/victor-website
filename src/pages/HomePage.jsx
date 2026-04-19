@@ -122,13 +122,6 @@ export default function HomePage() {
             </div>
           </div>
 
-          <a className="mobile-scroll-cue" href="#start-here" aria-label="Continue to start here">
-            <span>Continue</span>
-            <i aria-hidden="true">
-              <span />
-            </i>
-          </a>
-
           <div className="hero-layer" aria-label="Hero highlights">
             {heroLayerItems.map((item) => (
               <div key={item.label} className="hero-layer-item">
