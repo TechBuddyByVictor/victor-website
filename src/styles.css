@@ -124,6 +124,135 @@ svg {
   min-height: 100vh;
 }
 
+.site-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  color: var(--text);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.055), transparent 22%),
+    linear-gradient(120deg, rgba(255, 255, 255, 0.035), transparent 42%),
+    rgba(5, 5, 5, 0.98);
+  opacity: 1;
+  pointer-events: auto;
+  transition:
+    opacity 0.34s cubic-bezier(0.22, 1, 0.36, 1),
+    visibility 0.34s ease;
+}
+
+.site-loader.is-leaving {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.site-loader::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.2;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 3.4rem 3.4rem;
+  mask-image: radial-gradient(circle at center, black 18%, transparent 74%);
+  animation: loader-grid-drift 5.2s linear infinite;
+}
+
+.site-loader-card {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  gap: 0.62rem;
+  min-width: min(18rem, 88vw);
+  padding: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: var(--radius-lg);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.055), transparent 58%),
+    rgba(10, 10, 11, 0.76);
+  box-shadow:
+    0 24px 70px rgba(0, 0, 0, 0.42),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.025);
+  overflow: hidden;
+  transform: translateY(0);
+  animation: loader-card-enter 0.42s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.site-loader-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(115deg, transparent 0%, rgba(255, 255, 255, 0.12) 42%, transparent 58%);
+  opacity: 0;
+  transform: translateX(-120%);
+  animation: loader-sheen 0.78s cubic-bezier(0.22, 1, 0.36, 1) 0.08s both;
+}
+
+.site-loader-mark {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 2.65rem;
+  height: 2.65rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-lg);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.13), rgba(255, 255, 255, 0.02)),
+    rgba(255, 255, 255, 0.025);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  text-indent: 0.2em;
+  animation: loader-mark-pulse 0.92s ease-in-out infinite;
+}
+
+.site-loader-copy {
+  display: grid;
+  justify-items: center;
+  gap: 0.18rem;
+  text-align: center;
+}
+
+.site-loader-copy strong {
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.site-loader-copy small {
+  color: var(--muted);
+  font-size: 0.56rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.site-loader-line {
+  position: relative;
+  display: block;
+  width: min(10rem, 68vw);
+  height: 1px;
+  margin-top: 0.2rem;
+  background: rgba(255, 255, 255, 0.12);
+  overflow: hidden;
+}
+
+.site-loader-line::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.9), transparent);
+  transform: translateX(-110%);
+  animation: loader-line-run 0.72s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+}
+
 .site-shell {
   position: relative;
   isolation: isolate;
@@ -3634,6 +3763,69 @@ p {
 ::selection {
   color: var(--text);
   background: rgba(255, 255, 255, 0.16);
+}
+
+@keyframes loader-card-enter {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.985);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes loader-grid-drift {
+  from {
+    background-position: 0 0, 0 0;
+  }
+
+  to {
+    background-position: 3.4rem 0, 0 3.4rem;
+  }
+}
+
+@keyframes loader-sheen {
+  0% {
+    opacity: 0;
+    transform: translateX(-120%);
+  }
+
+  38% {
+    opacity: 0.74;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(120%);
+  }
+}
+
+@keyframes loader-mark-pulse {
+  0%,
+  100% {
+    border-color: rgba(255, 255, 255, 0.18);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+  }
+
+  50% {
+    border-color: rgba(255, 255, 255, 0.34);
+    box-shadow:
+      0 0 20px rgba(255, 255, 255, 0.08),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+  }
+}
+
+@keyframes loader-line-run {
+  from {
+    transform: translateX(-110%);
+  }
+
+  to {
+    transform: translateX(110%);
+  }
 }
 
 @keyframes mobile-ambient-scan {
