@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import PortraitFrame from "../components/PortraitFrame";
 import Reveal from "../components/Reveal";
@@ -84,6 +84,14 @@ export default function HomePage() {
 
           <div className="hero-editorial-body">
             <div className="hero-visual-column">
+              <div className="hero-signal-animation" aria-hidden="true">
+                <span className="hero-signal-axis hero-signal-axis-x" />
+                <span className="hero-signal-axis hero-signal-axis-y" />
+                <span className="hero-signal-pulse hero-signal-pulse-one" />
+                <span className="hero-signal-pulse hero-signal-pulse-two" />
+                <span className="hero-signal-pulse hero-signal-pulse-three" />
+                <span className="hero-signal-scan" />
+              </div>
               <PortraitFrame
                 className="hero-portrait-feature"
                 src={portraitSrc}

@@ -1,3 +1,4 @@
+import React from "react";
 import Reveal from "../components/Reveal";
 
 const workItems = [

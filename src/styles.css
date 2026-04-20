@@ -1179,6 +1179,86 @@ p {
   z-index: 1;
 }
 
+.hero-visual-column > .hero-signal-animation {
+  position: absolute;
+  inset: -0.82rem -1rem -0.58rem;
+  z-index: 0;
+}
+
+.hero-signal-animation {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  pointer-events: none;
+  opacity: 0.82;
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 1.6rem 1.6rem;
+  mask-image: linear-gradient(90deg, transparent, black 13%, black 88%, transparent);
+}
+
+.hero-signal-axis,
+.hero-signal-pulse,
+.hero-signal-scan {
+  position: absolute;
+  display: block;
+}
+
+.hero-signal-axis {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.54), transparent);
+  opacity: 0.42;
+  animation: hero-signal-axis 5.4s ease-in-out infinite;
+}
+
+.hero-signal-axis-x {
+  top: 53%;
+  left: 4%;
+  right: 4%;
+  height: 1px;
+}
+
+.hero-signal-axis-y {
+  top: 7%;
+  bottom: 7%;
+  left: 38%;
+  width: 1px;
+  background: linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+  animation-delay: 1.2s;
+}
+
+.hero-signal-pulse {
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: var(--radius-lg);
+  opacity: 0;
+  transform: scale(0.94);
+  animation: hero-signal-pulse 6.8s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+}
+
+.hero-signal-pulse-one {
+  inset: 8% 16% 12% 12%;
+}
+
+.hero-signal-pulse-two {
+  inset: 19% 7% 18% 24%;
+  animation-delay: 1.15s;
+}
+
+.hero-signal-pulse-three {
+  inset: 30% 24% 28% 34%;
+  animation-delay: 2.25s;
+}
+
+.hero-signal-scan {
+  top: 8%;
+  bottom: 8%;
+  left: -26%;
+  width: 32%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.16), transparent);
+  opacity: 0;
+  transform: skewX(-10deg);
+  animation: hero-signal-scan 7.2s ease-in-out 0.45s infinite;
+}
+
 .hero-home-signature .hero-portrait-feature {
   order: -1;
   align-self: start;
@@ -1198,6 +1278,7 @@ p {
   box-shadow:
     0 34px 72px rgba(0, 0, 0, 0.42),
     0 0 0 1px rgba(255, 255, 255, 0.055) inset;
+  animation: hero-portrait-drift 8.6s ease-in-out 0.3s infinite;
 }
 
 .hero-home-signature .hero-portrait-feature .portrait-caption {
@@ -2510,6 +2591,15 @@ p {
     animation: mobile-hero-grid-breathe 5.8s ease-in-out infinite;
   }
 
+  .hero-visual-column > .hero-signal-animation {
+    inset: 0.12rem -0.18rem -0.12rem 0.28rem;
+    opacity: 0.34;
+  }
+
+  .hero-signal-pulse-three {
+    display: none;
+  }
+
   .hero-home-signature .hero-portrait-feature {
     max-width: 100%;
     min-height: 0;
@@ -3027,6 +3117,12 @@ p {
 .reveal.is-visible {
   opacity: 1;
   transform: translateY(0) scale(1);
+  clip-path: inset(0);
+}
+
+.hero-home-signature.reveal {
+  opacity: 1;
+  transform: none;
   clip-path: inset(0);
 }
 
@@ -3774,6 +3870,64 @@ p {
   }
 }
 
+@keyframes hero-portrait-drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform: translate3d(0, -5px, 0);
+  }
+}
+
+@keyframes hero-signal-axis {
+  0%,
+  100% {
+    opacity: 0.2;
+    transform: scaleX(0.72);
+  }
+
+  50% {
+    opacity: 0.66;
+    transform: scaleX(1);
+  }
+}
+
+@keyframes hero-signal-pulse {
+  0% {
+    opacity: 0;
+    transform: scale(0.94);
+  }
+
+  18% {
+    opacity: 0.48;
+  }
+
+  62%,
+  100% {
+    opacity: 0;
+    transform: scale(1.08);
+  }
+}
+
+@keyframes hero-signal-scan {
+  0%,
+  58% {
+    opacity: 0;
+    transform: translateX(0) skewX(-10deg);
+  }
+
+  70% {
+    opacity: 0.62;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(440%) skewX(-10deg);
+  }
+}
+
 @keyframes hero-detail-enter {
   from {
     opacity: 0;
@@ -3879,6 +4033,17 @@ p {
   .ops-board::after,
   .ops-signal-mark::before {
     animation: none;
+  }
+
+  .hero-home-signature .hero-portrait-feature .portrait-shell,
+  .hero-signal-axis,
+  .hero-signal-pulse,
+  .hero-signal-scan {
+    animation: none;
+  }
+
+  .hero-signal-scan {
+    display: none;
   }
 
   .signal-seal,
