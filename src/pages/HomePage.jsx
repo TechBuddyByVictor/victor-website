@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import PortraitFrame from "../components/PortraitFrame";
 import Reveal from "../components/Reveal";
@@ -70,9 +70,38 @@ const portraitSrc = "/victor-portrait.jpg";
 export default function HomePage() {
   const [activeModeId, setActiveModeId] = useState(operatingModes[0].id);
   const [isModePaused, setIsModePaused] = useState(false);
+  const [activeEntryIndex, setActiveEntryIndex] = useState(0);
+  const [isEntrySwiping, setIsEntrySwiping] = useState(false);
+  const entryTrackRef = useRef(null);
+  const entryScrollFrameRef = useRef(0);
+  const entrySwipeTimeoutRef = useRef(0);
   const activeMode =
     operatingModes.find((mode) => mode.id === activeModeId) ?? operatingModes[0];
   const activeIndex = operatingModes.findIndex((mode) => mode.id === activeMode.id);
+  const activeEntry = entryLinks[activeEntryIndex] ?? entryLinks[0];
+
+  const updateActiveEntryFromScroll = () => {
+    const trackNode = entryTrackRef.current;
+
+    if (!trackNode) {
+      return;
+    }
+
+    const trackCenter = trackNode.getBoundingClientRect().left + trackNode.clientWidth / 2;
+    const items = Array.from(trackNode.querySelectorAll(".entry-link"));
+    const nearestIndex = items.reduce(
+      (nearest, item, index) => {
+        const itemBounds = item.getBoundingClientRect();
+        const itemCenter = itemBounds.left + itemBounds.width / 2;
+        const distance = Math.abs(trackCenter - itemCenter);
+
+        return distance < nearest.distance ? { distance, index } : nearest;
+      },
+      { distance: Number.POSITIVE_INFINITY, index: 0 },
+    ).index;
+
+    setActiveEntryIndex(nearestIndex);
+  };
 
   useEffect(() => {
     const prefersReducedMotion =
@@ -94,6 +123,47 @@ export default function HomePage() {
 
     return () => window.clearInterval(intervalId);
   }, [isModePaused]);
+
+  useEffect(
+    () => () => {
+      window.cancelAnimationFrame(entryScrollFrameRef.current);
+      window.clearTimeout(entrySwipeTimeoutRef.current);
+    },
+    [],
+  );
+
+  const handleEntryScroll = () => {
+    setIsEntrySwiping(true);
+    window.cancelAnimationFrame(entryScrollFrameRef.current);
+
+    entryScrollFrameRef.current = window.requestAnimationFrame(updateActiveEntryFromScroll);
+
+    window.clearTimeout(entrySwipeTimeoutRef.current);
+    entrySwipeTimeoutRef.current = window.setTimeout(() => {
+      setIsEntrySwiping(false);
+      updateActiveEntryFromScroll();
+    }, 150);
+  };
+
+  const scrollToEntry = (index) => {
+    const trackNode = entryTrackRef.current;
+    const target = trackNode?.querySelectorAll(".entry-link")[index];
+
+    if (!target) {
+      return;
+    }
+
+    const prefersReducedMotion =
+      typeof window !== "undefined" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    setActiveEntryIndex(index);
+    target.scrollIntoView({
+      behavior: prefersReducedMotion ? "auto" : "smooth",
+      block: "nearest",
+      inline: "center",
+    });
+  };
 
   return (
     <>
@@ -181,19 +251,67 @@ export default function HomePage() {
           <h2>A quick path through what I am building.</h2>
         </Reveal>
 
-        <div className="entry-grid">
-          {entryLinks.map((item, index) => (
-            <Reveal
-              key={item.to}
-              as={Link}
-              to={item.to}
-              className={`entry-link${index === 0 ? " entry-link-feature" : ""}`}
-              delay={120 + index * 40}
-            >
-              <span className="kicker">{item.label}</span>
-              <h3>{item.title}</h3>
-            </Reveal>
-          ))}
+        <div
+          className="mobile-swipe-shell"
+          style={{
+            "--entry-active-index": activeEntryIndex,
+            "--entry-progress": `${((activeEntryIndex + 1) / entryLinks.length) * 100}%`,
+          }}
+        >
+          <div className="mobile-swipe-head" aria-hidden="true">
+            <span>Path</span>
+            <strong>
+              {String(activeEntryIndex + 1).padStart(2, "0")} /{" "}
+              {String(entryLinks.length).padStart(2, "0")}
+            </strong>
+          </div>
+
+          <div
+            ref={entryTrackRef}
+            className={`entry-grid entry-swipe-track${isEntrySwiping ? " is-swiping" : ""}`}
+            onScroll={handleEntryScroll}
+            aria-label="Main page paths"
+          >
+            {entryLinks.map((item, index) => (
+              <Reveal
+                key={item.to}
+                as={Link}
+                to={item.to}
+                className={[
+                  "entry-link",
+                  index === 0 ? "entry-link-feature" : "",
+                  index === activeEntryIndex ? "is-active" : "",
+                  index < activeEntryIndex ? "is-before" : "",
+                  index > activeEntryIndex ? "is-after" : "",
+                ]
+                  .filter(Boolean)
+                  .join(" ")}
+                delay={120 + index * 40}
+                style={{ "--entry-card-index": index }}
+              >
+                <span className="kicker">{item.label}</span>
+                <h3>{item.title}</h3>
+              </Reveal>
+            ))}
+          </div>
+
+          <div className="mobile-swipe-footer" aria-label={`Current path: ${activeEntry.label}`}>
+            <span className="mobile-swipe-progress" aria-hidden="true">
+              <span />
+            </span>
+            <div className="mobile-swipe-dots" aria-label="Choose a path">
+              {entryLinks.map((item, index) => (
+                <button
+                  key={item.to}
+                  type="button"
+                  className={index === activeEntryIndex ? "is-active" : ""}
+                  aria-label={`Go to ${item.label}`}
+                  aria-pressed={index === activeEntryIndex}
+                  onClick={() => scrollToEntry(index)}
+                />
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
