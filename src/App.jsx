@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import SiteLayout from "./components/SiteLayout";
 import AboutPage from "./pages/AboutPage";
@@ -64,42 +64,6 @@ function AppRoutes() {
   );
 }
 
-function InitialLoader({ isLeaving }) {
-  return (
-    <div
-      className={`site-loader${isLeaving ? " is-leaving" : ""}`}
-      role="status"
-      aria-label="Opening Victor Licona website"
-    >
-      <div className="site-loader-card">
-        <span className="site-loader-mark">VL</span>
-        <div className="site-loader-copy">
-          <strong>Victor Licona</strong>
-          <small>Opening Site</small>
-        </div>
-        <span className="site-loader-line" aria-hidden="true" />
-      </div>
-    </div>
-  );
-}
-
 export default function App() {
-  const [loaderState, setLoaderState] = useState("visible");
-
-  useEffect(() => {
-    const leaveTimer = window.setTimeout(() => setLoaderState("leaving"), 950);
-    const removeTimer = window.setTimeout(() => setLoaderState("hidden"), 1350);
-
-    return () => {
-      window.clearTimeout(leaveTimer);
-      window.clearTimeout(removeTimer);
-    };
-  }, []);
-
-  return (
-    <>
-      <AppRoutes />
-      {loaderState !== "hidden" ? <InitialLoader isLeaving={loaderState === "leaving"} /> : null}
-    </>
-  );
+  return <AppRoutes />;
 }
