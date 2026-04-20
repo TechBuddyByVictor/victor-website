@@ -14,10 +14,7 @@ export default function Reveal({
       return false;
     }
 
-    return (
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
-      window.matchMedia("(max-width: 759px)").matches
-    );
+    return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   });
 
   useEffect(() => {
@@ -30,7 +27,7 @@ export default function Reveal({
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const isMobileViewport = window.matchMedia("(max-width: 759px)").matches;
 
-    if (prefersReducedMotion || isMobileViewport || !("IntersectionObserver" in window)) {
+    if (prefersReducedMotion || !("IntersectionObserver" in window)) {
       setIsVisible(true);
       return undefined;
     }
@@ -43,8 +40,8 @@ export default function Reveal({
         }
       },
       {
-        threshold: 0.16,
-        rootMargin: "0px 0px -12% 0px",
+        threshold: isMobileViewport ? 0.08 : 0.16,
+        rootMargin: isMobileViewport ? "0px 0px -6% 0px" : "0px 0px -12% 0px",
       },
     );
 
