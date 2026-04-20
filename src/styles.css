@@ -1142,6 +1142,7 @@ p {
 .hero-topline-note {
   display: inline-flex;
   align-items: center;
+  gap: 0.36rem;
   padding: 0.3rem 0.54rem;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--radius-lg);
@@ -1152,6 +1153,16 @@ p {
   letter-spacing: 0.12em;
   text-transform: uppercase;
   white-space: nowrap;
+}
+
+.hero-topline-note::before {
+  content: "";
+  width: 0.38rem;
+  height: 0.38rem;
+  border: 1px solid rgba(255, 255, 255, 0.42);
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.12);
+  animation: hero-status-tick 2.6s ease-in-out infinite;
 }
 
 .hero-editorial-body {
@@ -1273,6 +1284,7 @@ p {
 
 .hero-signal-axis,
 .hero-signal-pulse,
+.hero-signal-node,
 .hero-signal-scan {
   position: absolute;
   display: block;
@@ -1331,6 +1343,45 @@ p {
   opacity: 0;
   transform: skewX(-10deg);
   animation: hero-signal-scan 7.2s ease-in-out 0.45s infinite;
+}
+
+.hero-signal-node {
+  width: 0.42rem;
+  height: 0.42rem;
+  border: 1px solid rgba(255, 255, 255, 0.42);
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 18px rgba(255, 255, 255, 0.12);
+  opacity: 0.2;
+  animation: hero-signal-node 5.8s ease-in-out infinite;
+}
+
+.hero-signal-node::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  width: 3.2rem;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.42), transparent);
+  opacity: 0.44;
+}
+
+.hero-signal-node-one {
+  top: 21%;
+  left: 18%;
+}
+
+.hero-signal-node-two {
+  top: 45%;
+  right: 19%;
+  animation-delay: 1.2s;
+}
+
+.hero-signal-node-three {
+  right: 33%;
+  bottom: 20%;
+  animation-delay: 2.25s;
 }
 
 .hero-home-signature .hero-portrait-feature {
@@ -1540,6 +1591,58 @@ p {
   object-position: center 18%;
 }
 
+@media (min-width: 760px) {
+  .hero-home-signature .hero-topline,
+  .hero-home-signature .hero-copy-column h1,
+  .hero-home-signature .hero-copy-column .hero-copyline,
+  .hero-home-signature .hero-supportline,
+  .hero-home-signature .hero-note-list span,
+  .hero-home-signature .hero-actions > * {
+    opacity: 0;
+    animation: hero-copy-rise 0.72s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .hero-home-signature .hero-topline {
+    animation-delay: 0.08s;
+  }
+
+  .hero-home-signature .hero-copy-column h1 {
+    animation-delay: 0.18s;
+  }
+
+  .hero-home-signature .hero-copy-column .hero-copyline {
+    animation-delay: 0.28s;
+  }
+
+  .hero-home-signature .hero-supportline {
+    animation-delay: 0.36s;
+  }
+
+  .hero-home-signature .hero-note-list span:nth-child(1) {
+    animation-delay: 0.44s;
+  }
+
+  .hero-home-signature .hero-note-list span:nth-child(2) {
+    animation-delay: 0.5s;
+  }
+
+  .hero-home-signature .hero-note-list span:nth-child(3) {
+    animation-delay: 0.56s;
+  }
+
+  .hero-home-signature .hero-actions > :nth-child(1) {
+    animation-delay: 0.62s;
+  }
+
+  .hero-home-signature .hero-actions > :nth-child(2) {
+    animation-delay: 0.68s;
+  }
+
+  .hero-home-signature .hero-actions > :nth-child(3) {
+    animation-delay: 0.74s;
+  }
+}
+
 .portrait-caption {
   display: none;
   gap: 0.18rem;
@@ -1735,7 +1838,29 @@ p {
 }
 
 .entry-link h3 {
+  position: relative;
   max-width: 18ch;
+}
+
+.entry-link h3::after {
+  content: "";
+  display: block;
+  width: 2.8rem;
+  height: 1px;
+  margin-top: 0.54rem;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.62), transparent);
+  opacity: 0.54;
+  transform: scaleX(0.62);
+  transform-origin: left;
+  transition:
+    opacity 0.28s ease,
+    transform 0.28s ease;
+}
+
+.entry-link:hover h3::after,
+.entry-link:focus-visible h3::after {
+  opacity: 1;
+  transform: scaleX(1);
 }
 
 .focus-strip,
@@ -1962,6 +2087,14 @@ p {
 .ops-console-copy p {
   max-width: 34ch;
   font-size: 0.86rem;
+}
+
+.ops-console-copy {
+  animation: ops-copy-switch 0.46s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.ops-readout {
+  animation: ops-readout-switch 0.42s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 .ops-mode-list {
@@ -4460,6 +4593,50 @@ p {
   }
 }
 
+@keyframes hero-status-tick {
+  0%,
+  100% {
+    opacity: 0.42;
+    transform: scale(0.86);
+  }
+
+  45% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes hero-signal-node {
+  0%,
+  100% {
+    opacity: 0.18;
+    transform: translateY(0) scale(0.92);
+  }
+
+  44% {
+    opacity: 0.88;
+    transform: translateY(-2px) scale(1);
+  }
+
+  58% {
+    opacity: 0.34;
+  }
+}
+
+@keyframes hero-copy-rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+    clip-path: inset(0 0 18% 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    clip-path: inset(0);
+  }
+}
+
 @keyframes hero-detail-enter {
   from {
     opacity: 0;
@@ -4499,6 +4676,32 @@ p {
   100% {
     opacity: 0;
     transform: translateX(115%);
+  }
+}
+
+@keyframes ops-copy-switch {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+    clip-path: inset(0 0 18% 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    clip-path: inset(0);
+  }
+}
+
+@keyframes ops-readout-switch {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 

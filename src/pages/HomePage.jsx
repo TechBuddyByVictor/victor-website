@@ -112,6 +112,9 @@ export default function HomePage() {
                 <span className="hero-signal-pulse hero-signal-pulse-one" />
                 <span className="hero-signal-pulse hero-signal-pulse-two" />
                 <span className="hero-signal-pulse hero-signal-pulse-three" />
+                <span className="hero-signal-node hero-signal-node-one" />
+                <span className="hero-signal-node hero-signal-node-two" />
+                <span className="hero-signal-node hero-signal-node-three" />
                 <span className="hero-signal-scan" />
               </div>
               <PortraitFrame
@@ -229,13 +232,13 @@ export default function HomePage() {
               <span />
               <span />
             </div>
-            <div className="ops-console-copy">
+            <div key={activeMode.id} className="ops-console-copy">
               <h3>{activeMode.title}</h3>
               <p>{activeMode.copy}</p>
             </div>
           </div>
 
-          <div className="ops-readout">
+          <div key={`${activeMode.id}-readout`} className="ops-readout">
             <span>{activeMode.readout}</span>
             <strong>{activeMode.signal}%</strong>
           </div>
