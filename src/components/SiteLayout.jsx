@@ -25,6 +25,8 @@ export default function SiteLayout() {
   const [hoveredNavIndex, setHoveredNavIndex] = useState(null);
   const [scrollProgress, setScrollProgress] = useState(0);
   const headerRef = useRef(null);
+  const pageShellRef = useRef(null);
+  const footerRef = useRef(null);
   const drawerRef = useRef(null);
   const navToggleRef = useRef(null);
   const drawerCloseRef = useRef(null);
@@ -171,6 +173,46 @@ export default function SiteLayout() {
     };
   }, []);
 
+  useEffect(() => {
+    const footerNode = footerRef.current;
+
+    if (!footerNode) {
+      return undefined;
+    }
+
+    let frameId = 0;
+
+    const updateFooterEnd = () => {
+      window.cancelAnimationFrame(frameId);
+
+      frameId = window.requestAnimationFrame(() => {
+        const footerTop = footerNode.getBoundingClientRect().top + window.scrollY;
+        const fillHeight = Math.max(0, window.innerHeight - footerTop);
+
+        footerNode.style.setProperty("--footer-min-height", `${Math.ceil(fillHeight)}px`);
+      });
+    };
+
+    updateFooterEnd();
+
+    const observer = new ResizeObserver(updateFooterEnd);
+
+    if (pageShellRef.current) {
+      observer.observe(pageShellRef.current);
+    }
+
+    observer.observe(footerNode);
+    window.addEventListener("resize", updateFooterEnd);
+    window.visualViewport?.addEventListener("resize", updateFooterEnd);
+
+    return () => {
+      window.cancelAnimationFrame(frameId);
+      observer.disconnect();
+      window.removeEventListener("resize", updateFooterEnd);
+      window.visualViewport?.removeEventListener("resize", updateFooterEnd);
+    };
+  }, [location.pathname]);
+
   const drawerMarkup = menuOpen ? (
     <>
       <div
@@ -249,7 +291,7 @@ export default function SiteLayout() {
         <span className="signal-seal-needle" />
       </aside>
 
-      <div className="page-shell">
+      <div ref={pageShellRef} className="page-shell">
         <header ref={headerRef} className="topbar">
           <span
             className="scroll-progress"
@@ -323,7 +365,7 @@ export default function SiteLayout() {
           <Outlet />
         </main>
 
-        <footer className="site-footer">
+        <footer ref={footerRef} className="site-footer">
           <div className="footer-top">
             <span className="footer-mark" aria-hidden="true">VL</span>
             <div className="footer-identity">

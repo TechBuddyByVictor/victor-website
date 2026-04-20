@@ -179,7 +179,7 @@ svg {
   position: relative;
   z-index: 1;
   display: flex;
-  flex: 1;
+  flex: 0 0 auto;
   flex-direction: column;
   width: var(--shell-width);
   max-width: 100%;
@@ -189,7 +189,7 @@ svg {
 .page-content {
   position: relative;
   display: grid;
-  flex: 1;
+  flex: 0 0 auto;
   align-content: start;
   gap: 1.85rem;
   padding-top: calc(var(--header-offset) + 0.95rem + env(safe-area-inset-top, 0px));
@@ -2391,8 +2391,12 @@ p {
 .site-footer {
   position: relative;
   left: 50%;
+  display: flex;
+  flex-direction: column;
   width: 100vw;
+  min-height: var(--footer-min-height, 0px);
   margin-top: 2.6rem;
+  margin-bottom: 0;
   margin-left: -50vw;
   padding:
     1.25rem
@@ -2554,6 +2558,7 @@ p {
   z-index: 1;
   grid-template-columns: 1fr;
   gap: 0.16rem;
+  margin-top: auto;
   padding-top: 0.74rem;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
