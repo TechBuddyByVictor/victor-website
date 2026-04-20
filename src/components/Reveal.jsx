@@ -32,6 +32,12 @@ export default function Reveal({
       return undefined;
     }
 
+    const bounds = node.getBoundingClientRect();
+    const revealFallback =
+      bounds.top < window.innerHeight * 1.4
+        ? window.setTimeout(() => setIsVisible(true), isMobileViewport ? 900 : 1400)
+        : undefined;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -47,7 +53,13 @@ export default function Reveal({
 
     observer.observe(node);
 
-    return () => observer.disconnect();
+    return () => {
+      if (revealFallback) {
+        window.clearTimeout(revealFallback);
+      }
+
+      observer.disconnect();
+    };
   }, []);
 
   return (

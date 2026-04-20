@@ -22,10 +22,54 @@
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
+    <style>
+      .app-fallback {
+        min-height: 100vh;
+        min-height: 100dvh;
+        display: grid;
+        place-items: center;
+        padding: 1rem;
+        color: #f5f2ec;
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.055), transparent 18%),
+          #050505;
+        font-family: "Outfit", system-ui, sans-serif;
+        text-align: center;
+      }
+
+      .app-fallback strong {
+        display: block;
+        margin-bottom: 0.4rem;
+        font-size: 1rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .app-fallback span {
+        color: #a7a6a0;
+        font-size: 0.86rem;
+        line-height: 1.5;
+      }
+    </style>
     <title>Victor Licona | Cybersecurity, Technology, and Real-World Problem Solving</title>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <div class="app-fallback">
+        <div>
+          <strong>Victor Licona</strong>
+          <span>Loading the site. If this stays here, start it with npm run dev.</span>
+        </div>
+      </div>
+    </div>
+    <noscript>
+      <div class="app-fallback">
+        <div>
+          <strong>Victor Licona</strong>
+          <span>JavaScript is needed to view this site.</span>
+        </div>
+      </div>
+    </noscript>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
