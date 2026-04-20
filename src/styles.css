@@ -2225,6 +2225,7 @@ p {
     width: 2.18rem;
     height: 2.18rem;
     font-size: 0.72rem;
+    animation: mobile-brand-status 7.2s ease-in-out infinite;
   }
 
   .brand-copy strong {
@@ -2254,6 +2255,14 @@ p {
   .drawer-close {
     width: 2.66rem;
     height: 2.66rem;
+  }
+
+  .nav-toggle span {
+    animation: mobile-nav-line 5.4s ease-in-out infinite;
+  }
+
+  .nav-toggle span:last-child {
+    animation-delay: 0.35s;
   }
 
   .nav a,
@@ -2692,6 +2701,39 @@ p {
 
   .mobile-drawer-inner {
     padding-inline: 0.9rem;
+  }
+
+  .mobile-drawer.is-open .drawer-link {
+    animation: mobile-drawer-link-enter 0.42s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .mobile-drawer.is-open .drawer-link:nth-child(1) {
+    animation-delay: 0.06s;
+  }
+
+  .mobile-drawer.is-open .drawer-link:nth-child(2) {
+    animation-delay: 0.11s;
+  }
+
+  .mobile-drawer.is-open .drawer-link:nth-child(3) {
+    animation-delay: 0.16s;
+  }
+
+  .mobile-drawer.is-open .drawer-link:nth-child(4) {
+    animation-delay: 0.21s;
+  }
+
+  .mobile-drawer.is-open .drawer-link:nth-child(5) {
+    animation-delay: 0.26s;
+  }
+
+  .site-footer::after {
+    transform-origin: left;
+    animation: mobile-footer-rule 6.4s ease-in-out infinite;
+  }
+
+  .footer-mark {
+    animation: mobile-footer-mark 7.6s ease-in-out infinite;
   }
 
   .reveal {
@@ -3313,6 +3355,70 @@ p {
   50% {
     opacity: 0.42;
     transform: rotate(45deg) scale(1.06);
+  }
+}
+
+@keyframes mobile-brand-status {
+  0%,
+  100% {
+    border-color: rgba(255, 255, 255, 0.18);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+  }
+
+  50% {
+    border-color: rgba(255, 255, 255, 0.34);
+    box-shadow:
+      0 0 18px rgba(255, 255, 255, 0.08),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+  }
+}
+
+@keyframes mobile-nav-line {
+  0%,
+  100% {
+    opacity: 0.72;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes mobile-drawer-link-enter {
+  from {
+    opacity: 0;
+    transform: translateX(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes mobile-footer-rule {
+  0%,
+  100% {
+    opacity: 0.28;
+    transform: scaleX(0.32);
+  }
+
+  48% {
+    opacity: 0.82;
+    transform: scaleX(1);
+  }
+}
+
+@keyframes mobile-footer-mark {
+  0%,
+  100% {
+    border-color: rgba(255, 255, 255, 0.18);
+    transform: translateY(0);
+  }
+
+  50% {
+    border-color: rgba(255, 255, 255, 0.32);
+    transform: translateY(-1px);
   }
 }
 
