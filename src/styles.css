@@ -2213,6 +2213,10 @@ p {
     right: 0.62rem;
   }
 
+  .scroll-progress {
+    box-shadow: 0 0 14px rgba(255, 255, 255, 0.16);
+  }
+
   .brand {
     gap: 0.5rem;
   }
@@ -2651,6 +2655,18 @@ p {
 
   .ops-signal-mark {
     width: min(30vw, 7.8rem);
+  }
+
+  .ops-signal-mark {
+    animation: mobile-signal-panel-breathe 6.8s ease-in-out infinite;
+  }
+
+  .ops-signal-mark span:nth-child(1) {
+    animation: mobile-signal-ring 5.6s ease-in-out infinite;
+  }
+
+  .ops-signal-mark span:nth-child(2) {
+    animation: mobile-signal-ring-alt 6.4s ease-in-out infinite;
   }
 
   .ops-console-copy p {
@@ -3174,6 +3190,15 @@ p {
     transition-delay: 0ms;
   }
 
+  :is(.entry-link, .line-card, .work-row, .editorial-panel, .facts-panel, .form-panel, .focus-strip, .statement-strip, .ops-board).reveal.is-visible::before {
+    animation: mobile-surface-breathe 7.5s ease-in-out infinite;
+  }
+
+  :is(.entry-link, .line-card, .work-row, .button, .button-secondary, .ops-mode, .chip-row span):active {
+    transform: translateY(1px) scale(0.99);
+    transition-duration: 0.12s;
+  }
+
   .hero-layer-item {
     opacity: 1;
     transform: none;
@@ -3238,6 +3263,56 @@ p {
 
   68% {
     opacity: 0.38;
+  }
+}
+
+@keyframes mobile-surface-breathe {
+  0%,
+  100% {
+    opacity: 0.78;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes mobile-signal-panel-breathe {
+  0%,
+  100% {
+    border-color: rgba(255, 255, 255, 0.12);
+    background-position: 0 0, 0 0, 0 0;
+  }
+
+  50% {
+    border-color: rgba(255, 255, 255, 0.2);
+    background-position: 0.45rem 0, 0 0.45rem, 0 0;
+  }
+}
+
+@keyframes mobile-signal-ring {
+  0%,
+  100% {
+    opacity: 0.62;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.95;
+    transform: scale(0.94);
+  }
+}
+
+@keyframes mobile-signal-ring-alt {
+  0%,
+  100% {
+    opacity: 0.72;
+    transform: rotate(45deg) scale(1);
+  }
+
+  50% {
+    opacity: 0.42;
+    transform: rotate(45deg) scale(1.06);
   }
 }
 
