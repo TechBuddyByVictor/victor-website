@@ -122,11 +122,14 @@ svg {
 .route-shell,
 .site-shell {
   min-height: 100vh;
+  min-height: 100dvh;
 }
 
 .site-shell {
   position: relative;
   isolation: isolate;
+  display: flex;
+  flex-direction: column;
   padding: 0.72rem 0 0;
   animation: site-first-arrival 1.15s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
@@ -175,6 +178,9 @@ svg {
 .page-shell {
   position: relative;
   z-index: 1;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
   width: var(--shell-width);
   max-width: 100%;
   margin: 0 auto;
@@ -183,6 +189,8 @@ svg {
 .page-content {
   position: relative;
   display: grid;
+  flex: 1;
+  align-content: start;
   gap: 1.85rem;
   padding-top: calc(var(--header-offset) + 0.95rem + env(safe-area-inset-top, 0px));
   animation: content-enter 0.62s cubic-bezier(0.22, 1, 0.36, 1) both;
