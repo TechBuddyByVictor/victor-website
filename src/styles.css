@@ -2394,6 +2394,7 @@ p {
     align-items: stretch;
     justify-items: stretch;
     margin-bottom: 0;
+    animation: mobile-hero-photo-enter 0.72s cubic-bezier(0.22, 1, 0.36, 1) both;
   }
 
   .hero-photo-badge {
@@ -2412,6 +2413,9 @@ p {
     box-shadow: 0 10px 24px rgba(0, 0, 0, 0.28);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
+    animation:
+      mobile-hero-badge-enter 0.64s cubic-bezier(0.22, 1, 0.36, 1) 0.18s both,
+      mobile-hero-badge-glow 4.8s ease-in-out 1s infinite;
   }
 
   .hero-photo-badge span {
@@ -2434,6 +2438,7 @@ p {
     inset: 0.42rem -0.22rem -0.2rem 0.42rem;
     opacity: 0.28;
     transform: none;
+    animation: mobile-hero-grid-breathe 5.8s ease-in-out infinite;
   }
 
   .hero-home-signature .hero-portrait-feature {
@@ -2446,9 +2451,14 @@ p {
     min-height: 11.2rem;
     max-height: 13.4rem;
     border-color: rgba(255, 255, 255, 0.16);
+    background:
+      radial-gradient(circle at 72% 18%, rgba(255, 255, 255, 0.09), transparent 34%),
+      linear-gradient(135deg, rgba(255, 255, 255, 0.055), transparent 36%),
+      rgba(8, 8, 9, 0.86);
     box-shadow:
       0 18px 42px rgba(0, 0, 0, 0.34),
       inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+    animation: mobile-hero-photo-float 7.2s ease-in-out 0.8s infinite;
   }
 
   .hero-home-signature .portrait-shell::before {
@@ -2466,8 +2476,34 @@ p {
   }
 
   .hero-home-signature .portrait-image {
-    object-position: center 16%;
+    object-fit: contain;
+    object-position: center;
+    transform: none;
     filter: contrast(1.04) brightness(1.02) saturate(1.04);
+  }
+
+  .hero-home-signature .hero-copy-column {
+    animation: mobile-hero-copy-enter 0.66s cubic-bezier(0.22, 1, 0.36, 1) 0.12s both;
+  }
+
+  .hero-home-signature .hero-copy-column::before {
+    animation: mobile-hero-copy-rule 3.8s ease-in-out 0.6s infinite;
+  }
+
+  .hero-mobile-focus span {
+    animation: mobile-hero-chip-enter 0.48s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .hero-mobile-focus span:nth-child(1) {
+    animation-delay: 0.2s;
+  }
+
+  .hero-mobile-focus span:nth-child(2) {
+    animation-delay: 0.28s;
+  }
+
+  .hero-mobile-focus span:nth-child(3) {
+    animation-delay: 0.36s;
   }
 
   .hero-actions,
@@ -2986,6 +3022,104 @@ p {
   100% {
     opacity: 0;
     transform: translateX(120%);
+  }
+}
+
+@keyframes mobile-hero-photo-enter {
+  from {
+    opacity: 0.88;
+    transform: translateY(8px) scale(0.985);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes mobile-hero-photo-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+@keyframes mobile-hero-grid-breathe {
+  0%,
+  100% {
+    opacity: 0.22;
+    transform: translateY(0);
+  }
+
+  50% {
+    opacity: 0.38;
+    transform: translateY(-2px);
+  }
+}
+
+@keyframes mobile-hero-badge-enter {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes mobile-hero-badge-glow {
+  0%,
+  100% {
+    border-color: rgba(255, 255, 255, 0.14);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.28);
+  }
+
+  50% {
+    border-color: rgba(255, 255, 255, 0.24);
+    box-shadow:
+      0 12px 28px rgba(0, 0, 0, 0.32),
+      0 0 0 1px rgba(255, 255, 255, 0.055);
+  }
+}
+
+@keyframes mobile-hero-copy-enter {
+  from {
+    opacity: 0;
+    transform: translateY(7px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes mobile-hero-copy-rule {
+  0%,
+  100% {
+    opacity: 0.52;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes mobile-hero-chip-enter {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
