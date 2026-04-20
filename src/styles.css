@@ -2296,7 +2296,21 @@ p {
   }
 
   .hero-home-signature {
+    position: relative;
+    isolation: isolate;
     padding: 0.12rem 0 0.08rem;
+  }
+
+  .hero-home-signature::after {
+    left: 0;
+    right: 0;
+    top: auto;
+    bottom: -0.36rem;
+    width: auto;
+    height: 1px;
+    opacity: 0.46;
+    transform-origin: left;
+    animation: mobile-hero-rule-sweep 4.4s ease-in-out 0.4s infinite;
   }
 
   .hero-home-signature.reveal {
@@ -2406,10 +2420,12 @@ p {
     display: grid;
     gap: 0.04rem;
     min-width: 6.4rem;
-    padding: 0.38rem 0.46rem;
+    padding: 0.42rem 0.5rem;
     border: 1px solid rgba(255, 255, 255, 0.14);
     border-radius: var(--radius-lg);
-    background: rgba(7, 7, 8, 0.68);
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.07), transparent 72%),
+      rgba(7, 7, 8, 0.72);
     box-shadow: 0 10px 24px rgba(0, 0, 0, 0.28);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
@@ -2452,17 +2468,22 @@ p {
     max-height: 13.4rem;
     border-color: rgba(255, 255, 255, 0.16);
     background:
-      radial-gradient(circle at 72% 18%, rgba(255, 255, 255, 0.09), transparent 34%),
+      radial-gradient(circle at 74% 16%, rgba(255, 255, 255, 0.12), transparent 32%),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.026) 1px, transparent 1px),
+      linear-gradient(rgba(255, 255, 255, 0.022) 1px, transparent 1px),
       linear-gradient(135deg, rgba(255, 255, 255, 0.055), transparent 36%),
       rgba(8, 8, 9, 0.86);
+    background-size: auto, 1.35rem 1.35rem, 1.35rem 1.35rem, auto, auto;
     box-shadow:
       0 18px 42px rgba(0, 0, 0, 0.34),
+      0 0 0 1px rgba(255, 255, 255, 0.035),
       inset 0 0 0 1px rgba(255, 255, 255, 0.04);
     animation: mobile-hero-photo-float 7.2s ease-in-out 0.8s infinite;
   }
 
   .hero-home-signature .portrait-shell::before {
     inset: 0.34rem;
+    border-color: rgba(255, 255, 255, 0.11);
   }
 
   .hero-home-signature .portrait-aura {
@@ -2471,15 +2492,21 @@ p {
 
   .hero-home-signature .portrait-grade {
     background:
-      linear-gradient(180deg, transparent 52%, rgba(0, 0, 0, 0.12) 78%, rgba(0, 0, 0, 0.28)),
-      linear-gradient(90deg, rgba(0, 0, 0, 0.14), transparent 32%, transparent 82%, rgba(0, 0, 0, 0.16));
+      linear-gradient(180deg, transparent 58%, rgba(0, 0, 0, 0.08) 82%, rgba(0, 0, 0, 0.18)),
+      linear-gradient(90deg, rgba(0, 0, 0, 0.1), transparent 24%, transparent 84%, rgba(0, 0, 0, 0.12));
   }
 
   .hero-home-signature .portrait-image {
+    box-sizing: border-box;
+    padding: 0.36rem;
     object-fit: contain;
     object-position: center;
     transform: none;
-    filter: contrast(1.04) brightness(1.02) saturate(1.04);
+    filter:
+      contrast(1.04)
+      brightness(1.02)
+      saturate(1.04)
+      drop-shadow(0 10px 18px rgba(0, 0, 0, 0.28));
   }
 
   .hero-home-signature .hero-copy-column {
@@ -2729,6 +2756,10 @@ p {
     max-height: 12.4rem;
   }
 
+  .hero-home-signature .portrait-image {
+    padding: 0.3rem;
+  }
+
   .hero-copyline {
     max-width: 29ch;
     font-size: 0.88rem;
@@ -2862,6 +2893,10 @@ p {
   .hero-home-signature .hero-portrait-feature .portrait-shell {
     min-height: 9.35rem;
     max-height: 10.6rem;
+  }
+
+  .hero-home-signature .portrait-image {
+    padding: 0.24rem;
   }
 
 }
@@ -3120,6 +3155,19 @@ p {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes mobile-hero-rule-sweep {
+  0%,
+  100% {
+    opacity: 0.24;
+    transform: scaleX(0.34);
+  }
+
+  48% {
+    opacity: 0.7;
+    transform: scaleX(1);
   }
 }
 
