@@ -2205,6 +2205,7 @@ p {
     gap: 0.5rem;
     padding: 0.56rem 0.62rem;
     transform: none;
+    animation: mobile-topbar-presence 8.4s ease-in-out infinite;
   }
 
   .topbar::after,
@@ -2214,7 +2215,9 @@ p {
   }
 
   .scroll-progress {
+    background-size: 180% 100%;
     box-shadow: 0 0 14px rgba(255, 255, 255, 0.16);
+    animation: mobile-progress-light 4.2s linear infinite;
   }
 
   .brand {
@@ -2424,6 +2427,9 @@ p {
     font-weight: 800;
     letter-spacing: 0.08em;
     text-transform: uppercase;
+    animation:
+      mobile-hero-chip-enter 0.48s cubic-bezier(0.22, 1, 0.36, 1) both,
+      mobile-chip-status 5.8s ease-in-out 1.2s infinite;
   }
 
   .hero-note-list {
@@ -2545,20 +2551,16 @@ p {
     animation: mobile-hero-copy-rule 3.8s ease-in-out 0.6s infinite;
   }
 
-  .hero-mobile-focus span {
-    animation: mobile-hero-chip-enter 0.48s cubic-bezier(0.22, 1, 0.36, 1) both;
-  }
-
   .hero-mobile-focus span:nth-child(1) {
-    animation-delay: 0.2s;
+    animation-delay: 0.2s, 1.2s;
   }
 
   .hero-mobile-focus span:nth-child(2) {
-    animation-delay: 0.28s;
+    animation-delay: 0.28s, 1.55s;
   }
 
   .hero-mobile-focus span:nth-child(3) {
-    animation-delay: 0.36s;
+    animation-delay: 0.36s, 1.9s;
   }
 
   .hero-actions,
@@ -2680,6 +2682,10 @@ p {
 
   .ops-console-copy p {
     font-size: 0.82rem;
+  }
+
+  .ops-readout strong {
+    animation: mobile-readout-pulse 4.8s ease-in-out infinite;
   }
 
   .ops-mode {
@@ -3236,6 +3242,10 @@ p {
     animation: mobile-surface-breathe 7.5s ease-in-out infinite;
   }
 
+  :is(.entry-link, .line-card, .work-row).reveal.is-visible {
+    animation: mobile-card-depth 9.2s ease-in-out infinite;
+  }
+
   :is(.entry-link, .line-card, .work-row, .button, .button-secondary, .ops-mode, .chip-row span):active {
     transform: translateY(1px) scale(0.99);
     transition-duration: 0.12s;
@@ -3289,6 +3299,31 @@ p {
   }
 }
 
+@keyframes mobile-topbar-presence {
+  0%,
+  100% {
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: var(--shadow);
+  }
+
+  50% {
+    border-color: rgba(255, 255, 255, 0.17);
+    box-shadow:
+      var(--shadow),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.025);
+  }
+}
+
+@keyframes mobile-progress-light {
+  from {
+    background-position: 0% 0;
+  }
+
+  to {
+    background-position: 180% 0;
+  }
+}
+
 @keyframes mobile-signal-rail {
   0%,
   100% {
@@ -3305,6 +3340,41 @@ p {
 
   68% {
     opacity: 0.38;
+  }
+}
+
+@keyframes mobile-card-depth {
+  0%,
+  100% {
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+
+  50% {
+    border-color: rgba(255, 255, 255, 0.15);
+  }
+}
+
+@keyframes mobile-chip-status {
+  0%,
+  100% {
+    border-color: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.028);
+  }
+
+  50% {
+    border-color: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.045);
+  }
+}
+
+@keyframes mobile-readout-pulse {
+  0%,
+  100% {
+    opacity: 0.82;
+  }
+
+  50% {
+    opacity: 1;
   }
 }
 
