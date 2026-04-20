@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import PortraitFrame from "../components/PortraitFrame";
 import Reveal from "../components/Reveal";
@@ -69,9 +69,31 @@ const portraitSrc = "/victor-portrait.jpg";
 
 export default function HomePage() {
   const [activeModeId, setActiveModeId] = useState(operatingModes[0].id);
+  const [isModePaused, setIsModePaused] = useState(false);
   const activeMode =
     operatingModes.find((mode) => mode.id === activeModeId) ?? operatingModes[0];
   const activeIndex = operatingModes.findIndex((mode) => mode.id === activeMode.id);
+
+  useEffect(() => {
+    const prefersReducedMotion =
+      typeof window !== "undefined" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (isModePaused || prefersReducedMotion) {
+      return undefined;
+    }
+
+    const intervalId = window.setInterval(() => {
+      setActiveModeId((currentId) => {
+        const currentIndex = operatingModes.findIndex((mode) => mode.id === currentId);
+        const nextIndex = currentIndex >= 0 ? (currentIndex + 1) % operatingModes.length : 0;
+
+        return operatingModes[nextIndex].id;
+      });
+    }, 4200);
+
+    return () => window.clearInterval(intervalId);
+  }, [isModePaused]);
 
   return (
     <>
@@ -186,6 +208,14 @@ export default function HomePage() {
           style={{
             "--ops-signal-bar": `${Number(activeMode.signal) * 0.76}%`,
             "--ops-needle-angle": `${activeIndex * 28 - 42}deg`,
+          }}
+          onMouseEnter={() => setIsModePaused(true)}
+          onMouseLeave={() => setIsModePaused(false)}
+          onFocusCapture={() => setIsModePaused(true)}
+          onBlurCapture={(event) => {
+            if (!event.currentTarget.contains(event.relatedTarget)) {
+              setIsModePaused(false);
+            }
           }}
         >
           <div className="ops-console-head">
