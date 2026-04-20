@@ -2178,6 +2178,21 @@ p {
     animation-duration: 36s;
   }
 
+  body::after {
+    top: 24vh;
+    right: max(0.28rem, env(safe-area-inset-right, 0px));
+    left: auto;
+    width: 1px;
+    height: 42vh;
+    opacity: 0.42;
+    background:
+      linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.72), transparent),
+      linear-gradient(180deg, transparent 0 16%, rgba(255, 255, 255, 0.24) 16% 18%, transparent 18% 100%);
+    background-size: 100% 100%, 100% 2.4rem;
+    transform-origin: center;
+    animation: mobile-signal-rail 6.2s ease-in-out infinite;
+  }
+
   .site-shell {
     padding: 0.5rem 0 1.1rem;
   }
@@ -3204,6 +3219,25 @@ p {
   100% {
     opacity: 0;
     transform: translateX(120%);
+  }
+}
+
+@keyframes mobile-signal-rail {
+  0%,
+  100% {
+    opacity: 0.24;
+    transform: translateY(-0.85rem) scaleY(0.86);
+    background-position: 0 0, 0 0;
+  }
+
+  46% {
+    opacity: 0.58;
+    transform: translateY(0.85rem) scaleY(1);
+    background-position: 0 0, 0 1.4rem;
+  }
+
+  68% {
+    opacity: 0.38;
   }
 }
 
