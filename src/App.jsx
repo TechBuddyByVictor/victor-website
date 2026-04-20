@@ -69,13 +69,13 @@ function InitialLoader({ isLeaving }) {
     <div
       className={`site-loader${isLeaving ? " is-leaving" : ""}`}
       role="status"
-      aria-label="Loading Victor Licona website"
+      aria-label="Opening Victor Licona website"
     >
       <div className="site-loader-card">
         <span className="site-loader-mark">VL</span>
         <div className="site-loader-copy">
           <strong>Victor Licona</strong>
-          <small>Loading Signal</small>
+          <small>Opening Site</small>
         </div>
         <span className="site-loader-line" aria-hidden="true" />
       </div>
