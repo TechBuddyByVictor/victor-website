@@ -87,8 +87,8 @@ export default function App() {
   const [loaderState, setLoaderState] = useState("visible");
 
   useEffect(() => {
-    const leaveTimer = window.setTimeout(() => setLoaderState("leaving"), 520);
-    const removeTimer = window.setTimeout(() => setLoaderState("hidden"), 860);
+    const leaveTimer = window.setTimeout(() => setLoaderState("leaving"), 950);
+    const removeTimer = window.setTimeout(() => setLoaderState("hidden"), 1350);
 
     return () => {
       window.clearTimeout(leaveTimer);
