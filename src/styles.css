@@ -127,7 +127,7 @@ svg {
 .site-shell {
   position: relative;
   isolation: isolate;
-  padding: 0.72rem 0 1.2rem;
+  padding: 0.72rem 0 0;
   animation: site-first-arrival 1.15s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
@@ -211,8 +211,7 @@ svg {
 .work-row,
 .focus-strip,
 .statement-strip,
-.form-panel,
-.site-footer {
+.form-panel {
   position: relative;
   border: 1px solid var(--line);
   border-radius: var(--radius-xl);
@@ -233,8 +232,7 @@ svg {
 .work-row::before,
 .focus-strip::before,
 .statement-strip::before,
-.form-panel::before,
-.site-footer::before {
+.form-panel::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -294,8 +292,7 @@ svg {
   display: none;
 }
 
-.topbar,
-.site-footer {
+.topbar {
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.05), transparent 28%),
     rgba(12, 12, 13, 0.86);
@@ -2242,16 +2239,37 @@ p {
 
 .site-footer {
   position: relative;
-  margin-top: 2rem;
-  padding: 0.78rem;
-  border-color: rgba(255, 255, 255, 0.11);
+  left: 50%;
+  width: 100vw;
+  margin-top: 2.6rem;
+  margin-left: -50vw;
+  padding:
+    1.25rem
+    max(0.8rem, calc((100vw - var(--shell-width)) / 2))
+    calc(1rem + env(safe-area-inset-bottom, 0px));
+  border: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 0;
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.045), transparent 36%),
-    rgba(10, 10, 11, 0.62);
+    linear-gradient(180deg, rgba(255, 255, 255, 0.05), transparent 34%),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.026), transparent 28%, transparent 72%, rgba(255, 255, 255, 0.018)),
+    rgba(3, 3, 4, 0.96);
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
 
 .site-footer::before {
-  display: block;
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 4.5rem 4.5rem;
+  mask-image: linear-gradient(180deg, black, transparent 72%);
+  opacity: 0.34;
 }
 
 .site-footer::after {
@@ -2261,7 +2279,7 @@ p {
   left: 0;
   width: 100%;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.46), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.62), transparent);
 }
 
 .footer-top,
@@ -2271,8 +2289,10 @@ p {
 }
 
 .footer-top {
+  position: relative;
+  z-index: 1;
   gap: 0.62rem;
-  padding-bottom: 0.68rem;
+  padding-bottom: 0.82rem;
   align-items: start;
 }
 
@@ -2313,12 +2333,28 @@ p {
 
 .footer-cta {
   width: 100%;
+  color: var(--text);
+  border-color: rgba(255, 255, 255, 0.14);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.055), transparent 70%),
+    rgba(255, 255, 255, 0.035);
+  box-shadow: none;
+}
+
+.footer-cta:hover,
+.footer-cta:focus-visible {
+  color: var(--text);
+  border-color: rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.055);
+  box-shadow: none;
 }
 
 .footer-main {
+  position: relative;
+  z-index: 1;
   gap: 0.68rem;
-  padding: 0.64rem 0 0.68rem;
-  border-top: 1px solid var(--line);
+  padding: 0.82rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.09);
 }
 
 .footer-column {
@@ -2363,9 +2399,11 @@ p {
 }
 
 .footer-bottom {
+  position: relative;
+  z-index: 1;
   grid-template-columns: 1fr;
   gap: 0.16rem;
-  padding-top: 0.54rem;
+  padding-top: 0.74rem;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
@@ -2414,7 +2452,7 @@ p {
   }
 
   .site-shell {
-    padding: 0.5rem 0 1.1rem;
+    padding: 0.5rem 0 0;
   }
 
   .site-shell::before {
@@ -4805,7 +4843,7 @@ p {
   }
 
   .site-shell {
-    padding: 1rem 0 2rem;
+    padding: 1rem 0 0;
   }
 
   .page-content {
@@ -5527,7 +5565,7 @@ p {
   }
 
   .site-shell {
-    padding: 1.15rem 0 2.5rem;
+    padding: 1.15rem 0 0;
   }
 
   .topbar {
