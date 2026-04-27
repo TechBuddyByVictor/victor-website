@@ -189,7 +189,13 @@ export default function SiteLayout() {
       >
         <div className="mobile-drawer-inner">
           <div className="drawer-head">
-            <span className="eyebrow">Menu</span>
+            <div className="drawer-brand-lockup" aria-hidden="true">
+              <span className="brand-mark">VL</span>
+              <div className="drawer-brand-copy">
+                <strong>Victor Licona</strong>
+                <small>{currentSignal.label}</small>
+              </div>
+            </div>
             <button
               ref={drawerCloseRef}
               type="button"
@@ -265,7 +271,13 @@ export default function SiteLayout() {
             </span>
           </Link>
 
+          <div className="topbar-utility" aria-hidden="true">
+            <span>{currentSignal.label}</span>
+            <strong>{scrollPercent}%</strong>
+          </div>
+
           <div className="header-status" aria-hidden="true">
+            <small>Live Route</small>
             <span>{currentSignal.code}</span>
             <strong>{currentSignal.label}</strong>
           </div>
