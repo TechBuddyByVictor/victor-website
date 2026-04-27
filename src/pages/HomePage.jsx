@@ -71,10 +71,13 @@ export default function HomePage() {
   const [activeModeId, setActiveModeId] = useState(operatingModes[0].id);
   const [isModePaused, setIsModePaused] = useState(false);
   const [activeEntryIndex, setActiveEntryIndex] = useState(0);
+  const [isEntryPaused, setIsEntryPaused] = useState(false);
   const [isEntrySwiping, setIsEntrySwiping] = useState(false);
   const entryTrackRef = useRef(null);
+  const heroMotionRef = useRef(null);
   const entryScrollFrameRef = useRef(0);
   const entrySwipeTimeoutRef = useRef(0);
+  const heroMotionFrameRef = useRef(0);
   const activeMode =
     operatingModes.find((mode) => mode.id === activeModeId) ?? operatingModes[0];
   const activeIndex = operatingModes.findIndex((mode) => mode.id === activeMode.id);
@@ -124,13 +127,73 @@ export default function HomePage() {
     return () => window.clearInterval(intervalId);
   }, [isModePaused]);
 
+  useEffect(() => {
+    const prefersReducedMotion =
+      typeof window !== "undefined" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const isDesktopViewport =
+      typeof window !== "undefined" && window.matchMedia("(min-width: 760px)").matches;
+
+    if (prefersReducedMotion || isEntryPaused || !isDesktopViewport) {
+      return undefined;
+    }
+
+    const intervalId = window.setInterval(() => {
+      setActiveEntryIndex((currentIndex) => (currentIndex + 1) % entryLinks.length);
+    }, 3600);
+
+    return () => window.clearInterval(intervalId);
+  }, [isEntryPaused]);
+
   useEffect(
     () => () => {
       window.cancelAnimationFrame(entryScrollFrameRef.current);
       window.clearTimeout(entrySwipeTimeoutRef.current);
+      window.cancelAnimationFrame(heroMotionFrameRef.current);
     },
     [],
   );
+
+  const updateHeroMotion = (x, y, intensity) => {
+    const heroNode = heroMotionRef.current;
+
+    if (!heroNode) {
+      return;
+    }
+
+    window.cancelAnimationFrame(heroMotionFrameRef.current);
+    heroMotionFrameRef.current = window.requestAnimationFrame(() => {
+      heroNode.style.setProperty("--hero-motion-x", x.toFixed(4));
+      heroNode.style.setProperty("--hero-motion-y", y.toFixed(4));
+      heroNode.style.setProperty("--hero-motion-depth", intensity.toFixed(4));
+      heroNode.style.setProperty("--hero-glow-x", `${50 + x * 16}%`);
+      heroNode.style.setProperty("--hero-glow-y", `${32 + y * 12}%`);
+    });
+  };
+
+  const handleHeroPointerMove = (event) => {
+    const allowsInteractiveMotion =
+      typeof window !== "undefined" &&
+      !window.matchMedia("(prefers-reduced-motion: reduce)").matches &&
+      window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+
+    if (!allowsInteractiveMotion) {
+      return;
+    }
+
+    const bounds = event.currentTarget.getBoundingClientRect();
+    const normalizedX = ((event.clientX - bounds.left) / bounds.width - 0.5) * 2;
+    const normalizedY = ((event.clientY - bounds.top) / bounds.height - 0.5) * 2;
+    const clampedX = Math.max(-1, Math.min(1, normalizedX));
+    const clampedY = Math.max(-1, Math.min(1, normalizedY));
+    const intensity = Math.min(1, Math.hypot(clampedX, clampedY) / 1.15);
+
+    updateHeroMotion(clampedX, clampedY, intensity);
+  };
+
+  const handleHeroPointerLeave = () => {
+    updateHeroMotion(0, 0, 0);
+  };
 
   const handleEntryScroll = () => {
     setIsEntrySwiping(true);
@@ -168,7 +231,13 @@ export default function HomePage() {
   return (
     <>
       <Reveal as="section" className="page-hero hero-home hero-home-signature" delay={40}>
-        <div className="hero-editorial">
+        <div
+          ref={heroMotionRef}
+          className="hero-editorial hero-editorial-motion"
+          onPointerMove={handleHeroPointerMove}
+          onPointerLeave={handleHeroPointerLeave}
+        >
+          <div className="hero-motion-surface" aria-hidden="true" />
           <div className="hero-topline">
             <span className="eyebrow">Victor Licona</span>
             <span className="hero-topline-note">Building Now</span>
@@ -256,6 +325,14 @@ export default function HomePage() {
           style={{
             "--entry-active-index": activeEntryIndex,
             "--entry-progress": `${((activeEntryIndex + 1) / entryLinks.length) * 100}%`,
+          }}
+          onMouseEnter={() => setIsEntryPaused(true)}
+          onMouseLeave={() => setIsEntryPaused(false)}
+          onFocusCapture={() => setIsEntryPaused(true)}
+          onBlurCapture={(event) => {
+            if (!event.currentTarget.contains(event.relatedTarget)) {
+              setIsEntryPaused(false);
+            }
           }}
         >
           <div className="mobile-swipe-head" aria-hidden="true">
