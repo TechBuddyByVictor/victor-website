@@ -29,6 +29,7 @@
 }
 
 html {
+  height: 100%;
   font-size: 16px;
   overflow-x: hidden;
   background: #050505;
@@ -38,8 +39,11 @@ html {
 }
 
 body {
+  display: flex;
+  flex-direction: column;
   margin: 0;
   width: 100%;
+  height: 100%;
   min-height: 100vh;
   min-height: 100dvh;
   font-family: var(--font-body);
@@ -121,6 +125,10 @@ svg {
 #root,
 .route-shell,
 .site-shell {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  min-height: 100%;
   min-height: 100vh;
   min-height: 100dvh;
 }
@@ -128,8 +136,7 @@ svg {
 .site-shell {
   position: relative;
   isolation: isolate;
-  display: flex;
-  flex-direction: column;
+  flex: 1 1 auto;
   padding: 0.72rem 0 0;
   animation: site-first-arrival 1.15s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
@@ -179,8 +186,9 @@ svg {
   position: relative;
   z-index: 1;
   display: flex;
-  flex: 0 0 auto;
+  flex: 1 1 auto;
   flex-direction: column;
+  min-height: 100%;
   width: var(--shell-width);
   max-width: 100%;
   margin: 0 auto;
@@ -189,10 +197,11 @@ svg {
 .page-content {
   position: relative;
   display: grid;
-  flex: 0 0 auto;
+  flex: 1 0 auto;
   align-content: start;
   gap: 1.85rem;
   padding-top: calc(var(--header-offset) + 0.95rem + env(safe-area-inset-top, 0px));
+  padding-bottom: 2.6rem;
   animation: content-enter 0.62s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
@@ -2516,8 +2525,7 @@ p {
   display: flex;
   flex-direction: column;
   width: 100vw;
-  min-height: var(--footer-min-height, 0px);
-  margin-top: 2.6rem;
+  margin-top: auto;
   margin-bottom: 0;
   margin-left: -50vw;
   padding:
@@ -6262,6 +6270,7 @@ p {
 
   .page-content {
     gap: 3.75rem;
+    padding-bottom: 5rem;
   }
 
   h1 {
@@ -6334,6 +6343,6 @@ p {
   }
 
   .site-footer {
-    margin-top: 5rem;
+    margin-top: auto;
   }
 }
