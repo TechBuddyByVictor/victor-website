@@ -16,6 +16,21 @@ const values = [
   },
 ];
 
+const collegeFacts = [
+  {
+    label: "School",
+    value: "Dallas Baptist University",
+  },
+  {
+    label: "Start",
+    value: "Fall 2026",
+  },
+  {
+    label: "Study",
+    value: "Cybersecurity",
+  },
+];
+
 export default function AboutPage() {
   return (
     <>
@@ -60,6 +75,40 @@ export default function AboutPage() {
             </div>
           </div>
         </Reveal>
+      </section>
+
+      <section className="page-section">
+        <Reveal as="div" className="section-heading" delay={145}>
+          <span className="eyebrow">College</span>
+          <h2>The next chapter starts at DBU.</h2>
+        </Reveal>
+
+        <div className="about-layout">
+          <Reveal as="article" className="editorial-panel editorial-panel-story" delay={175}>
+            <span className="section-label">Education</span>
+            <h2>I am heading to Dallas Baptist University to study cybersecurity.</h2>
+            <p>
+              In Fall 2026, I will begin at Dallas Baptist University and continue building
+              toward work in cybersecurity, digital safety, and real-world technical systems.
+            </p>
+            <p>
+              I see college as a place to sharpen technical skill, strengthen discipline, and
+              connect classroom learning to the practical work I am already pursuing.
+            </p>
+          </Reveal>
+
+          <Reveal as="aside" className="facts-panel facts-panel-compact" delay={210}>
+            <span className="section-label">Path Ahead</span>
+            <div className="facts-list">
+              {collegeFacts.map((item) => (
+                <div key={item.label} className="fact-row">
+                  <small>{item.label}</small>
+                  <strong>{item.value}</strong>
+                </div>
+              ))}
+            </div>
+          </Reveal>
+        </div>
       </section>
 
       <section className="page-section">
