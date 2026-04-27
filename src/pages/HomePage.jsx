@@ -284,6 +284,14 @@ export default function HomePage() {
                 <span>TechBuddy</span>
                 <span>Digital safety</span>
               </div>
+              <div className="hero-mobile-summary" aria-label="Quick summary">
+                {heroLayerItems.map((item) => (
+                  <div key={item.label} className="hero-mobile-summary-item">
+                    <span>{item.label}</span>
+                    <strong>{item.value}</strong>
+                  </div>
+                ))}
+              </div>
               <div className="hero-note-list" aria-label="Current direction">
                 <span>Cybersecurity</span>
                 <span>TechBuddy by Victor</span>
