@@ -386,7 +386,7 @@ export default function SiteLayout() {
         </footer>
       </div>
 
-      <FloatingTranslate />
+      {typeof document !== "undefined" ? createPortal(<FloatingTranslate />, document.body) : null}
     </div>
   );
 }
