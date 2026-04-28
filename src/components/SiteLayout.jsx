@@ -193,7 +193,7 @@ export default function SiteLayout() {
               <span className="brand-mark">VL</span>
               <div className="drawer-brand-copy">
                 <strong>Victor Licona</strong>
-                <small>{currentSignal.label}</small>
+                <small>{currentSignal.label} Menu</small>
               </div>
             </div>
             <button
@@ -272,12 +272,12 @@ export default function SiteLayout() {
           </Link>
 
           <div className="topbar-utility" aria-hidden="true">
-            <span>{currentSignal.label}</span>
-            <strong>{scrollPercent}%</strong>
+            <span>Viewing</span>
+            <strong>{currentSignal.label}</strong>
           </div>
 
           <div className="header-status" aria-hidden="true">
-            <small>Live Route</small>
+            <small>Viewing</small>
             <span>{currentSignal.code}</span>
             <strong>{currentSignal.label}</strong>
           </div>
