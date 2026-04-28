@@ -7624,6 +7624,23 @@ p {
 
   .hero-home-signature .hero-actions > * {
     min-height: 2.9rem;
+    opacity: 1 !important;
+    transform: none !important;
+    visibility: visible;
+  }
+
+  .hero-home-signature .hero-actions .button {
+    color: var(--accent-ink);
+    border-color: rgba(255, 255, 255, 0.9);
+    background: linear-gradient(180deg, #ffffff, var(--accent-warm));
+  }
+
+  .hero-home-signature .hero-actions .button-secondary {
+    color: var(--text);
+    border-color: rgba(255, 255, 255, 0.16);
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.06), transparent 72%),
+      rgba(255, 255, 255, 0.035);
   }
 
   .entry-grid.entry-swipe-track {
