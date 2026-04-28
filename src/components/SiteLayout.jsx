@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { Link, NavLink, Outlet, useLocation } from "react-router-dom";
+import FloatingTranslate from "./FloatingTranslate";
 
 const navItems = [
   { to: "/", label: "Home", end: true },
@@ -384,6 +385,8 @@ export default function SiteLayout() {
           </div>
         </footer>
       </div>
+
+      <FloatingTranslate />
     </div>
   );
 }
