@@ -293,6 +293,7 @@ export default function SiteLayout() {
           >
             <span />
             <span />
+            <strong>Menu</strong>
           </button>
 
           <div className="nav-panel">

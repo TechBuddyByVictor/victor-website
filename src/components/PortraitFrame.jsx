@@ -18,6 +18,9 @@ export default function PortraitFrame({
             className="portrait-image"
             src={src}
             alt={alt}
+            width="900"
+            height="1125"
+            sizes="(max-width: 759px) calc(100vw - 2rem), 360px"
             decoding="async"
             fetchPriority="high"
           />
