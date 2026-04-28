@@ -33,6 +33,12 @@ export default function Reveal({
     }
 
     const bounds = node.getBoundingClientRect();
+    const isAlreadyInView = bounds.top < window.innerHeight && bounds.bottom > 0;
+
+    if (isAlreadyInView) {
+      setIsVisible(true);
+    }
+
     const revealFallback =
       bounds.top < window.innerHeight * 1.4
         ? window.setTimeout(() => setIsVisible(true), isMobileViewport ? 900 : 1400)

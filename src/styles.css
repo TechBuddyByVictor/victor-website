@@ -7236,3 +7236,50 @@ p {
     border-radius: 8px;
   }
 }
+
+/* Mobile stability fixes */
+@media (max-width: 759px) {
+  body::after,
+  .site-shell::before,
+  .topbar,
+  .topbar::after,
+  .scroll-progress,
+  .brand-mark,
+  .nav-toggle span,
+  .drawer-overlay.is-open,
+  .mobile-drawer-inner,
+  .page-section::before,
+  :is(.entry-link, .line-card, .work-row).reveal.is-visible,
+  :is(.entry-link, .line-card, .work-row, .editorial-panel, .facts-panel, .form-panel, .focus-strip, .statement-strip, .ops-board).reveal.is-visible::before {
+    animation: none !important;
+  }
+
+  .page-content,
+  .reveal,
+  .section-heading.reveal,
+  :is(.entry-link, .line-card, .work-row).reveal,
+  :is(.editorial-panel, .facts-panel, .form-panel, .focus-strip, .statement-strip, .ops-board).reveal {
+    will-change: auto;
+  }
+
+  .topbar .nav-toggle {
+    display: inline-grid !important;
+    position: absolute !important;
+    top: 50%;
+    right: 0.48rem;
+    z-index: 5;
+    transform: translateY(-50%);
+  }
+
+  .nav-toggle.is-open span:first-child {
+    transform: translateY(4px) rotate(45deg);
+  }
+
+  .nav-toggle.is-open span:last-child {
+    transform: translateY(-4px) rotate(-45deg);
+  }
+
+  .mobile-drawer {
+    transition-duration: 0.24s;
+  }
+}
