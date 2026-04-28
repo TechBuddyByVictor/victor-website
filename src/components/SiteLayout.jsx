@@ -159,16 +159,25 @@ export default function SiteLayout() {
 
     updateHeaderOffset();
 
+    window.addEventListener("resize", updateHeaderOffset);
+
+    if (typeof ResizeObserver === "undefined") {
+      return () => {
+        window.removeEventListener("resize", updateHeaderOffset);
+        document.documentElement.style.removeProperty("--header-offset");
+      };
+    }
+
     const observer = new ResizeObserver(() => {
       updateHeaderOffset();
     });
 
     observer.observe(headerNode);
-    window.addEventListener("resize", updateHeaderOffset);
 
     return () => {
       observer.disconnect();
       window.removeEventListener("resize", updateHeaderOffset);
+      document.documentElement.style.removeProperty("--header-offset");
     };
   }, []);
 

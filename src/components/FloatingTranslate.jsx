@@ -244,6 +244,49 @@ const getTranslation = (text, language) => {
   return spanishTranslations[normalizeText(text)] ?? text;
 };
 
+const getCurrentSourceText = (node) => {
+  const current = node.nodeValue ?? "";
+  const storedOriginal = originalTextNodes.get(node);
+
+  if (!storedOriginal) {
+    return current;
+  }
+
+  const normalizedCurrent = normalizeText(current);
+  const normalizedStored = normalizeText(storedOriginal);
+  const normalizedStoredTranslation = normalizeText(getTranslation(storedOriginal, "es"));
+
+  if (
+    normalizedCurrent === normalizedStored ||
+    normalizedCurrent === normalizedStoredTranslation
+  ) {
+    return storedOriginal;
+  }
+
+  return current;
+};
+
+const getCurrentSourceAttribute = (element, attribute, dataKey, value) => {
+  const storedOriginal = element.dataset[dataKey];
+
+  if (!storedOriginal) {
+    return value;
+  }
+
+  const normalizedValue = normalizeText(value);
+  const normalizedStored = normalizeText(storedOriginal);
+  const normalizedStoredTranslation = normalizeText(getTranslation(storedOriginal, "es"));
+
+  if (
+    normalizedValue === normalizedStored ||
+    normalizedValue === normalizedStoredTranslation
+  ) {
+    return storedOriginal;
+  }
+
+  return value;
+};
+
 const shouldSkipNode = (node) => {
   const parent = node.parentElement;
 
@@ -268,7 +311,7 @@ const translateTextNodes = (root, language) => {
   let node = walker.nextNode();
 
   while (node) {
-    const original = originalTextNodes.get(node) ?? node.nodeValue;
+    const original = getCurrentSourceText(node);
     const leading = original.match(/^\s*/)?.[0] ?? "";
     const trailing = original.match(/\s*$/)?.[0] ?? "";
     const trimmedOriginal = normalizeText(original);
@@ -304,12 +347,10 @@ const translateAttributes = (root, language) => {
         const dataKey = `original${attribute
           .replace(/^aria-/, "Aria-")
           .replace(/-([a-z])/g, (_, letter) => letter.toUpperCase())}`;
-        const original = element.dataset[dataKey] ?? value;
+        const original = getCurrentSourceAttribute(element, attribute, dataKey, value);
         const nextValue = language === "es" ? getTranslation(original, language) : original;
 
-        if (!element.dataset[dataKey]) {
-          element.dataset[dataKey] = original;
-        }
+        element.dataset[dataKey] = original;
 
         if (value !== nextValue) {
           element.setAttribute(attribute, nextValue);
