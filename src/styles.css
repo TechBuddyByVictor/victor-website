@@ -161,27 +161,6 @@ svg {
   animation: ambient-data-sweep 18s ease-in-out infinite;
 }
 
-.skip-link {
-  position: fixed;
-  top: calc(0.72rem + env(safe-area-inset-top, 0px));
-  left: 50%;
-  z-index: 200;
-  padding: 0.72rem 0.9rem;
-  color: #050505;
-  border-radius: var(--radius-lg);
-  background: var(--text);
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  transform: translate(-50%, -180%);
-  transition: transform 0.2s ease;
-}
-
-.skip-link:focus-visible {
-  transform: translate(-50%, 0);
-}
-
 .page-shell {
   position: relative;
   z-index: 1;

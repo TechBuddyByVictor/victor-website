@@ -231,10 +231,6 @@ export default function SiteLayout() {
 
   return (
     <div className="site-shell">
-      <a className="skip-link" href="#main-content">
-        Skip to main content
-      </a>
-
       {typeof document !== "undefined" ? createPortal(drawerMarkup, document.body) : null}
 
       <aside
