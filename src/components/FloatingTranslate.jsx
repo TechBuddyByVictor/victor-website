@@ -415,7 +415,7 @@ export default function FloatingTranslate() {
     switchTimeoutRef.current = window.setTimeout(() => {
       setIsSwitching(false);
       document.documentElement.classList.remove("language-switching");
-    }, 1180);
+    }, 1900);
   };
 
   const copy = isSpanish
@@ -447,13 +447,18 @@ export default function FloatingTranslate() {
     >
       {isSwitching ? (
         <div className="translate-transition" aria-hidden="true">
-          <span className="translate-transition-wipe translate-transition-wipe-one" />
-          <span className="translate-transition-wipe translate-transition-wipe-two" />
-          <span className="translate-transition-wipe translate-transition-wipe-three" />
-          <span className="translate-transition-code">
-            {transitionLanguage === "es" ? "ES" : "EN"}
+          <span className="translate-transition-panel" />
+          <span className="translate-transition-rule translate-transition-rule-top" />
+          <span className="translate-transition-rule translate-transition-rule-bottom" />
+          <span className="translate-transition-lockup">
+            <span className="translate-transition-caption">
+              {transitionLanguage === "es" ? "Traduciendo" : "Translating"}
+            </span>
+            <span className="translate-transition-code">
+              {transitionLanguage === "es" ? "ES" : "EN"}
+            </span>
+            <span className="translate-transition-progress" />
           </span>
-          <span className="translate-transition-scan" />
         </div>
       ) : null}
 
